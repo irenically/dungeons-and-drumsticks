@@ -3375,6 +3375,8 @@ button:disabled {
 }
 .card-food {
   position: absolute;
+  grid-column: auto;
+  grid-row: auto;
   left: 9%;
   top: 11%;
   width: calc(40.18% - 10px);
