@@ -2,16 +2,14 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { recipes } from './data/recipes';
 import type { Recipe } from './types';
 import { Hero } from './components/Hero';
-import { Winner } from './components/Winner';
 import { RecipeGrid } from './components/RecipeGrid';
 import { RecipeModal } from './components/RecipeModal';
 import { FantasyButton, MagicBadge, Ornament, Scroll } from './components/Primitives';
 export default function App() {
-  const [chosen, setChosen] = useState<Recipe>(recipes[2]);
+  const [chosen, setChosen] = useState<Recipe | null>(null);
   const [dieValue, setDieValue] = useState(20);
   const [rolling, setRolling] = useState(false);
   const [modal, setModal] = useState<Recipe | null>(null);
-  const [flash, setFlash] = useState(0);
   const rollingRef = useRef(false);
   const timeouts = useRef<number[]>([]);
   const roll = useCallback(() => {
@@ -28,15 +26,7 @@ export default function App() {
       setChosen(result);
       setRolling(false);
       rollingRef.current = false;
-      setFlash((n) => n + 1);
-      document.getElementById('result')?.scrollIntoView({
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-          ? 'instant'
-          : 'smooth',
-        block: 'center',
-      });
-      const popup = window.setTimeout(() => setModal(result), 550);
-      timeouts.current.push(popup);
+      setModal(result);
     }, 1550);
     timeouts.current.push(timer);
   }, []);
@@ -68,7 +58,6 @@ export default function App() {
       </header>
       <main id="top">
         <Hero value={dieValue} rolling={rolling} onRoll={roll} />
-        <Winner recipe={chosen} flash={flash} onOpen={() => setModal(chosen)} />
         <RecipeGrid chosen={chosen} onOpen={setModal} />
         <section className="how-section container" id="how">
           <Ornament elongated />

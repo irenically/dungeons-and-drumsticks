@@ -9,7 +9,13 @@ const accents: Record<Category, string> = {
   Savory: '#72502c',
 };
 const filters = ['All', 'Herby', 'Spicy', 'Sweet', 'Savory'] as const;
-export function RecipeGrid({ chosen, onOpen }: { chosen: Recipe; onOpen: (r: Recipe) => void }) {
+export function RecipeGrid({
+  chosen,
+  onOpen,
+}: {
+  chosen: Recipe | null;
+  onOpen: (r: Recipe) => void;
+}) {
   const [filter, setFilter] = useState<(typeof filters)[number]>('All');
   return (
     <section className="recipes-section container" id="marinades">
@@ -37,7 +43,7 @@ export function RecipeGrid({ chosen, onOpen }: { chosen: Recipe; onOpen: (r: Rec
             <button
               type="button"
               key={r.id}
-              className={`recipe-card ${r.id === chosen.id ? 'is-picked' : ''}`}
+              className={`recipe-card ${r.id === chosen?.id ? 'is-picked' : ''}`}
               aria-label={`Open ${r.name} marinade recipe`}
               onClick={() => onOpen(r)}
               style={{ '--accent': accents[r.category] } as CSSProperties}
