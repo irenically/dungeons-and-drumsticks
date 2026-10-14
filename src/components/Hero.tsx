@@ -89,6 +89,26 @@ export function Hero({
         attacker.style.setProperty('--flight-distance', `${distance}px`);
         attacker.style.setProperty('--flight-drop', `${to.top + to.height * 0.5 - launchY}px`);
         attacker.style.setProperty('--flight-arc', `${Math.min(150, distance * 0.18)}px`);
+        if (source === 'warlock') {
+          const volleyTargets = ['rogue', 'cleric', 'paladin'];
+          attacker
+            .querySelectorAll<HTMLElement>('.fighter-projectile')
+            .forEach((projectile, index) => {
+              const enemy = scene.querySelector<HTMLElement>(`.fighter-${volleyTargets[index]}`);
+              const targetBox = enemy?.getBoundingClientRect();
+              if (!targetBox?.width) return;
+              const travel = Math.abs(targetBox.left + targetBox.width * 0.5 - launchX);
+              projectile.style.setProperty('--flight-distance', `${travel}px`);
+              projectile.style.setProperty(
+                '--flight-drop',
+                `${targetBox.top + targetBox.height * 0.5 - launchY}px`,
+              );
+              projectile.style.setProperty(
+                '--flight-arc',
+                `${Math.min(110 + index * 40, travel * 0.22)}px`,
+              );
+            });
+        }
         if (source === 'druid') {
           const enemies = ['barbarian', 'warlock', 'champion'];
           attacker.querySelectorAll<HTMLElement>('.spirit-bird').forEach((bird, index) => {
