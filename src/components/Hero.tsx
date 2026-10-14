@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { D20 } from './D20';
+import whispers from '../data/whispers.json';
 const left = ['rogue', 'cleric', 'druid', 'bard', 'paladin'];
 const right = ['warlock', 'wizard', 'champion', 'ranger', 'barbarian'];
 const artwork: Record<string, string> = {
@@ -7,18 +8,6 @@ const artwork: Record<string, string> = {
   champion: 'champion.png',
 };
 const bardNotes = ['♪', '♫', '♬'];
-const whispers = [
-  ['Your dinner quest awaits.', 'Click the D20 to begin.'],
-  ['The dice demand a sacrifice.', 'Preferably chicken.'],
-  ['A wild marinade appears!', 'Roll for initiative.'],
-  ['Can’t decide what’s for dinner?', 'Let chaos season your chicken.'],
-  ['The prophecy speaks of dinner.', 'The dice know the recipe.'],
-  ['May the odds be ever in your flavor.', 'Roll the bones!'],
-  ['Your party is getting hungry.', 'Roll for sustenance.'],
-  ['The chicken gods grow impatient.', 'Roll, mortal.'],
-  ['One roll. One marinade.', 'Zero decision fatigue.'],
-  ['A critical hit tastes delicious.', 'Will you roll a natural 20?'],
-];
 function DungeonWhisper({ rolling }: { rolling: boolean }) {
   const [index, setIndex] = useState(0);
   useEffect(() => {
@@ -32,9 +21,11 @@ function DungeonWhisper({ rolling }: { rolling: boolean }) {
     <div className="dungeon-whisper">
       <p className="whisper-label">✦ THE DUNGEON MASTER WHISPERS ✦</p>
       <div className="whisper-message" key={rolling ? 'rolling' : index}>
-        <p className="whisper-title">{rolling ? 'The bones are tumbling…' : whispers[index][0]}</p>
+        <p className="whisper-title">
+          {rolling ? 'The bones are tumbling…' : whispers[index].title}
+        </p>
         <p className="whisper-subtitle">
-          {rolling ? 'Your dinner destiny is unfolding.' : whispers[index][1]}
+          {rolling ? 'Your dinner destiny is unfolding.' : whispers[index].subtitle}
         </p>
       </div>
       <div className="whisper-rule" aria-hidden="true">
