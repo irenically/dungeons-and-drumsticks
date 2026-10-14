@@ -2893,3 +2893,12 @@ button:disabled {
     margin-top: 3px;
   }
 }
+
+.dungeon-whisper {
+  margin-top: -18px;
+}
+@media (max-width: 530px) {
+  .dungeon-whisper {
+    margin-top: -12px;
+  }
+}
