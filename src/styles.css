@@ -1943,7 +1943,9 @@ button:disabled {
 /* Notes originate at the bard's beak; the mirrored team still reads upright. */
 .fighter-bard .fighter-magic {
   color: #fff8df;
-  text-shadow: 1px 1px 2px #28182b, -1px -1px 1px #28182b;
+  text-shadow:
+    1px 1px 2px #28182b,
+    -1px -1px 1px #28182b;
 }
 .fighter-bard .fighter-particle {
   left: 37%;
