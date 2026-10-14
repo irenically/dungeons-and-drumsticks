@@ -3368,3 +3368,23 @@ button:disabled {
 .card-footer {
   border-top: 0;
 }
+
+/* The illustration fills its own frame area, independent of the details' row heights. */
+.recipe-card {
+  position: relative;
+}
+.card-food {
+  position: absolute;
+  left: 9%;
+  top: 11%;
+  width: calc(40.18% - 10px);
+  height: 77%;
+  min-height: 0;
+  margin: 0;
+  object-fit: cover;
+}
+@media (max-width: 530px) {
+  .card-food {
+    width: calc(40.18% - 6px);
+  }
+}
