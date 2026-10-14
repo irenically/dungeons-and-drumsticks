@@ -3209,3 +3209,25 @@ button:disabled {
   background: currentColor;
   mask: url('/assets/sparkle.svg') center / contain no-repeat;
 }
+
+/* Heraldic banners keep their original tall proportions over the recipe picture. */
+.card-dice {
+  top: 7%;
+  left: 6%;
+  width: 72px;
+  height: auto;
+  aspect-ratio: 255 / 384;
+  filter: drop-shadow(0 3px 2px #31130f45);
+}
+.card-stamp {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@container (max-width: 480px) {
+  .card-dice {
+    width: 16cqw;
+    height: auto;
+  }
+}
