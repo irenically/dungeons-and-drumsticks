@@ -24,7 +24,7 @@ export function Hero({
       <div className="hero-content">
         <p className="eyebrow">✧ THE CULINARY ADVENTURER'S GUILD ✧</p>
         <h1 id="hero-heading">
-          DUNGEONS AND <em>DRUMSTICKS</em>
+          DUNGEONS & <em>DRUMSTICKS</em>
         </h1>
         <p className="hero-subtitle">20 marinades. One legendary dinner.</p>
         <D20 value={value} rolling={rolling} onRoll={onRoll} />

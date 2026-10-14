@@ -39,7 +39,7 @@ export default function App() {
   return (
     <div className="page-shell">
       <header className="site-nav">
-        <a className="brand" href="#top" aria-label="Dungeons and Drumsticks home">
+        <a className="brand" href="#top" aria-label="Dungeons & Drumsticks home">
           <img className="brand-mark" src={`${import.meta.env.BASE_URL}assets/logo.png`} alt="" />
           <span>
             DUNGEONS <small>&</small>
@@ -125,7 +125,7 @@ export default function App() {
       </main>
       <footer className="footer">
         <div className="footer-inner">
-          <div>⚔ &nbsp; DUNGEONS AND DRUMSTICKS &nbsp; ⚔</div>
+          <div>⚔ &nbsp; DUNGEONS & DRUMSTICKS &nbsp; ⚔</div>
           <p>GOOD CHICKEN LEADS TO GREAT QUESTS.</p>
           <span>✧ CRAFTED WITH MAGIC & A LITTLE PAPRIKA ✧</span>
         </div>
