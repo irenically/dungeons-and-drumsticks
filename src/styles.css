@@ -2420,3 +2420,15 @@ button:disabled {
     font-size: 13px;
   }
 }
+
+.card-ingredients li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 8px;
+}
+.ingredient-amount {
+  font-size: 0.9em;
+  color: #85715b;
+  text-align: right;
+}

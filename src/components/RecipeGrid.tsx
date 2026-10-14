@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from 'react';
 import { recipes } from '../data/recipes';
-import { formatMarination } from '../data/formatRecipe';
+import { formatIngredientQuantity, formatMarination } from '../data/formatRecipe';
 import type { Recipe } from '../types';
 import { Ornament } from './Primitives';
 const filters = ['All', 'Herby', 'Spicy', 'Sweet', 'Savory'] as const;
@@ -76,7 +76,15 @@ export function RecipeGrid({
               />
               <ul className="card-ingredients">
                 {r.ingredients.map((ingredient) => (
-                  <li key={ingredient.name}>{ingredient.name}</li>
+                  <li key={ingredient.name}>
+                    <span>
+                      {ingredient.name}
+                      {ingredient.optional ? ' (optional)' : ''}
+                    </span>
+                    <span className="ingredient-amount">
+                      {formatIngredientQuantity(ingredient)}
+                    </span>
+                  </li>
                 ))}
               </ul>
               <div className="card-footer">
