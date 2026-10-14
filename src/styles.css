@@ -291,6 +291,10 @@ button:disabled {
   transform-origin: center bottom;
   animation: fighter-bob 4.5s ease-in-out infinite alternate;
 }
+/* The artwork faces left; mirror the left team toward its opponents. */
+.fighters-left .fighter {
+  transform: scaleX(-1);
+}
 .fighters-left .fighter-druid {
   left: -5%;
   top: 175px;
@@ -332,7 +336,6 @@ button:disabled {
   width: 23vw;
   max-width: 300px;
   animation-delay: -2.3s;
-  transform: scaleX(-1);
 }
 .fighters-right .fighter-barbarian {
   right: 0;
@@ -340,7 +343,6 @@ button:disabled {
   width: 22vw;
   max-width: 310px;
   animation-delay: -1.1s;
-  transform: scaleX(-1);
 }
 .fighters-right .fighter-warlock {
   right: 24%;

@@ -52,7 +52,7 @@ export default function App() {
         <a className="brand" href="#top" aria-label="Dungeons and Drumsticks home">
           <img className="brand-mark" src={`${import.meta.env.BASE_URL}assets/logo.png`} alt="" />
           <span>
-            DUNGEONS <small>and</small>
+            DUNGEONS <small>&</small>
             <br />
             DRUMSTICKS
           </span>
