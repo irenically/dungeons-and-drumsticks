@@ -8,7 +8,7 @@ const artwork: Record<string, string> = {
   champion: 'champion.png',
 };
 const bardNotes = ['♪', '♫', '♬'];
-const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'druid', 'cleric']);
+const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'cleric']);
 function BattleCharacter({ name }: { name: string }) {
   return (
     <span className={`fighter fighter-${name}`}>
