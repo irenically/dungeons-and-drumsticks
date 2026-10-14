@@ -4,7 +4,7 @@ import type { Recipe } from './types';
 import { Hero } from './components/Hero';
 import { RecipeGrid } from './components/RecipeGrid';
 import { RecipeModal } from './components/RecipeModal';
-import { FantasyButton, MagicBadge, Ornament, Scroll } from './components/Primitives';
+import { Ornament } from './components/Primitives';
 export default function App() {
   const [chosen, setChosen] = useState<Recipe | null>(null);
   const [dieValue, setDieValue] = useState(20);
@@ -50,7 +50,6 @@ export default function App() {
         <nav className="top-links" aria-label="Main navigation">
           <a href="#how">THE QUEST</a>
           <a href="#marinades">MARINADES</a>
-          <a href="#design-kit">THE ARMORY</a>
         </nav>
         <div className="nav-sigil" aria-hidden="true">
           ✦
@@ -77,48 +76,6 @@ export default function App() {
               <span className="how-icon">✧</span>
               <h3>CLAIM YOUR REWARD</h3>
               <p>Follow the recipe and win a delicious encounter.</p>
-            </div>
-          </div>
-        </section>
-        <section className="armory container" id="design-kit">
-          <Ornament />
-          <h2 className="section-title">THE DESIGN ARMORY</h2>
-          <p className="section-subtitle">
-            Reusable UI primitives: forged in CSS, ready for your own quests.
-          </p>
-          <div className="armory-showcase">
-            <div className="armory-panel">
-              <h3>ORNATE BUTTONS</h3>
-              <FantasyButton
-                variant="red"
-                onClick={() =>
-                  document.getElementById('top')?.scrollIntoView({ behavior: 'smooth' })
-                }
-              >
-                RED ENAMEL
-              </FantasyButton>
-              <FantasyButton
-                onClick={() =>
-                  document.getElementById('marinades')?.scrollIntoView({ behavior: 'smooth' })
-                }
-              >
-                GOLD LEAF
-              </FantasyButton>
-            </div>
-            <div className="armory-panel">
-              <h3>ENCHANTED BADGES</h3>
-              <div className="badge-row">
-                <MagicBadge color="#8f2119" symbol="♨" />
-                <MagicBadge color="#45683d" symbol="❧" />
-                <MagicBadge color="#543875" symbol="✦" />
-                <MagicBadge color="#225b78" symbol="✧" />
-              </div>
-              <p>One component, any accent color.</p>
-            </div>
-            <div className="armory-panel">
-              <h3>SCROLLS & SEALS</h3>
-              <Scroll>AN ANCIENT RECIPE</Scroll>
-              <p>Frames, flourishes, corners and ribbons.</p>
             </div>
           </div>
         </section>
