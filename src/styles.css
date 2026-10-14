@@ -392,6 +392,7 @@ button:disabled {
   display: none;
 }
 .fighter-projectile {
+  --projectile-opacity: 1;
   position: absolute;
   left: 24%;
   top: 48%;
@@ -429,12 +430,25 @@ button:disabled {
   opacity: 0.7;
 }
 .fighter-ranger .fighter-projectile {
+  --projectile-opacity: 0.68;
   top: 40%;
   width: 88px;
   height: 3px;
   border-radius: 0;
   background: linear-gradient(#b28b59, #735035);
   box-shadow: 0 1px 1px #24190c80;
+}
+.arrow-trail {
+  position: absolute;
+  left: 72px;
+  top: 50%;
+  width: 115px;
+  height: 9px;
+  transform: translateY(-50%);
+  z-index: 0;
+  border-radius: 50%;
+  background: linear-gradient(to right, #b99a6970, transparent);
+  filter: blur(3px);
 }
 .fighter-ranger .fighter-projectile::before {
   content: '';
@@ -469,30 +483,30 @@ button:disabled {
     rotate: 18deg;
   }
   78% {
-    opacity: 1;
+    opacity: var(--projectile-opacity);
     translate: 0 0;
     rotate: 18deg;
   }
   82% {
-    opacity: 1;
+    opacity: var(--projectile-opacity);
     translate: calc(-0.25 * var(--flight-distance))
       calc(0.25 * var(--flight-drop) - 0.75 * var(--flight-arc));
     rotate: 9deg;
   }
   86% {
-    opacity: 1;
+    opacity: var(--projectile-opacity);
     translate: calc(-0.5 * var(--flight-distance))
       calc(0.5 * var(--flight-drop) - var(--flight-arc));
     rotate: 0deg;
   }
   90% {
-    opacity: 1;
+    opacity: var(--projectile-opacity);
     translate: calc(-0.75 * var(--flight-distance))
       calc(0.75 * var(--flight-drop) - 0.75 * var(--flight-arc));
     rotate: -9deg;
   }
   94% {
-    opacity: 1;
+    opacity: var(--projectile-opacity);
     translate: calc(-1 * var(--flight-distance)) var(--flight-drop);
     rotate: -18deg;
   }

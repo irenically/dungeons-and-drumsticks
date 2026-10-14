@@ -24,7 +24,11 @@ function BattleCharacter({ name }: { name: string }) {
           </span>
         ))}
       </span>
-      {projectileUsers.has(name) ? <span className="fighter-projectile" /> : null}
+      {projectileUsers.has(name) ? (
+        <span className="fighter-projectile">
+          {name === 'ranger' ? <span className="arrow-trail" /> : null}
+        </span>
+      ) : null}
     </span>
   );
 }
