@@ -66,6 +66,11 @@ export function RecipeModal({
         >
           <Icon name="close" className="modal-close-icon" />
         </button>
+        <img
+          className="modal-recipe-stamp"
+          src={`${import.meta.env.BASE_URL}assets/stamps/stamp-d${String(recipe.id).padStart(2, '0')}.png`}
+          alt={`D20 roll ${recipe.id}`}
+        />
         <div className="recipe-modal-content">
           <div className="modal-layout">
             <div className="modal-overview">
@@ -73,11 +78,6 @@ export function RecipeModal({
                 className="modal-recipe-picture"
                 src={`${import.meta.env.BASE_URL}assets/${recipe.ui.image}`}
                 alt={`${recipe.name} chicken illustration`}
-              />
-              <img
-                className="modal-recipe-stamp"
-                src={`${import.meta.env.BASE_URL}assets/stamps/stamp-d${String(recipe.id).padStart(2, '0')}.png`}
-                alt={`D20 roll ${recipe.id}`}
               />
             </div>
             <div className="modal-details">

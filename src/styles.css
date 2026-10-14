@@ -3567,9 +3567,10 @@ button:disabled {
 }
 .modal-recipe-stamp {
   position: absolute;
-  top: 1%;
-  left: 1%;
-  width: 85px;
+  z-index: 4;
+  top: 5%;
+  left: 5%;
+  width: clamp(96px, 10vw, 130px);
   height: auto;
   filter: drop-shadow(0 3px 2px #31130f45);
 }
@@ -3664,6 +3665,8 @@ button:disabled {
     transform: none;
   }
   .modal-recipe-stamp {
-    width: 58px;
+    top: 4%;
+    left: 4%;
+    width: 72px;
   }
 }
