@@ -2956,3 +2956,80 @@ button:disabled {
     font-size: 13px;
   }
 }
+
+/* Preserve the supplied frame as one complete 4:3 image. */
+.recipe-card {
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+  border: 0;
+  border-image: none;
+  background: url('/assets/Ornate Golden Parchment Recipe Frame.png') center / 100% 100% no-repeat;
+  padding: 10% 7% 9%;
+  grid-template-columns: 42% minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 8px 14px;
+  container-type: inline-size;
+}
+.card-header {
+  padding-bottom: 5px;
+  gap: 12px;
+}
+.card-dice {
+  width: 56px;
+  height: 56px;
+}
+.card-title {
+  font-size: 19px;
+}
+.card-food {
+  min-height: 0;
+  height: 100%;
+}
+.card-ingredients {
+  font-size: 13px;
+  line-height: 1.2;
+}
+.card-ingredients li {
+  padding: 2px 0;
+  gap: 8px;
+}
+.card-footer {
+  padding-top: 4px;
+  font-size: 14px;
+}
+@container (max-width: 480px) {
+  .card-header {
+    gap: 8px;
+    padding-bottom: 3px;
+  }
+  .card-dice {
+    width: 13cqw;
+    height: 13cqw;
+  }
+  .card-title {
+    font-size: 4.3cqw;
+  }
+  .card-ingredients {
+    font-size: 2.9cqw;
+    line-height: 1.15;
+  }
+  .card-ingredients li {
+    padding: 0.4cqw 0;
+    gap: 4px;
+  }
+  .card-footer {
+    font-size: 3.4cqw;
+  }
+  .card-footer > span:first-child::before {
+    font-size: 4cqw;
+  }
+}
+@media (max-width: 530px) {
+  .recipe-card {
+    min-height: 0;
+    border: 0;
+    border-image: none;
+    padding: 10% 7% 9%;
+    gap: 5px 10px;
+  }
+}
