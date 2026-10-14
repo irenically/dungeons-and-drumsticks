@@ -103,7 +103,7 @@ button:disabled {
   isolation: isolate;
   overflow: clip;
   text-align: center;
-  background: #15253e;
+  background: transparent;
 }
 .hero-scene {
   position: absolute;
@@ -112,6 +112,7 @@ button:disabled {
   background-image: url('/assets/battlefield.webp');
   background-size: cover;
   background-position: center top;
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 170px), transparent 100%);
 }
 .hero-shade {
   position: absolute;
@@ -2901,4 +2902,14 @@ button:disabled {
   .dungeon-whisper {
     margin-top: -12px;
   }
+}
+
+/* Fade painted background layers into the continuous page parchment. */
+.hero-shade,
+.hero-stars,
+.hero-firelight {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 170px), transparent 100%);
+}
+.hero-transition {
+  display: none;
 }
