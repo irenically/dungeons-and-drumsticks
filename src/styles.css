@@ -3528,3 +3528,121 @@ button:disabled {
     font-size: 15px;
   }
 }
+
+/* Expanded version of the recipe card: illustration and seal left, details right. */
+.modal-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 28px;
+  align-items: start;
+}
+.modal-overview {
+  position: sticky;
+  top: 0;
+  min-width: 0;
+}
+.modal-recipe-picture {
+  display: block;
+  width: 100%;
+  height: min(440px, 54dvh);
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.modal-recipe-stamp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85px;
+  height: auto;
+  filter: drop-shadow(0 3px 2px #31130f45);
+}
+.modal-details {
+  min-width: 0;
+}
+.recipe-modal h2 {
+  font-size: clamp(22px, 3.2vw, 40px);
+  line-height: 1.08;
+  text-align: left;
+  margin: 0 0 12px;
+}
+.modal-card-comment {
+  font: italic 17px/1.35 var(--body-font);
+  color: #795132;
+  margin: 0 0 18px;
+}
+.modal-columns {
+  padding-top: 12px;
+  border-top: 1px solid #a77c4c40;
+}
+.modal-columns .modal-ingredient-list {
+  margin-bottom: 12px;
+}
+.modal-ingredient-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  padding: 4px 6px;
+  font-size: 16px;
+  border: 0;
+}
+.modal-ingredient-list li:nth-child(odd) {
+  background: #b9883920;
+}
+.modal-ingredient-list li > span:last-child {
+  text-align: right;
+  color: #70593f;
+}
+.modal-marinating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  margin: 14px 0 8px;
+  flex-wrap: wrap;
+}
+.modal-marinating > span {
+  font:
+    500 9px system-ui,
+    sans-serif;
+  text-transform: uppercase;
+}
+.modal-marinating .svg-icon {
+  width: 16px;
+  height: 16px;
+}
+.modal-serving {
+  font-size: 13px;
+  color: #8b6745;
+  margin: 0 0 16px;
+}
+.modal-recipe-notes h3 {
+  font: 700 12px var(--fantasy-font);
+  margin: 0 0 7px;
+}
+.modal-recipe-notes p {
+  font-size: 15px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+}
+.modal-flavor {
+  font-style: italic;
+  color: #8b6745;
+}
+.modal-ribbon {
+  margin: 0 0 10px;
+}
+@media (max-width: 650px) {
+  .modal-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .modal-overview {
+    position: relative;
+  }
+  .modal-recipe-picture {
+    height: 180px;
+  }
+  .modal-recipe-stamp {
+    width: 58px;
+  }
+}

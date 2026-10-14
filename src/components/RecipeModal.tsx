@@ -1,5 +1,5 @@
 import { Icon } from './Icon';
-import { formatIngredient, formatMarination } from '../data/formatRecipe';
+import { formatIngredientQuantity, formatMarination } from '../data/formatRecipe';
 import { useEffect, useRef } from 'react';
 import type { Recipe } from '../types';
 import { chickenGrimoire } from '../data/recipes';
@@ -67,54 +67,58 @@ export function RecipeModal({
           <Icon name="close" />
         </button>
         <div className="recipe-modal-content">
-          <div className="modal-ribbon">
-            <Icon name="sparkle" /> &nbsp;{' '}
-            {origin === 'roll' ? 'THE D20 HAS SPOKEN!' : 'A LEGENDARY RECIPE'} &nbsp;{' '}
-            <Icon name="sparkle" />
-          </div>
-          <div className="modal-badge">
-            D20 · {recipe.id} — {recipe.ui.category.toUpperCase()}
-          </div>
-          <h2 id="modal-heading">{recipe.name.toUpperCase()}</h2>
           <div className="modal-layout">
             <div className="modal-overview">
-              <div className="modal-food">
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/${recipe.ui.image}`}
-                  alt={`${recipe.name} chicken illustration`}
-                />
-              </div>
-              <p className="modal-description">{recipe.flavor}</p>
-              {recipe.comment ? (
-                <blockquote className="recipe-comment">{recipe.comment}</blockquote>
-              ) : null}
-              <p className="modal-description">
-                {recipe.region} · {chickenGrimoire.servingBase.amount}{' '}
-                {chickenGrimoire.servingBase.unit} {chickenGrimoire.servingBase.state}{' '}
-                {chickenGrimoire.servingBase.ingredient}
-                <br />
-                Marination: {formatMarination(recipe)}
-              </p>
+              <img
+                className="modal-recipe-picture"
+                src={`${import.meta.env.BASE_URL}assets/${recipe.ui.image}`}
+                alt={`${recipe.name} chicken illustration`}
+              />
+              <img
+                className="modal-recipe-stamp"
+                src={`${import.meta.env.BASE_URL}assets/stamps/stamp-d${String(recipe.id).padStart(2, '0')}.png`}
+                alt={`D20 roll ${recipe.id}`}
+              />
             </div>
-            <div className="modal-columns">
-              <div>
+            <div className="modal-details">
+              {origin === 'roll' ? (
+                <div className="modal-ribbon">
+                  <Icon name="sparkle" /> THE D20 HAS SPOKEN! <Icon name="sparkle" />
+                </div>
+              ) : null}
+              <h2 id="modal-heading">{recipe.name}</h2>
+              {recipe.comment ? <p className="modal-card-comment">{recipe.comment}</p> : null}
+              <div className="modal-columns">
                 <h3>INGREDIENTS</h3>
-                <ul>
-                  {recipe.ingredients.map((i) => (
-                    <li key={i.name}>{formatIngredient(i)}</li>
+                <ul className="modal-ingredient-list">
+                  {recipe.ingredients.map((ingredient) => (
+                    <li key={ingredient.name}>
+                      <span>
+                        {ingredient.name}
+                        {ingredient.optional ? ' (optional)' : ''}
+                      </span>
+                      <span>{formatIngredientQuantity(ingredient)}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
-              <div>
+              <p className="modal-marinating">
+                <Icon name="clock" /> <span>Marinating time</span>{' '}
+                <strong>{formatMarination(recipe)}</strong>
+              </p>
+              <p className="modal-serving">
+                {chickenGrimoire.servingBase.amount} {chickenGrimoire.servingBase.unit}{' '}
+                {chickenGrimoire.servingBase.state} {chickenGrimoire.servingBase.ingredient} ·{' '}
+                {recipe.region}
+              </p>
+              <div className="modal-recipe-notes">
                 <h3>RECIPE NOTES</h3>
                 <p>{recipe.notes}</p>
+                <p className="modal-flavor">{recipe.flavor}</p>
               </div>
             </div>
           </div>
-          <button type="button" className="modal-okay" onClick={onClose}>
-            QUEST ACCEPTED
-          </button>
-        </div>
+        </div>{' '}
       </section>
     </div>
   );
