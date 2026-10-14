@@ -3683,7 +3683,7 @@ button:disabled {
 }
 .roll-result-number {
   position: absolute;
-  top: 29%;
+  top: 32%;
   left: 50%;
   transform: translate(-50%, -50%);
   font: 800 3cqw/1 var(--fantasy-font);
