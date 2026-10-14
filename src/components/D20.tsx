@@ -21,9 +21,6 @@ export function D20({
       >
         <svg className="d20-svg" viewBox="0 0 240 245" aria-hidden="true">
           <defs>
-            <clipPath id="dieShimmerClip">
-              <path d="M120 8 220 65 220 180 120 238 20 180 20 65Z" />
-            </clipPath>
             <radialGradient id="cosmicGold">
               <stop stopColor="#fffbed" />
               <stop offset=".35" stopColor="#ffe89a" stopOpacity=".95" />
@@ -91,16 +88,6 @@ export function D20({
                 stroke="#fff3c0"
                 strokeWidth="18"
                 opacity=".6"
-              />
-            </g>
-          </g>
-          <g clipPath="url(#dieShimmerClip)" opacity=".16">
-            <g className="d20-cosmic-inner">
-              <path
-                d="M120 125C35 10 240 35 200 150S30 220 55 100S150 65 120 125"
-                fill="none"
-                stroke="url(#cosmicViolet)"
-                strokeWidth="24"
               />
             </g>
           </g>

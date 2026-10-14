@@ -2130,15 +2130,10 @@ button:disabled {
   }
 }
 
-.d20-cosmic-swirl,
-.d20-cosmic-inner {
+.d20-cosmic-swirl {
   transform-origin: 120px 122px;
   animation: die-cosmic-vortex 12s linear infinite;
   pointer-events: none;
-}
-.d20-cosmic-inner {
-  animation-duration: 20s;
-  animation-direction: reverse;
 }
 @keyframes die-cosmic-vortex {
   from {
@@ -2149,8 +2144,7 @@ button:disabled {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .d20-cosmic-swirl,
-  .d20-cosmic-inner {
+  .d20-cosmic-swirl {
     animation: none !important;
   }
 }
