@@ -327,7 +327,7 @@ button:disabled {
 }
 .particle-1 {
   left: 46%;
-  top: 32%;
+  top: 30.5%;
   animation-delay: calc(var(--magic-delay) + 0.45s);
 }
 .particle-2 {
