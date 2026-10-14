@@ -3341,3 +3341,22 @@ button:disabled {
     font-size: 3.2cqw;
   }
 }
+
+/* Keep time immediately after the ingredient preview, above the frame's bottom edge. */
+.recipe-card {
+  grid-template-rows: auto auto auto;
+  align-content: start;
+}
+.card-header {
+  grid-row: 1;
+}
+.card-ingredients {
+  grid-row: 2;
+}
+.card-footer {
+  grid-row: 3;
+  align-self: start;
+  padding: 7px 0 0;
+  border-top: 1px solid #a67c4640;
+  border-bottom: 0;
+}
