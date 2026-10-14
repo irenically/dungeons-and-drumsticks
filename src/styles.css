@@ -431,36 +431,35 @@ button:disabled {
 .fighter-ranger .fighter-projectile {
   top: 40%;
   width: 88px;
-  height: 5px;
+  height: 3px;
   border-radius: 0;
-  background: #ecd4a0;
-  box-shadow: 0 0 4px #f5da9a80;
+  background: linear-gradient(#b28b59, #735035);
+  box-shadow: 0 1px 1px #24190c80;
 }
 .fighter-ranger .fighter-projectile::before {
   content: '';
   position: absolute;
   inset: auto;
-  width: 0;
-  height: 0;
+  width: 18px;
+  height: 12px;
   border-radius: 0;
-  background: transparent;
-  left: -9px;
-  top: -5px;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-right: 12px solid #e9e1d1;
+  background: linear-gradient(#b0a797, #666459);
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  clip-path: polygon(0 50%, 100% 0, 75% 50%, 100% 100%);
 }
 .fighter-ranger .fighter-projectile::after {
-  transform: none;
+  transform: translateY(-50%);
   filter: none;
   opacity: 1;
-  left: 74px;
-  top: -4px;
-  width: 12px;
-  height: 10px;
+  left: 68px;
+  top: 50%;
+  width: 20px;
+  height: 14px;
   border-radius: 0;
-  background: #c6d6a2;
-  clip-path: polygon(0 0, 100% 20%, 65% 50%, 100% 80%, 0 100%, 25% 50%);
+  background: linear-gradient(#9b805c, #654d36);
+  clip-path: polygon(0 0, 100% 20%, 80% 50%, 100% 80%, 0 100%, 25% 50%);
 }
 @keyframes projectile-flight {
   0%,
