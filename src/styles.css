@@ -97,8 +97,8 @@ button:disabled {
   font-size: 27px;
 }
 .hero {
-  height: 770px;
-  min-height: 650px;
+  height: auto;
+  min-height: 820px;
   position: relative;
   isolation: isolate;
   overflow: clip;
@@ -147,6 +147,7 @@ button:disabled {
   position: relative;
   z-index: 10;
   padding-top: 118px;
+  padding-bottom: 38px;
   pointer-events: none;
 }
 .hero-content button {
@@ -1737,7 +1738,8 @@ button:disabled {
     display: none;
   }
   .hero {
-    height: 720px;
+    height: auto;
+    min-height: 720px;
   }
   .hero-content {
     padding-top: 135px;
@@ -1827,7 +1829,8 @@ button:disabled {
     display: none;
   }
   .hero {
-    height: 675px;
+    height: auto;
+    min-height: 675px;
   }
   .hero-content {
     padding-top: 115px;
