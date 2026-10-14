@@ -3231,3 +3231,30 @@ button:disabled {
     height: auto;
   }
 }
+
+/* Keep the recipe details clear of the frame's decorative inner edges. */
+.recipe-card {
+  padding: 11% 9% 12%;
+  gap: 10px 20px;
+}
+.card-title {
+  font-size: 27px;
+  line-height: 1.08;
+}
+.card-description {
+  margin-top: 10px;
+}
+@container (max-width: 480px) {
+  .card-title {
+    font-size: 5.6cqw;
+  }
+  .card-description {
+    margin-top: 1.8cqw;
+  }
+}
+@media (max-width: 530px) {
+  .recipe-card {
+    padding: 11% 9% 12%;
+    gap: 6px 12px;
+  }
+}
