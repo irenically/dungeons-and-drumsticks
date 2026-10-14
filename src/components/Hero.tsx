@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { D20 } from './D20';
 import { FantasyButton } from './Primitives';
 const left = ['rogue', 'cleric', 'druid', 'bard', 'paladin'];
@@ -22,6 +22,56 @@ const firelights = [
 ];
 const championSparkles = ['✦', '✧', '✦'];
 const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'cleric']);
+function ShootingStars() {
+  const [stars, setStars] = useState<{ id: number; x: number; y: number; duration: number }[]>([]);
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let nextTimer: number;
+    const removals = new Set<number>();
+    let nextId = 0;
+    const schedule = () => {
+      nextTimer = window.setTimeout(
+        () => {
+          if (!preference.matches && !document.hidden) {
+            const star = {
+              id: nextId++,
+              x: 27 + Math.random() * 48,
+              y: 3 + Math.random() * 18,
+              duration: 0.9 + Math.random() * 0.6,
+            };
+            setStars((current) => [...current, star]);
+            const timer = window.setTimeout(
+              () => {
+                setStars((current) => current.filter((item) => item.id !== star.id));
+                removals.delete(timer);
+              },
+              star.duration * 1000 + 100,
+            );
+            removals.add(timer);
+          }
+          schedule();
+        },
+        3000 + Math.random() * 6500,
+      );
+    };
+    schedule();
+    return () => {
+      window.clearTimeout(nextTimer);
+      removals.forEach(window.clearTimeout);
+    };
+  }, []);
+  return (
+    <div className="shooting-stars" aria-hidden="true">
+      {stars.map((star) => (
+        <span
+          key={star.id}
+          className="shooting-star"
+          style={{ left: `${star.x}%`, top: `${star.y}%`, animationDuration: `${star.duration}s` }}
+        />
+      ))}
+    </div>
+  );
+}
 function BattleCharacter({ name }: { name: string }) {
   return (
     <span className={`fighter fighter-${name}`}>
@@ -183,6 +233,7 @@ export function Hero({
         ))}
       </svg>
       <div className="hero-stars" aria-hidden="true" />
+      <ShootingStars />
       <div className="hero-content">
         <p className="eyebrow">✧ THE CULINARY ADVENTURER'S GUILD ✧</p>
         <h1 id="hero-heading">
