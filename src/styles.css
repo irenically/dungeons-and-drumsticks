@@ -1229,37 +1229,6 @@ button:disabled {
   font-size: 22px;
   margin: 9px auto 23px;
 }
-.filters {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 24px auto 30px;
-}
-.filter {
-  background: #e3bf86bf;
-  color: #5b321b;
-  border: 1px solid #995c26;
-  border-radius: 3px;
-  padding: 10px 18px;
-  font: 700 11px var(--fantasy-font);
-  box-shadow:
-    0 2px 0 #9f6630,
-    inset 0 0 0 2px #f8dfab;
-  transition:
-    transform 0.2s,
-    background 0.2s;
-}
-.filter:hover {
-  transform: translateY(-2px);
-}
-.filter.active {
-  color: #fbe1a8;
-  background: #8a2417;
-  box-shadow:
-    0 3px 0 #542010,
-    inset 0 0 0 2px #c78935;
-}
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1956,13 +1925,6 @@ button:disabled {
     font-size: 12px;
   }
   .card-footer {
-    font-size: 9px;
-  }
-  .filters {
-    gap: 6px;
-  }
-  .filter {
-    padding: 9px 11px;
     font-size: 9px;
   }
   .how-grid {
@@ -3193,9 +3155,6 @@ button:disabled {
   height: 26px;
   margin: 2px 8px 0 0;
   color: #a16f37;
-}
-.filter .svg-icon {
-  margin-right: 4px;
 }
 .how-icon .svg-icon {
   width: 1em;
