@@ -2913,3 +2913,46 @@ button:disabled {
 .hero-transition {
   display: none;
 }
+
+/* Slice the supplied artwork so corners keep their shape as recipes vary in height. */
+.recipe-card {
+  border: 48px solid transparent;
+  border-image: url('/assets/Ornate Golden Parchment Recipe Frame.png') 220 fill / 48px / 0 stretch;
+  background: none;
+  padding: 10px 12px 14px;
+  min-height: 440px;
+  gap: 14px 20px;
+  box-shadow: none;
+}
+.recipe-card::before,
+.recipe-card::after {
+  display: none;
+}
+.recipe-card:hover {
+  border-color: transparent;
+}
+.recipe-card.is-picked {
+  filter: drop-shadow(0 0 5px var(--accent));
+}
+.card-header {
+  border-bottom-color: #9a6a353b;
+}
+@media (max-width: 530px) {
+  .recipe-card {
+    border-width: 32px;
+    border-image-width: 32px;
+    padding: 8px;
+    min-height: 360px;
+    gap: 12px;
+  }
+  .card-title {
+    font-size: 18px;
+  }
+  .card-dice {
+    width: 58px;
+    height: 58px;
+  }
+  .card-ingredients {
+    font-size: 13px;
+  }
+}
