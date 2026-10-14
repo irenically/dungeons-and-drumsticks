@@ -46,7 +46,43 @@ export function RecipeGrid({
               <div className="card-header">
                 <span className="card-dice" aria-label={`D20 roll ${r.id}`}>
                   <svg viewBox="0 0 48 52" aria-hidden="true">
-                    <path d="M24 2 45 14 45 38 24 50 3 38 3 14Z" fill="currentColor" />
+                    <defs>
+                      <linearGradient id={`tile-die-${r.id}`} x1="0" y1="0" x2="1" y2="1">
+                        <stop stopColor={r.ui.accentColor} />
+                        <stop offset="1" stopColor={r.ui.accentColor} />
+                      </linearGradient>
+                      <linearGradient id={`tile-light-${r.id}`} x1="0" y1="0" x2="1" y2="1">
+                        <stop stopColor="white" stopOpacity=".32" />
+                        <stop offset=".45" stopColor="white" stopOpacity="0" />
+                        <stop offset="1" stopColor="#160c06" stopOpacity=".48" />
+                      </linearGradient>
+                      <pattern
+                        id={`tile-grain-${r.id}`}
+                        width="6"
+                        height="7"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <circle cx="1" cy="2" r=".45" fill="white" opacity=".16" />
+                        <circle cx="4" cy="5" r=".5" fill="#100b08" opacity=".18" />
+                        <path
+                          d="M3 1l1 .5M0 6l1 .5"
+                          stroke="white"
+                          strokeWidth=".35"
+                          opacity=".12"
+                        />
+                      </pattern>
+                    </defs>
+                    <path d="M24 2 45 14 45 38 24 50 3 38 3 14Z" fill={`url(#tile-die-${r.id})`} />
+                    <path
+                      d="M24 2 45 14 45 38 24 50 3 38 3 14Z"
+                      fill={`url(#tile-light-${r.id})`}
+                      stroke="none"
+                    />
+                    <path
+                      d="M24 2 45 14 45 38 24 50 3 38 3 14Z"
+                      fill={`url(#tile-grain-${r.id})`}
+                      stroke="none"
+                    />
                     <path
                       d="M24 2 24 10M3 14 24 10 45 14M3 14 10 35 3 38M45 14 38 35 45 38M24 10 10 35 38 35ZM10 35 24 50 38 35"
                       fill="none"
