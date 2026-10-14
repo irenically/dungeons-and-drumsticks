@@ -13,6 +13,21 @@ function BattleCharacter({ name }: { name: string }) {
   return (
     <span className={`fighter fighter-${name}`}>
       {name === 'cleric' ? <span className="cleric-healing-aura" /> : null}
+      {name === 'druid' ? (
+        <span className="druid-spirit">
+          <svg viewBox="0 0 140 80" aria-hidden="true">
+            <path
+              className="spirit-body"
+              d="M5 32 17 27 20 11 31 23 43 27 61 25 88 29 105 39 120 34 137 18 131 40 113 49 99 52 76 48 55 49 39 43 26 43 17 37 7 38Z"
+            />
+            <path
+              className="spirit-legs"
+              d="M43 40 36 57 15 65 12 71 24 71 48 61 58 45M87 44 100 57 118 63 124 70 112 70 92 64 74 49"
+            />
+            <circle cx="24" cy="29" r="2" fill="#fffbe3" />
+          </svg>
+        </span>
+      ) : null}
       <img
         className="fighter-art"
         src={`${import.meta.env.BASE_URL}assets/${artwork[name] ?? `${name}.webp`}`}
@@ -68,6 +83,12 @@ export function Hero({
         attacker.style.setProperty('--flight-distance', `${distance}px`);
         attacker.style.setProperty('--flight-drop', `${to.top + to.height * 0.5 - launchY}px`);
         attacker.style.setProperty('--flight-arc', `${Math.min(150, distance * 0.18)}px`);
+        if (source === 'druid') {
+          attacker.style.setProperty(
+            '--spirit-drop',
+            `${to.bottom - 10 - (from.top + from.height * 0.7 + 64)}px`,
+          );
+        }
       }
     };
     updateFlights();

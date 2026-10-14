@@ -2010,3 +2010,65 @@ button:disabled {
     animation: none !important;
   }
 }
+
+/* A summoned wolf crosses the field in a separate cycle from the druid's spell. */
+.druid-spirit {
+  --projectile-opacity: 0.75;
+  --flight-drop: var(--spirit-drop, 0px);
+  --flight-arc: 20px;
+  position: absolute;
+  left: 24%;
+  top: 70%;
+  width: 112px;
+  height: 64px;
+  z-index: 3;
+  opacity: 0;
+  color: #bde9c5;
+  filter: drop-shadow(0 0 8px #80d6aa) drop-shadow(0 0 20px #a9e9bc80);
+  animation: projectile-flight var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
+}
+.druid-spirit svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: #bbf0d2a6;
+  stroke: #defce2;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  animation: spirit-bound 0.55s ease-in-out infinite;
+}
+.spirit-legs {
+  transform-origin: 65px 43px;
+  animation: spirit-stride 0.55s ease-in-out infinite;
+}
+@keyframes spirit-bound {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: -3deg;
+  }
+  50% {
+    translate: 0 -22px;
+    rotate: 4deg;
+  }
+}
+@keyframes spirit-stride {
+  0%,
+  100% {
+    scale: 1 1;
+  }
+  50% {
+    scale: 0.8 0.9;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .druid-spirit {
+    display: none;
+    animation: none !important;
+  }
+  .druid-spirit svg,
+  .spirit-legs {
+    animation: none !important;
+  }
+}
