@@ -2018,36 +2018,43 @@ button:disabled {
   }
 }
 
-/* A summoned wolf crosses the field in a separate cycle from the druid's spell. */
-.druid-spirit {
-  --projectile-opacity: 0.48;
-  --flight-drop: var(--spirit-drop, 0px);
-  --flight-arc: 20px;
+/* Three spirit birds launch together, then take independent paths. */
+.druid-flock {
   position: absolute;
   left: 24%;
-  top: 70%;
-  width: 112px;
-  height: 64px;
+  top: 48%;
+  width: 0;
+  height: 0;
   z-index: 3;
-  opacity: 0;
-  color: #bde9c5;
-  filter: drop-shadow(0 0 8px #80d6aa) drop-shadow(0 0 20px #a9e9bc80);
-  animation: spirit-travel var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
 }
-.druid-spirit svg {
+.spirit-bird {
+  position: absolute;
+  width: 78px;
+  height: 55px;
+  offset-anchor: 20% 48%;
+  offset-rotate: auto 180deg;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px #c4ffc2) drop-shadow(0 0 14px #80d6aa);
+  animation: spirit-bird-flight var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
+}
+.bird-1 {
+  animation-delay: calc(var(--magic-delay) + 5.35s);
+}
+.bird-2 {
+  animation-delay: calc(var(--magic-delay) + 5.7s);
+}
+.spirit-bird svg {
   display: block;
   width: 100%;
   height: 100%;
   overflow: visible;
-  fill: #bbf0d273;
-  stroke: #defce2a0;
+  fill: #c4f6dd99;
+  stroke: #e0ffe8b3;
   stroke-width: 1.5;
-  stroke-linejoin: round;
-  animation: spirit-bound var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
 }
-.spirit-legs {
-  transform-origin: 65px 43px;
-  animation: spirit-stride var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
+.spirit-wing {
+  transform-origin: 45px 36px;
+  animation: spirit-wingbeat 0.55s ease-in-out infinite alternate;
 }
 .fighter-druid .fighter-art {
   animation: druid-summon var(--magic-cycle) ease-in-out calc(var(--magic-delay) + 5s) infinite;
@@ -2064,72 +2071,44 @@ button:disabled {
     filter: drop-shadow(0 0 12px #b8e685);
   }
 }
-@keyframes spirit-travel {
+@keyframes spirit-bird-flight {
   0%,
-  77% {
+  76% {
     opacity: 0;
-    translate: 0 0;
+    offset-distance: 0%;
   }
   78% {
-    opacity: 0.48;
-    translate: 0 0;
+    opacity: 0.7;
+    offset-distance: 4%;
   }
   92% {
-    opacity: 0.35;
-    translate: calc(-0.7778 * var(--flight-distance)) calc(0.7778 * var(--flight-drop));
+    opacity: 0.5;
+    offset-distance: 82%;
   }
-  96% {
-    opacity: 0.18;
-    translate: calc(-1 * var(--flight-distance)) var(--flight-drop);
+  97% {
+    opacity: 0.25;
+    offset-distance: 100%;
   }
   98%,
   100% {
     opacity: 0;
-    translate: calc(-1 * var(--flight-distance)) var(--flight-drop);
+    offset-distance: 100%;
   }
 }
-/* Three launches and landings, each with a smooth rise and fall. */
-@keyframes spirit-bound {
-  0%,
-  78%,
-  84%,
-  90%,
-  96%,
-  100% {
-    translate: 0 0;
-    rotate: -3deg;
-    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
-  }
-  81%,
-  87%,
-  93% {
-    translate: 0 -65px;
-    rotate: 4deg;
-    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
-  }
-}
-@keyframes spirit-stride {
-  0%,
-  78%,
-  84%,
-  90%,
-  96%,
-  100% {
+@keyframes spirit-wingbeat {
+  from {
     scale: 1 1;
   }
-  81%,
-  87%,
-  93% {
-    scale: 0.8 0.9;
+  to {
+    scale: 1 0.3;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .druid-spirit {
+  .druid-flock {
     display: none;
-    animation: none !important;
   }
-  .druid-spirit svg,
-  .spirit-legs {
+  .spirit-bird,
+  .spirit-wing {
     animation: none !important;
   }
 }

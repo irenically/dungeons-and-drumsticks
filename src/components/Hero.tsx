@@ -14,18 +14,19 @@ function BattleCharacter({ name }: { name: string }) {
     <span className={`fighter fighter-${name}`}>
       {name === 'cleric' ? <span className="cleric-healing-aura" /> : null}
       {name === 'druid' ? (
-        <span className="druid-spirit">
-          <svg viewBox="0 0 140 80" aria-hidden="true">
-            <path
-              className="spirit-body"
-              d="M5 32 17 27 20 11 31 23 43 27 61 25 88 29 105 39 120 34 137 18 131 40 113 49 99 52 76 48 55 49 39 43 26 43 17 37 7 38Z"
-            />
-            <path
-              className="spirit-legs"
-              d="M43 40 36 57 15 65 12 71 24 71 48 61 58 45M87 44 100 57 118 63 124 70 112 70 92 64 74 49"
-            />
-            <circle cx="24" cy="29" r="2" fill="#fffbe3" />
-          </svg>
+        <span className="druid-flock">
+          {[0, 1, 2].map((index) => (
+            <span key={index} className={`spirit-bird bird-${index}`}>
+              <svg viewBox="0 0 100 70" aria-hidden="true">
+                <path d="M4 32 20 27 29 29 48 35 73 33 94 24 83 42 58 43 34 37 22 36 14 33Z" />
+                <path
+                  className="spirit-wing"
+                  d="M38 35Q42 17 65 3L62 20 77 14 69 30 83 25 62 40Z"
+                />
+                <circle cx="21" cy="30" r="1.7" fill="#fff" />
+              </svg>
+            </span>
+          ))}
         </span>
       ) : null}
       <img
@@ -84,10 +85,23 @@ export function Hero({
         attacker.style.setProperty('--flight-drop', `${to.top + to.height * 0.5 - launchY}px`);
         attacker.style.setProperty('--flight-arc', `${Math.min(150, distance * 0.18)}px`);
         if (source === 'druid') {
-          attacker.style.setProperty(
-            '--spirit-drop',
-            `${to.bottom - 10 - (from.top + from.height * 0.7 + 64)}px`,
-          );
+          const enemies = ['barbarian', 'warlock', 'champion'];
+          attacker.querySelectorAll<HTMLElement>('.spirit-bird').forEach((bird, index) => {
+            const enemy = scene.querySelector<HTMLElement>(`.fighter-${enemies[index]}`);
+            const targetBox = enemy?.getBoundingClientRect();
+            if (!targetBox?.width) return;
+            const distance = Math.abs(targetBox.left + targetBox.width * 0.5 - launchX);
+            const drop = targetBox.top + targetBox.height * 0.45 - launchY;
+            const rise = Math.min(190 + index * 35, from.top + from.height * 0.48 - 100);
+            const x = -distance * 0.4;
+            const y = -rise * 0.65;
+            const paths = [
+              `M 0 0 C -20 ${-rise} ${-distance * 0.65} ${-rise} ${-distance} ${drop}`,
+              `M 0 0 C -20 ${-rise} ${x * 0.6} ${-rise} ${x} ${y} C ${x + 70} ${y - 80} ${x - 70} ${y - 80} ${x - 70} ${y} C ${x - 70} ${y + 80} ${x + 70} ${y + 80} ${x} ${y} C ${-distance * 0.65} ${-rise} ${-distance * 0.85} ${drop - 80} ${-distance} ${drop}`,
+              `M 0 0 C -20 ${-rise} ${-distance * 0.2} ${-rise} ${-distance * 0.35} ${-rise * 0.6} S ${-distance * 0.65} 80 ${-distance * 0.75} ${-rise * 0.3} Q ${-distance * 0.9} ${drop - 80} ${-distance} ${drop}`,
+            ];
+            bird.style.offsetPath = `path('${paths[index]}')`;
+          });
         }
       }
     };
