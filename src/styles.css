@@ -3652,3 +3652,62 @@ button:disabled {
     width: 72px;
   }
 }
+
+/* The roll frame has an outer banner around a smaller parchment panel. */
+.recipe-modal--roll .modal-recipe-stamp {
+  top: 12%;
+  left: 13%;
+  width: clamp(108px, 10vw, 136px);
+}
+.recipe-modal--roll .modal-close {
+  top: 11%;
+  right: 13%;
+}
+.recipe-modal--roll .recipe-modal-content {
+  inset: 12% 14% 10%;
+  padding: 8px 16px 22px;
+}
+.recipe-modal--roll .modal-layout {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 24px;
+}
+.recipe-modal--roll .modal-details {
+  padding: 10px 8px 12px 4px;
+}
+.recipe-modal--roll h2 {
+  margin-bottom: 8px;
+}
+.recipe-modal--roll .modal-card-comment {
+  margin-bottom: 12px;
+}
+.recipe-modal--roll .modal-columns {
+  padding-top: 8px;
+}
+.recipe-modal--roll .modal-columns h3 {
+  margin-bottom: 6px;
+}
+.recipe-modal--roll .modal-columns .modal-ingredient-list {
+  margin-bottom: 8px;
+}
+.recipe-modal--roll .modal-ingredient-list li {
+  padding-block: 3px;
+}
+.recipe-modal--roll .modal-marinating {
+  margin: 9px 0 5px;
+}
+.recipe-modal--roll .modal-serving {
+  margin-bottom: 10px;
+}
+.recipe-modal--roll .modal-recipe-notes p {
+  font-size: 14px;
+  line-height: 1.28;
+}
+@media (max-width: 650px) {
+  .recipe-modal--roll .modal-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .recipe-modal--roll .modal-details {
+    padding: 10px 4px 12px;
+  }
+}
