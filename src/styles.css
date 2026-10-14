@@ -2837,3 +2837,56 @@ button:disabled {
     font-size: 16px;
   }
 }
+
+/* Use the supplied scroll artwork at its natural 3:1 proportion. */
+.dungeon-whisper {
+  width: min(560px, 92vw);
+  aspect-ratio: 3 / 1;
+  margin: 8px auto 0;
+  padding: 0 clamp(38px, 7vw, 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: url('/assets/Ornate Fantasy Parchment Scroll Banner.png') center / 100% 100% no-repeat;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  filter: drop-shadow(0 4px 5px #20110840);
+}
+.dungeon-whisper::before,
+.dungeon-whisper::after {
+  display: none;
+}
+.whisper-label {
+  margin: 0;
+  font-size: clamp(6px, 1.4vw, 8px);
+  letter-spacing: 0.4px;
+}
+.whisper-message {
+  min-height: 0;
+  width: 100%;
+}
+.whisper-title {
+  font-size: clamp(12px, 2.8vw, 20px);
+  line-height: 1.15;
+}
+.whisper-subtitle {
+  margin-top: 5px;
+  font-size: clamp(11px, 2.5vw, 16px);
+  line-height: 1.15;
+}
+.whisper-rule {
+  display: none;
+}
+@media (max-width: 530px) {
+  .dungeon-whisper {
+    padding-inline: 38px;
+    gap: 3px;
+  }
+  .whisper-subtitle {
+    margin-top: 3px;
+  }
+}
