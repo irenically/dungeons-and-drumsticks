@@ -441,7 +441,14 @@ button:disabled {
     0 0 16px 5px #8c36ce80;
 }
 .fighter-warlock .fighter-projectile::before {
-  background: radial-gradient(circle, #09040f 0 55%, #36114f 70%, #ce8cff 100%);
+  background: radial-gradient(
+    circle,
+    #09040f 0 25%,
+    #35104f 40%,
+    #9f40e6 65%,
+    #e2b2ff 88%,
+    #c77cff 100%
+  );
   border: 1px solid #c77cff;
 }
 .fighter-warlock .fighter-projectile::after {
