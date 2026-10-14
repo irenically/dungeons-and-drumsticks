@@ -3301,3 +3301,43 @@ button:disabled {
 .card-title {
   font-size: 5cqw;
 }
+
+/* Put preparation time above the compact ingredient preview. */
+.card-header {
+  grid-row: 1;
+}
+.card-footer {
+  grid-row: 2;
+  padding: 6px 0;
+  border-top: 0;
+  border-bottom: 1px solid #a67c4640;
+  align-self: start;
+}
+.card-ingredients {
+  grid-row: 3;
+  align-self: start;
+}
+.recipe-card {
+  grid-template-rows: auto auto minmax(0, 1fr);
+}
+.card-ingredients .card-more-ingredients {
+  display: block;
+  margin-top: 4px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: #8b5d2c;
+  font-style: italic;
+}
+.card-time-label {
+  font-size: 9px;
+  color: #795132;
+}
+@container (max-width: 480px) {
+  .card-time-label {
+    font-size: 2cqw;
+  }
+  .card-footer {
+    font-size: 3.2cqw;
+  }
+}
