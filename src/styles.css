@@ -1935,6 +1935,7 @@ button:disabled {
 }
 
 .fighter-bard .fighter-art,
+.fighter-cleric .fighter-art,
 .fighter-ranger .fighter-art {
   animation: none;
 }
@@ -1977,7 +1978,7 @@ button:disabled {
   width: 260%;
   height: 150%;
   border-radius: 50%;
-  background: radial-gradient(ellipse, #fff2b37a 0%, #e8c46a50 35%, #f5d89020 55%, transparent 72%);
+  background: radial-gradient(ellipse, #fff6c9d9 0%, #f5d47ba6 35%, #ffe1a15c 55%, transparent 72%);
   filter: blur(12px);
   opacity: 0;
   animation: cleric-heal var(--magic-cycle) ease-in-out var(--magic-delay) infinite;
@@ -1995,7 +1996,7 @@ button:disabled {
     scale: 0.7;
   }
   38% {
-    opacity: 0.85;
+    opacity: 1;
     scale: 1;
   }
   52% {
