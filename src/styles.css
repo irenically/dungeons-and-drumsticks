@@ -2432,3 +2432,18 @@ button:disabled {
   color: #85715b;
   text-align: right;
 }
+
+.card-dice {
+  width: 72px;
+  height: 72px;
+  filter: drop-shadow(0 3px 2px #3b1b1540);
+}
+.card-dice svg {
+  stroke: none;
+}
+.wax-number {
+  paint-order: stroke fill;
+  stroke: #2c150d55;
+  stroke-width: 1px;
+  filter: drop-shadow(0 1px 0 #fff4d133);
+}

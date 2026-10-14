@@ -45,52 +45,73 @@ export function RecipeGrid({
             >
               <div className="card-header">
                 <span className="card-dice" aria-label={`D20 roll ${r.id}`}>
-                  <svg viewBox="0 0 240 245" aria-hidden="true">
+                  <svg viewBox="0 0 100 100" aria-hidden="true">
                     <defs>
-                      <linearGradient id={`tile-face-${r.id}`} x1="0" y1="0" x2="1" y2="1">
-                        <stop stopColor={r.ui.accentColor} />
-                        <stop offset="1" stopColor="#151820" />
-                      </linearGradient>
-                      <linearGradient id={`tile-gold-${r.id}`} x1="0" y1="0" x2="1" y2="1">
-                        <stop stopColor="#fff0a6" />
-                        <stop offset=".44" stopColor="#bd7527" />
-                        <stop offset=".73" stopColor="#ffe39a" />
-                        <stop offset="1" stopColor="#a76420" />
-                      </linearGradient>
+                      <radialGradient id={`wax-light-${r.id}`} cx="35%" cy="25%" r="80%">
+                        <stop stopColor="#fff8df" stopOpacity=".3" />
+                        <stop offset=".48" stopColor="#fff8df" stopOpacity="0" />
+                        <stop offset="1" stopColor="#170b06" stopOpacity=".45" />
+                      </radialGradient>
+                      <pattern
+                        id={`wax-grain-${r.id}`}
+                        width="9"
+                        height="8"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <circle cx="2" cy="3" r=".5" fill="#fff4da" opacity=".15" />
+                        <circle cx="7" cy="6" r=".6" fill="#1d0b04" opacity=".13" />
+                      </pattern>
                     </defs>
-                    <g
-                      fill={r.ui.accentColor}
-                      stroke={`url(#tile-gold-${r.id})`}
-                      strokeWidth="3"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M120 8 20 65 120 48Z" />
-                      <path d="M120 8 120 48 220 65Z" />
-                      <path d="M20 65 48 168 120 48Z" fill={`url(#tile-face-${r.id})`} />
-                      <path d="M120 48 192 168 220 65Z" fill={`url(#tile-face-${r.id})`} />
-                      <path d="M20 65 20 180 48 168Z" fill="#22272e" />
-                      <path d="M220 65 192 168 220 180Z" fill="#0b1018" />
-                      <path d="M20 180 120 238 48 168Z" fill="#151a22" />
-                      <path d="M192 168 120 238 220 180Z" fill="#080d14" />
-                      <path d="M48 168 120 238 192 168Z" fill={`url(#tile-face-${r.id})`} />
-                      <path d="M120 48 48 168 192 168Z" fill={`url(#tile-face-${r.id})`} />
-                    </g>
                     <path
-                      d="M120 8 220 65 220 180 120 238 20 180 20 65Z"
-                      fill="none"
-                      stroke={`url(#tile-gold-${r.id})`}
-                      strokeWidth="5"
-                      strokeLinejoin="round"
+                      className="wax-shape"
+                      d="M49 5C57 3 60 8 67 7S77 12 80 19 89 24 89 32 96 43 94 51 95 62 88 68 87 79 78 82 68 91 59 91 49 97 41 92 29 93 23 86 13 81 12 72 4 64 7 55 3 44 7 35 10 24 18 20 22 10 32 11 40 3 49 5Z"
+                      fill={r.ui.accentColor}
                     />
+                    <path
+                      d="M49 5C57 3 60 8 67 7S77 12 80 19 89 24 89 32 96 43 94 51 95 62 88 68 87 79 78 82 68 91 59 91 49 97 41 92 29 93 23 86 13 81 12 72 4 64 7 55 3 44 7 35 10 24 18 20 22 10 32 11 40 3 49 5Z"
+                      fill={`url(#wax-light-${r.id})`}
+                    />
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="35"
+                      fill="none"
+                      stroke="#170b06"
+                      strokeOpacity=".3"
+                      strokeWidth="3"
+                    />
+                    <circle
+                      cx="50"
+                      cy="51.5"
+                      r="35"
+                      fill="none"
+                      stroke="#fff1cf"
+                      strokeOpacity=".2"
+                      strokeWidth="1.5"
+                    />
+                    <circle cx="50" cy="50" r="33" fill={`url(#wax-grain-${r.id})`} />
+                    <g fill="none" strokeWidth="1.7" strokeLinejoin="round">
+                      <path
+                        d="M50 20 76 35 76 64 50 80 24 64 24 35Z M50 20 50 31 24 35 M50 31 76 35 M24 35 32 62 24 64 M76 35 68 62 76 64 M50 31 32 62 68 62Z M32 62 50 80 68 62"
+                        stroke="#fff1cf"
+                        strokeOpacity=".3"
+                        transform="translate(0 1.2)"
+                      />
+                      <path
+                        d="M50 20 76 35 76 64 50 80 24 64 24 35Z M50 20 50 31 24 35 M50 31 76 35 M24 35 32 62 24 64 M76 35 68 62 76 64 M50 31 32 62 68 62Z M32 62 50 80 68 62"
+                        stroke="#190d08"
+                        strokeOpacity=".55"
+                      />
+                    </g>
                     <text
-                      x="120"
-                      y="138"
+                      className="wax-number"
+                      x="50"
+                      y="56"
                       textAnchor="middle"
-                      fill="#ffda80"
-                      fontSize="44"
+                      fontSize="16"
                       fontWeight="800"
                       fontFamily="Cinzel, serif"
-                      stroke="none"
+                      fill="#fff0cf"
                     >
                       D{r.id}
                     </text>
