@@ -26,8 +26,8 @@ export function Winner({
         <div className="winner-spotlight" aria-hidden="true" />
         <div className="winner-illustration">
           <img
-            src={`${import.meta.env.BASE_URL}assets/roast-celebration.webp`}
-            alt="Illustrated roast chicken with herbs"
+            src={`${import.meta.env.BASE_URL}assets/${recipe.ui.image}`}
+            alt={`${recipe.name} chicken illustration`}
           />
         </div>
         <div className="winner-details">

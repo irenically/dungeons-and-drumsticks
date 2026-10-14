@@ -46,7 +46,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Classic Garlic.png',
       },
     },
     {
@@ -94,7 +94,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Herby',
         accentColor: '#547034',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Lemon Pepper.png',
       },
     },
     {
@@ -143,7 +143,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Herby',
         accentColor: '#547034',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Greek Souvlaki.png',
       },
     },
     {
@@ -196,7 +196,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Sweet',
         accentColor: '#a57321',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Honey Mustard.png',
       },
     },
     {
@@ -264,7 +264,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Chicken Shawarma.png',
       },
     },
     {
@@ -328,7 +328,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Tandoori.png',
       },
     },
     {
@@ -387,7 +387,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Spicy',
         accentColor: '#aa3d23',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Piri-Piri.png',
       },
     },
     {
@@ -462,7 +462,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Spicy',
         accentColor: '#aa3d23',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Jamaican Jerk.png',
       },
     },
     {
@@ -525,7 +525,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Pollo Asado.png',
       },
     },
     {
@@ -583,7 +583,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Herby',
         accentColor: '#547034',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Balsamic Herb.png',
       },
     },
     {
@@ -636,7 +636,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Spicy',
         accentColor: '#aa3d23',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Korean Gochujang.png',
       },
     },
     {
@@ -695,7 +695,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Herby',
         accentColor: '#547034',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Sun-Dried Tomato & Basil.png',
       },
     },
     {
@@ -749,7 +749,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Vietnamese Lemongrass.png',
       },
     },
     {
@@ -808,7 +808,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Thai Satay.png',
       },
     },
     {
@@ -862,7 +862,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Sweet',
         accentColor: '#a57321',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Huli Huli.png',
       },
     },
     {
@@ -915,7 +915,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Spicy',
         accentColor: '#aa3d23',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Chipotle Lime.png',
       },
     },
     {
@@ -974,7 +974,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Garlic Parmesan.png',
       },
     },
     {
@@ -1025,7 +1025,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Spicy',
         accentColor: '#aa3d23',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Buffalo Style.png',
       },
     },
     {
@@ -1079,7 +1079,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Savory',
         accentColor: '#72502c',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Coconut Lime.png',
       },
     },
     {
@@ -1132,7 +1132,7 @@ export const chickenGrimoire: ChickenGrimoire = {
       ui: {
         category: 'Herby',
         accentColor: '#547034',
-        image: 'roast-celebration.webp',
+        image: 'recipe-cards/Ranch Buttermilk.png',
       },
     },
   ],

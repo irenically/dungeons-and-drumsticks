@@ -63,8 +63,10 @@ export function RecipeGrid({
               </div>
               <img
                 className="card-food"
+                loading="lazy"
+                decoding="async"
                 src={`${import.meta.env.BASE_URL}assets/${r.ui.image}`}
-                alt="Watercolor illustration of roasted chicken"
+                alt={`${r.name} chicken illustration`}
               />
               <ul className="card-ingredients">
                 <li className="card-ingredients-heading" aria-hidden="true">
