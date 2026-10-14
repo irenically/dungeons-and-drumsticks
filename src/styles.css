@@ -3528,6 +3528,7 @@ button:disabled {
 /* Expanded version of the recipe card: illustration and seal left, details right. */
 .modal-layout {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
   gap: 0;
   height: 100%;
   align-items: stretch;
@@ -3650,6 +3651,7 @@ button:disabled {
   }
   .modal-layout {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
     gap: 18px;
     height: auto;
   }
@@ -3713,7 +3715,7 @@ button:disabled {
     0 0 5px #ca8a3655;
 }
 .recipe-modal--roll .recipe-modal-content {
-  inset: 20% 15% 13%;
+  inset: 14% 15% 15%;
   padding: 0;
 }
 .recipe-modal--roll .modal-layout {
@@ -3721,7 +3723,7 @@ button:disabled {
   gap: 0;
 }
 .recipe-modal--roll .modal-details {
-  padding: 24px 32px 24px 32px;
+  padding: 64px 32px 24px;
 }
 .recipe-modal--roll h2 {
   margin-bottom: 8px;
