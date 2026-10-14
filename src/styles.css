@@ -387,6 +387,83 @@ button:disabled {
   max-width: 245px;
   animation-delay: -3.3s;
 }
+/* Grounded depth rows: shared foot positions, scale, and stacking per row. */
+@media (min-width: 1101px) {
+  .fighters .fighter {
+    top: auto;
+    bottom: var(--fighter-ground);
+    height: var(--fighter-height);
+    width: auto;
+    max-width: none;
+    z-index: var(--fighter-layer);
+  }
+  .fighter-cleric,
+  .fighter-rogue,
+  .fighter-sorcerer,
+  .fighter-warlock {
+    --fighter-ground: 345px;
+    --fighter-height: clamp(155px, 12vw, 195px);
+    --fighter-layer: 1;
+    filter: drop-shadow(0 6px 5px #16111180) brightness(0.88);
+  }
+  .fighter-artificer,
+  .fighter-druid,
+  .fighter-bard,
+  .fighter-wizard,
+  .fighter-champion {
+    --fighter-ground: 195px;
+    --fighter-height: clamp(225px, 17vw, 275px);
+    --fighter-layer: 2;
+    filter: drop-shadow(0 10px 8px #161111a0);
+  }
+  .fighter-paladin,
+  .fighter-monk,
+  .fighter-ranger,
+  .fighter-barbarian {
+    --fighter-ground: 30px;
+    --fighter-height: clamp(295px, 22vw, 355px);
+    --fighter-layer: 3;
+  }
+  .fighters-left .fighter-cleric {
+    left: 15%;
+  }
+  .fighters-left .fighter-rogue {
+    left: 25%;
+  }
+  .fighters-left .fighter-artificer {
+    left: -2%;
+  }
+  .fighters-left .fighter-druid {
+    left: 8%;
+  }
+  .fighters-left .fighter-bard {
+    left: 19%;
+  }
+  .fighters-left .fighter-paladin {
+    left: -2%;
+  }
+  .fighters-left .fighter-monk {
+    left: 15%;
+  }
+  .fighters-right .fighter-sorcerer {
+    right: 15%;
+  }
+  .fighters-right .fighter-warlock {
+    right: 25%;
+  }
+  .fighters-right .fighter-wizard {
+    right: -2%;
+  }
+  .fighters-right .fighter-champion {
+    right: 12%;
+  }
+  .fighters-right .fighter-barbarian {
+    right: -2%;
+  }
+  .fighters-right .fighter-ranger {
+    right: 15%;
+  }
+}
 .hero-transition {
   position: absolute;
   bottom: -2px;
