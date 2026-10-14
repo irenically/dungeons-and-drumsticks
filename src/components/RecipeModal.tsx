@@ -1,6 +1,8 @@
+import { formatIngredient, formatMarination } from '../data/formatRecipe';
 import { useEffect, useRef } from 'react';
 import type { Recipe } from '../types';
 import { Corners, FantasyButton } from './Primitives';
+import { chickenGrimoire } from '../data/recipes';
 export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -58,7 +60,7 @@ export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClos
         </button>
         <div className="modal-ribbon">✦ &nbsp; A LEGENDARY RECIPE &nbsp; ✦</div>
         <div className="modal-badge">
-          D20 · {recipe.id} — {recipe.category.toUpperCase()}
+          D20 · {recipe.id} — {recipe.ui.category.toUpperCase()}
         </div>
         <h2 id="modal-heading">{recipe.name.toUpperCase()}</h2>
         <div className="modal-food">
@@ -67,24 +69,25 @@ export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClos
             alt="Roast chicken illustration"
           />
         </div>
-        <p className="modal-description">{recipe.description}</p>
+        <p className="modal-description">{recipe.flavor}</p>
+        <p className="modal-description">
+          {recipe.region} · {chickenGrimoire.servingBase.amount} {chickenGrimoire.servingBase.unit}{' '}
+          {chickenGrimoire.servingBase.state} {chickenGrimoire.servingBase.ingredient}
+          <br />
+          Marination: {formatMarination(recipe)}
+        </p>
         <div className="modal-columns">
           <div>
             <h3>INGREDIENTS</h3>
             <ul>
               {recipe.ingredients.map((i) => (
-                <li key={i}>{i}</li>
+                <li key={i.name}>{formatIngredient(i)}</li>
               ))}
             </ul>
           </div>
           <div>
-            <h3>YOUR QUEST</h3>
-            <ol>
-              <li>Mix all marinade ingredients in a bowl.</li>
-              <li>Coat 500 g of chicken thoroughly.</li>
-              <li>Refrigerate for at least 30 minutes.</li>
-              <li>Cook until the thickest part reaches 74°C / 165°F.</li>
-            </ol>
+            <h3>RECIPE NOTES</h3>
+            <p>{recipe.notes}</p>
           </div>
         </div>
         <FantasyButton variant="red" className="modal-okay" onClick={onClose}>

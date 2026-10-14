@@ -1,9 +1,24 @@
 export type Category = 'Herby' | 'Spicy' | 'Sweet' | 'Savory';
+export interface Ingredient {
+  name: string;
+  amount: number | null;
+  unit: string;
+  maxAmount?: number;
+  optional?: boolean;
+}
 export interface Recipe {
   id: number;
   name: string;
-  category: Category;
-  tagline: string;
-  ingredients: string[];
-  description: string;
+  flavor: string;
+  region: string;
+  ingredients: Ingredient[];
+  marinationMinutes: { min: number; max: number };
+  notes: string;
+  ui: { category: Category; accentColor: string; image: string };
+}
+export interface ChickenGrimoire {
+  title: string;
+  edition: string;
+  servingBase: { ingredient: string; amount: number; unit: string; state: string };
+  recipes: Recipe[];
 }

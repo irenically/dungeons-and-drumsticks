@@ -1,13 +1,8 @@
 import { useState, type CSSProperties } from 'react';
 import { recipes } from '../data/recipes';
-import type { Category, Recipe } from '../types';
+import { formatMarination } from '../data/formatRecipe';
+import type { Recipe } from '../types';
 import { Corners, Ornament } from './Primitives';
-const accents: Record<Category, string> = {
-  Herby: '#547034',
-  Spicy: '#aa3d23',
-  Sweet: '#a57321',
-  Savory: '#72502c',
-};
 const filters = ['All', 'Herby', 'Spicy', 'Sweet', 'Savory'] as const;
 export function RecipeGrid({
   chosen,
@@ -38,7 +33,7 @@ export function RecipeGrid({
       </div>
       <div className="recipes-grid">
         {recipes
-          .filter((r) => filter === 'All' || r.category === filter)
+          .filter((r) => filter === 'All' || r.ui.category === filter)
           .map((r) => (
             <button
               type="button"
@@ -46,20 +41,25 @@ export function RecipeGrid({
               className={`recipe-card ${r.id === chosen?.id ? 'is-picked' : ''}`}
               aria-label={`Open ${r.name} marinade recipe`}
               onClick={() => onOpen(r)}
-              style={{ '--accent': accents[r.category] } as CSSProperties}
+              style={{ '--accent': r.ui.accentColor } as CSSProperties}
             >
               <span className="card-badge">{r.id}</span>
-              <div className="card-category">✦ {r.category} enchantment ✦</div>
+              <div className="card-category">✦ {r.ui.category} enchantment ✦</div>
               <img
                 className="card-food"
-                src={`${import.meta.env.BASE_URL}assets/roast-herbs.webp`}
+                src={`${import.meta.env.BASE_URL}assets/${r.ui.image}`}
                 alt="Watercolor illustration of roasted chicken"
               />
               <h3 className="card-title">{r.name.toUpperCase()}</h3>
-              <p className="card-ingredients">{r.ingredients.slice(0, 4).join(' · ')}</p>
+              <p className="card-ingredients">
+                {r.ingredients
+                  .slice(0, 4)
+                  .map((ingredient) => ingredient.name)
+                  .join(' · ')}
+              </p>
               <div className="card-footer">
                 <span>D20 · {String(r.id).padStart(2, '0')}</span>
-                <span>➜</span>
+                <span>{formatMarination(r)} · ➜</span>
               </div>
               <Corners />
             </button>

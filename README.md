@@ -50,14 +50,15 @@ Settings live in `.oxlintrc.json` and `.oxfmtrc.json`. Generated files, dependen
 - `src/components/RecipeGrid.tsx` — filterable cards
 - `src/components/RecipeModal.tsx` — accessible result modal
 - `src/components/Primitives.tsx` — themed gold/red buttons, badge, scroll, decorative corners and dividers
-- `src/data/recipes.ts` — typed demo recipe data, 20 entries
+- `src/data/recipes.ts` — typed recipe constant converted from `chicken.json`, with separate `ui` metadata
+- `src/data/formatRecipe.ts` — ingredient quantity and marination display helpers
 - `src/types.ts` — recipe model
 - `src/styles.css` — original design system and motion
 - `public/assets/` — the original supplied artwork, compressed as WebP
 
 ## Next improvements
 
-Images for individual marinades are currently placeholders (the supplied site had only two roast illustrations); the recipes are demo ingredient lists without measured amounts. Replace before using for actual cooking. For individual images, add an `image` property to `Recipe` and use it in RecipeGrid/Winner/RecipeModal. Update CSS to suit your screens and expand the character positioning on very wide monitors. No backend or database is included.
+Recipe illustrations currently share the supplied roast artwork. Set each recipe's `ui.image` to add individual images; `ui.category` and `ui.accentColor` control filtering and badge colors. Recipe IDs match D20 rolls, quantities retain the source units, and `amount: null` retains the source's quantity-free instruction. No backend or database is included.
 
 ## Design changes
 

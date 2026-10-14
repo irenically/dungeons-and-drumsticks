@@ -1,0 +1,362 @@
+{
+  "title": "The Chicken Grimoire",
+  "edition": "D20",
+  "servingBase": {
+    "ingredient": "chicken breast",
+    "amount": 500,
+    "unit": "g",
+    "state": "raw"
+  },
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Classic Garlic",
+      "flavor": "Savory, garlicky, simple",
+      "region": "European",
+      "ingredients": [
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Salt", "amount": 4, "unit": "g" },
+        { "name": "Black pepper", "amount": 0.5, "unit": "tsp" }
+      ],
+      "marinationMinutes": { "min": 30, "max": 240 },
+      "notes": "A versatile everyday marinade. Mince or crush the garlic before mixing."
+    },
+    {
+      "id": 2,
+      "name": "Lemon Pepper",
+      "flavor": "Bright, citrusy, peppery",
+      "region": "American",
+      "ingredients": [
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Lemon zest", "amount": 2, "unit": "tsp" },
+        { "name": "Coarsely ground black pepper", "amount": 0.75, "unit": "tsp" },
+        { "name": "Garlic powder", "amount": 0.5, "unit": "tsp" },
+        { "name": "Salt", "amount": 4, "unit": "g" },
+        { "name": "Lemon juice", "amount": 5, "unit": "ml" }
+      ],
+      "marinationMinutes": { "min": 30, "max": 120 },
+      "notes": "Use fresh lemon zest for the most pronounced citrus aroma."
+    },
+    {
+      "id": 3,
+      "name": "Greek Souvlaki",
+      "flavor": "Lemony, herbal, Mediterranean",
+      "region": "Greek",
+      "ingredients": [
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Lemon juice", "amount": 20, "unit": "ml" },
+        { "name": "Dried oregano", "amount": 1.5, "unit": "tsp" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Salt", "amount": 4, "unit": "g" },
+        { "name": "Black pepper", "amount": 0.25, "unit": "tsp" }
+      ],
+      "marinationMinutes": { "min": 30, "max": 180 },
+      "notes": "A classic Greek-inspired marinade. Avoid marinating much longer than recommended because of the lemon juice."
+    },
+    {
+      "id": 4,
+      "name": "Honey Mustard",
+      "flavor": "Sweet, tangy, mildly sharp",
+      "region": "European",
+      "ingredients": [
+        { "name": "Dijon mustard", "amount": 20, "unit": "g" },
+        { "name": "Honey", "amount": 12, "unit": "g" },
+        { "name": "Olive oil", "amount": 10, "unit": "ml" },
+        { "name": "Apple cider vinegar", "amount": 10, "unit": "ml" },
+        { "name": "Garlic powder", "amount": 0.5, "unit": "tsp" },
+        { "name": "Salt", "amount": 2, "unit": "g" },
+        { "name": "Black pepper", "amount": 0.25, "unit": "tsp" }
+      ],
+      "marinationMinutes": { "min": 30, "max": 120 },
+      "notes": "Remove excess marinade before grilling to prevent the honey from burning."
+    },
+    {
+      "id": 5,
+      "name": "Chicken Shawarma",
+      "flavor": "Warm, aromatic, Middle Eastern spices",
+      "region": "Middle Eastern",
+      "ingredients": [
+        { "name": "Plain yogurt", "amount": 50, "unit": "g" },
+        { "name": "Olive oil", "amount": 10, "unit": "ml" },
+        { "name": "Lemon juice", "amount": 10, "unit": "ml" },
+        { "name": "Ground cumin", "amount": 1, "unit": "tsp" },
+        { "name": "Ground coriander", "amount": 1, "unit": "tsp" },
+        { "name": "Paprika", "amount": 1, "unit": "tsp" },
+        { "name": "Turmeric", "amount": 0.5, "unit": "tsp" },
+        { "name": "Ground cinnamon", "amount": 0.125, "unit": "tsp" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Salt", "amount": 4, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 120, "max": 480 },
+      "notes": "Ground coriander refers to coriander seeds, not fresh cilantro leaves."
+    },
+    {
+      "id": 6,
+      "name": "Tandoori",
+      "flavor": "Bold, aromatic, yogurt-spiced",
+      "region": "Indian",
+      "ingredients": [
+        { "name": "Plain yogurt", "amount": 80, "unit": "g" },
+        { "name": "Garam masala", "amount": 1.5, "unit": "tsp" },
+        { "name": "Paprika", "amount": 1, "unit": "tsp" },
+        { "name": "Ground cumin", "amount": 0.5, "unit": "tsp" },
+        { "name": "Turmeric", "amount": 0.25, "unit": "tsp" },
+        { "name": "Fresh ginger", "amount": 8, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Lemon juice", "amount": 10, "unit": "ml" },
+        { "name": "Salt", "amount": 4, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 120, "max": 480 },
+      "notes": "Grate the ginger and garlic finely. Remove thick excess yogurt marinade before grilling."
+    },
+    {
+      "id": 7,
+      "name": "Piri-Piri",
+      "flavor": "Hot, tangy, garlicky",
+      "region": "Portuguese-African",
+      "ingredients": [
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Lemon juice", "amount": 15, "unit": "ml" },
+        { "name": "Fresh hot red chili", "amount": 5, "unit": "g", "maxAmount": 10 },
+        { "name": "Paprika", "amount": 1, "unit": "tsp" },
+        { "name": "Garlic", "amount": 3, "unit": "cloves" },
+        { "name": "White wine vinegar", "amount": 5, "unit": "ml" },
+        { "name": "Dried oregano", "amount": 0.5, "unit": "tsp" },
+        { "name": "Salt", "amount": 4, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "Adjust the chili quantity to your preferred heat level."
+    },
+    {
+      "id": 8,
+      "name": "Jamaican Jerk",
+      "flavor": "Spicy, earthy, warm, aromatic",
+      "region": "Jamaican",
+      "ingredients": [
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Lime juice", "amount": 15, "unit": "ml" },
+        { "name": "Ground allspice", "amount": 1, "unit": "tsp" },
+        { "name": "Dried thyme", "amount": 1, "unit": "tsp" },
+        { "name": "Fresh ginger", "amount": 8, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Fresh hot chili", "amount": 5, "unit": "g", "maxAmount": 10 },
+        { "name": "Brown sugar", "amount": 5, "unit": "g" },
+        { "name": "Ground cinnamon", "amount": 0.25, "unit": "tsp" },
+        { "name": "Ground nutmeg", "amount": 0.125, "unit": "tsp" },
+        { "name": "Salt", "amount": 4, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 120, "max": 480 },
+      "notes": "Allspice is essential to the jerk flavor. Use regular hot chili if Scotch bonnet is unavailable."
+    },
+    {
+      "id": 9,
+      "name": "Pollo Asado",
+      "flavor": "Citrusy, smoky, mildly spicy",
+      "region": "Mexican",
+      "ingredients": [
+        { "name": "Orange juice", "amount": 40, "unit": "ml" },
+        { "name": "Lime juice", "amount": 15, "unit": "ml" },
+        { "name": "Olive oil", "amount": 10, "unit": "ml" },
+        { "name": "Smoked paprika", "amount": 1, "unit": "tsp" },
+        { "name": "Ground cumin", "amount": 1, "unit": "tsp" },
+        { "name": "Dried oregano", "amount": 0.5, "unit": "tsp" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Chili powder", "amount": 0.25, "unit": "tsp" },
+        { "name": "Salt", "amount": 4, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "The orange and lime combination creates a bright citrus marinade."
+    },
+    {
+      "id": 10,
+      "name": "Balsamic Herb",
+      "flavor": "Tangy, herbal, slightly sweet",
+      "region": "Italian",
+      "ingredients": [
+        { "name": "Balsamic vinegar", "amount": 20, "unit": "ml" },
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Dried rosemary", "amount": 0.5, "unit": "tsp" },
+        { "name": "Dried thyme", "amount": 0.5, "unit": "tsp" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Dijon mustard", "amount": 5, "unit": "g" },
+        { "name": "Salt", "amount": 3, "unit": "g" },
+        { "name": "Black pepper", "amount": 0.25, "unit": "tsp" }
+      ],
+      "marinationMinutes": { "min": 30, "max": 180 },
+      "notes": "A thin coating works best on a contact grill."
+    },
+    {
+      "id": 11,
+      "name": "Korean Gochujang",
+      "flavor": "Spicy, sweet, savory, umami-rich",
+      "region": "Korean",
+      "ingredients": [
+        { "name": "Gochujang paste", "amount": 25, "unit": "g" },
+        { "name": "Soy sauce", "amount": 15, "unit": "ml" },
+        { "name": "Rice vinegar", "amount": 10, "unit": "ml" },
+        { "name": "Honey", "amount": 10, "unit": "g" },
+        { "name": "Sesame oil", "amount": 5, "unit": "ml" },
+        { "name": "Fresh ginger", "amount": 8, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "Gochujang and honey can caramelize quickly. Wipe off excess paste before grilling."
+    },
+    {
+      "id": 12,
+      "name": "Sun-Dried Tomato & Basil",
+      "flavor": "Rich, savory, tomato-forward, herbal",
+      "region": "Italian",
+      "ingredients": [
+        { "name": "Sun-dried tomatoes in oil", "amount": 40, "unit": "g" },
+        { "name": "Oil from tomato jar", "amount": 10, "unit": "ml" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Dried basil", "amount": 1, "unit": "tsp" },
+        { "name": "Dried oregano", "amount": 0.5, "unit": "tsp" },
+        { "name": "Lemon juice", "amount": 5, "unit": "ml" },
+        { "name": "Black pepper", "amount": 0.25, "unit": "tsp" },
+        { "name": "Salt", "amount": 2, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "Blend the ingredients into a paste. Remove large tomato pieces before grilling to prevent scorching."
+    },
+    {
+      "id": 13,
+      "name": "Vietnamese Lemongrass",
+      "flavor": "Fragrant, citrusy, savory",
+      "region": "Vietnamese",
+      "ingredients": [
+        { "name": "Fresh lemongrass", "amount": 20, "unit": "g" },
+        { "name": "Fish sauce", "amount": 20, "unit": "ml" },
+        { "name": "Lime juice", "amount": 10, "unit": "ml" },
+        { "name": "Brown sugar", "amount": 8, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Vegetable oil", "amount": 10, "unit": "ml" },
+        { "name": "Black pepper", "amount": 0.25, "unit": "tsp" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "Finely mince the tender inner part of the lemongrass stalk. Remove fibrous pieces before grilling."
+    },
+    {
+      "id": 14,
+      "name": "Thai Satay",
+      "flavor": "Nutty, creamy, gently spiced",
+      "region": "Thai",
+      "ingredients": [
+        { "name": "Coconut milk", "amount": 50, "unit": "ml" },
+        { "name": "Unsweetened peanut butter", "amount": 15, "unit": "g" },
+        { "name": "Yellow curry powder", "amount": 1, "unit": "tsp" },
+        { "name": "Soy sauce", "amount": 10, "unit": "ml" },
+        { "name": "Lime juice", "amount": 10, "unit": "ml" },
+        { "name": "Brown sugar", "amount": 5, "unit": "g" },
+        { "name": "Turmeric", "amount": 0.25, "unit": "tsp" },
+        { "name": "Garlic", "amount": 1, "unit": "clove" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "Remove excess peanut marinade before grilling because thick nut-based coatings can burn."
+    },
+    {
+      "id": 15,
+      "name": "Huli Huli",
+      "flavor": "Sweet, tangy, tropical, savory",
+      "region": "Hawaiian",
+      "ingredients": [
+        { "name": "Pineapple juice", "amount": 40, "unit": "ml" },
+        { "name": "Soy sauce", "amount": 20, "unit": "ml" },
+        { "name": "Brown sugar", "amount": 8, "unit": "g" },
+        { "name": "Ketchup", "amount": 15, "unit": "g" },
+        { "name": "Fresh ginger", "amount": 10, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Rice vinegar", "amount": 5, "unit": "ml" }
+      ],
+      "marinationMinutes": { "min": 30, "max": 120 },
+      "notes": "Use pasteurized pineapple juice for predictable marination. Remove excess sugary marinade before grilling."
+    },
+    {
+      "id": 16,
+      "name": "Chipotle Lime",
+      "flavor": "Smoky, spicy, citrusy",
+      "region": "Mexican",
+      "ingredients": [
+        { "name": "Chipotle in adobo", "amount": 20, "unit": "g" },
+        { "name": "Lime juice", "amount": 20, "unit": "ml" },
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Honey", "amount": 8, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Ground cumin", "amount": 0.5, "unit": "tsp" },
+        { "name": "Salt", "amount": 3, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "Blend the chipotle into the marinade. Adjust the amount to control heat."
+    },
+    {
+      "id": 17,
+      "name": "Garlic Parmesan",
+      "flavor": "Cheesy, garlicky, herbal",
+      "region": "Italian-American",
+      "ingredients": [
+        { "name": "Olive oil", "amount": 15, "unit": "ml" },
+        { "name": "Parmesan", "amount": 20, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Dried basil", "amount": 0.5, "unit": "tsp" },
+        { "name": "Dried oregano", "amount": 0.5, "unit": "tsp" },
+        { "name": "Lemon juice", "amount": 5, "unit": "ml" },
+        { "name": "Black pepper", "amount": 0.25, "unit": "tsp" },
+        { "name": "Salt", "amount": 2, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 30, "max": 120 },
+      "notes": "For best results, reserve the Parmesan and add it after grilling rather than pressing cheese directly against the hot grill plates."
+    },
+    {
+      "id": 18,
+      "name": "Buffalo Style",
+      "flavor": "Hot, tangy, buttery",
+      "region": "American",
+      "ingredients": [
+        { "name": "Hot pepper sauce", "amount": 35, "unit": "ml" },
+        { "name": "Melted butter", "amount": 15, "unit": "g" },
+        { "name": "Garlic powder", "amount": 0.5, "unit": "tsp" },
+        { "name": "Smoked paprika", "amount": 0.25, "unit": "tsp" },
+        { "name": "Honey", "amount": 5, "unit": "g", "optional": true },
+        { "name": "Salt", "amount": null, "unit": "to taste", "optional": true }
+      ],
+      "marinationMinutes": { "min": 20, "max": 120 },
+      "notes": "Use a vinegar-based hot sauce such as Frank's RedHot Original. Reserve a separate clean portion of sauce for coating the cooked chicken."
+    },
+    {
+      "id": 19,
+      "name": "Coconut Lime",
+      "flavor": "Creamy, citrusy, mildly spicy",
+      "region": "Southeast Asian-inspired",
+      "ingredients": [
+        { "name": "Coconut milk", "amount": 80, "unit": "ml" },
+        { "name": "Lime juice", "amount": 15, "unit": "ml" },
+        { "name": "Lime zest", "amount": 1, "unit": "tsp" },
+        { "name": "Fresh ginger", "amount": 10, "unit": "g" },
+        { "name": "Garlic", "amount": 2, "unit": "cloves" },
+        { "name": "Chili flakes", "amount": 0.25, "unit": "tsp" },
+        { "name": "Salt", "amount": 4, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 60, "max": 240 },
+      "notes": "Shake or stir the coconut milk thoroughly before measuring. Remove excess marinade before grilling."
+    },
+    {
+      "id": 20,
+      "name": "Ranch Buttermilk",
+      "flavor": "Creamy, tangy, herby",
+      "region": "American",
+      "ingredients": [
+        { "name": "Buttermilk or kefir", "amount": 100, "unit": "ml" },
+        { "name": "Dried dill", "amount": 1, "unit": "tsp" },
+        { "name": "Dried parsley", "amount": 1, "unit": "tsp" },
+        { "name": "Garlic powder", "amount": 1, "unit": "tsp" },
+        { "name": "Black pepper", "amount": 0.5, "unit": "tsp" },
+        { "name": "Lemon juice", "amount": 5, "unit": "ml" },
+        { "name": "Salt", "amount": 4, "unit": "g" }
+      ],
+      "marinationMinutes": { "min": 120, "max": 480 },
+      "notes": "Let excess buttermilk drip off before grilling for better browning."
+    }
+  ]
+}
