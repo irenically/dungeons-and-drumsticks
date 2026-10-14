@@ -20,7 +20,6 @@ const firelights = [
   { x: 355, y: 332, rx: 90, ry: 60 },
   { x: 1370, y: 445, rx: 85, ry: 38 },
 ];
-const championSparkles = ['✦', '✧', '✦'];
 const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'cleric']);
 function ShootingStars() {
   const [stars, setStars] = useState<{ id: number; x: number; y: number; duration: number }[]>([]);
@@ -115,14 +114,18 @@ function BattleCharacter({ name }: { name: string }) {
         alt=""
       />
       <span className="fighter-magic">
-        {(name === 'bard' ? bardNotes : name === 'champion' ? championSparkles : []).map(
-          (symbol, index) => (
-            <span key={index} className={`fighter-particle particle-${index}`}>
-              {symbol}
-            </span>
-          ),
-        )}
+        {(name === 'bard' ? bardNotes : []).map((symbol, index) => (
+          <span key={index} className={`fighter-particle particle-${index}`}>
+            {symbol}
+          </span>
+        ))}
       </span>
+      {name === 'champion' ? (
+        <span
+          className="champion-armor-sheen"
+          style={{ maskImage: `url(${import.meta.env.BASE_URL}assets/champion.png)` }}
+        />
+      ) : null}
       {projectileUsers.has(name)
         ? Array.from({ length: name === 'warlock' ? 3 : 1 }, (_, index) => (
             <span key={index} className={`fighter-projectile projectile-${index}`}>

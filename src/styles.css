@@ -2293,3 +2293,74 @@ button:disabled {
     display: none;
   }
 }
+
+.fighter-champion .fighter-art {
+  animation: none;
+}
+.champion-armor-sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+}
+.champion-armor-sheen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(
+    3% 40%,
+    28% 36%,
+    33% 22%,
+    46% 20%,
+    53% 33%,
+    72% 32%,
+    77% 44%,
+    61% 50%,
+    53% 64%,
+    31% 69%,
+    18% 83%,
+    2% 76%
+  );
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    #fff3b83b 46%,
+    #fffbe7ba 50%,
+    #ffe69a38 54%,
+    transparent 60%
+  );
+  background-size: 300% 100%;
+  opacity: 0;
+  animation: champion-armor-shine var(--magic-cycle) ease-in-out var(--magic-delay) infinite;
+}
+@keyframes champion-armor-shine {
+  0%,
+  72% {
+    opacity: 0;
+    background-position: 100% 0;
+  }
+  76% {
+    opacity: 0.9;
+    background-position: 100% 0;
+  }
+  87% {
+    opacity: 0.9;
+    background-position: 0% 0;
+  }
+  91%,
+  100% {
+    opacity: 0;
+    background-position: 0% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .champion-armor-sheen {
+    display: none;
+  }
+  .champion-armor-sheen::before {
+    animation: none !important;
+  }
+}
