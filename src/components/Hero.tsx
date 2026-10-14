@@ -12,6 +12,7 @@ const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'druid', 'cleric
 function BattleCharacter({ name }: { name: string }) {
   return (
     <span className={`fighter fighter-${name}`}>
+      {name === 'cleric' ? <span className="cleric-healing-aura" /> : null}
       <img
         className="fighter-art"
         src={`${import.meta.env.BASE_URL}assets/${artwork[name] ?? `${name}.webp`}`}
