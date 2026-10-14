@@ -697,6 +697,7 @@ export const chickenGrimoire: ChickenGrimoire = {
         category: 'Herby',
         accentColor: '#547034',
         image: 'recipe-cards/Sun-Dried Tomato & Basil.png',
+        ingredientPreviewCount: 2,
       },
     },
     {

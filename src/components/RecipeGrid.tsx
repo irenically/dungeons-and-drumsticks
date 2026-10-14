@@ -74,7 +74,7 @@ export function RecipeGrid({
                 <li className="card-ingredients-heading" aria-hidden="true">
                   Ingredients
                 </li>
-                {r.ingredients.slice(0, 6).map((ingredient) => (
+                {r.ingredients.slice(0, r.ui.ingredientPreviewCount ?? 6).map((ingredient) => (
                   <li key={ingredient.name}>
                     <span>
                       {ingredient.name}
@@ -85,9 +85,9 @@ export function RecipeGrid({
                     </span>
                   </li>
                 ))}
-                {r.ingredients.length > 6 ? (
+                {r.ingredients.length > (r.ui.ingredientPreviewCount ?? 6) ? (
                   <li className="card-more-ingredients">
-                    +{r.ingredients.length - 6} more ingredients
+                    +{r.ingredients.length - (r.ui.ingredientPreviewCount ?? 6)} more ingredients
                   </li>
                 ) : null}
               </ul>
