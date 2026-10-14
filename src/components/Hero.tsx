@@ -35,8 +35,8 @@ function ShootingStars() {
           if (!preference.matches && !document.hidden) {
             const star = {
               id: nextId++,
-              x: 27 + Math.random() * 48,
-              y: 3 + Math.random() * 18,
+              x: 780 + Math.random() * 200,
+              y: 15 + Math.random() * 35,
               duration: 0.9 + Math.random() * 0.6,
             };
             setStars((current) => [...current, star]);
@@ -61,15 +61,32 @@ function ShootingStars() {
     };
   }, []);
   return (
-    <div className="shooting-stars" aria-hidden="true">
-      {stars.map((star) => (
-        <span
-          key={star.id}
-          className="shooting-star"
-          style={{ left: `${star.x}%`, top: `${star.y}%`, animationDuration: `${star.duration}s` }}
-        />
-      ))}
-    </div>
+    <svg
+      className="shooting-stars"
+      viewBox="0 0 2048 682"
+      preserveAspectRatio="xMidYMin slice"
+      aria-hidden="true"
+    >
+      <defs>
+        <clipPath id="battleSkyOnly">
+          <path d="M760 5H1180V100L1050 130 760 100Z" />
+        </clipPath>
+        <linearGradient id="shootingStarTail">
+          <stop stopColor="#d7eaff" stopOpacity="0" />
+          <stop offset="1" stopColor="#d7eaff" stopOpacity=".7" />
+        </linearGradient>
+      </defs>
+      <g clipPath="url(#battleSkyOnly)">
+        {stars.map((star) => (
+          <g key={star.id} transform={`translate(${star.x} ${star.y})`}>
+            <g className="shooting-star" style={{ animationDuration: `${star.duration}s` }}>
+              <path d="M-38-18 0 0" stroke="url(#shootingStarTail)" strokeWidth="1" />
+              <circle r="1.5" fill="#fff6db" />
+            </g>
+          </g>
+        ))}
+      </g>
+    </svg>
   );
 }
 function BattleCharacter({ name }: { name: string }) {

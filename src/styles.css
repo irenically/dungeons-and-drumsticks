@@ -2254,6 +2254,8 @@ button:disabled {
 }
 
 .shooting-stars {
+  width: 100%;
+  height: 100%;
   position: absolute;
   inset: 0;
   z-index: -2;
@@ -2269,17 +2271,6 @@ button:disabled {
   box-shadow: 0 0 5px #d2eaff;
   opacity: 0;
   animation: shooting-star-fall 1.2s ease-out both;
-}
-.shooting-star::after {
-  content: '';
-  position: absolute;
-  right: 1px;
-  top: 1px;
-  width: 38px;
-  height: 1px;
-  transform-origin: right center;
-  transform: rotate(25deg);
-  background: linear-gradient(to right, transparent, #d7eaffb3);
 }
 @keyframes shooting-star-fall {
   0% {
