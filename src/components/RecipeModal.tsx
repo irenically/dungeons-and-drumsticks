@@ -58,11 +58,16 @@ export function RecipeModal({
         aria-labelledby="modal-heading"
       >
         {origin === 'roll' ? (
-          <img
+          <div
             className="roll-result-banner"
-            src={`${import.meta.env.BASE_URL}assets/The Dice Has Spoken Banner.png`}
-            alt="The Dice has spoken"
-          />
+            role="img"
+            aria-label={`The Dice has spoken: rolled ${recipe.id}`}
+          >
+            <img src={`${import.meta.env.BASE_URL}assets/The Dice Has Spoken Banner.png`} alt="" />
+            <span className="roll-result-number" aria-hidden="true">
+              {recipe.id}
+            </span>
+          </div>
         ) : null}
         <button
           ref={closeRef}

@@ -3666,6 +3666,7 @@ button:disabled {
   right: 13%;
 }
 .roll-result-banner {
+  container-type: inline-size;
   position: absolute;
   z-index: 5;
   top: -7%;
@@ -3674,6 +3675,22 @@ button:disabled {
   height: auto;
   transform: translateX(-50%);
   pointer-events: none;
+}
+.roll-result-banner > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.roll-result-number {
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font: 800 3cqw/1 var(--fantasy-font);
+  color: #ffe3a0;
+  text-shadow:
+    0 1px 2px #000,
+    0 0 5px #ca8a3655;
 }
 .recipe-modal--roll .recipe-modal-content {
   inset: 12% 14% 10%;
