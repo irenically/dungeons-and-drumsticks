@@ -3297,3 +3297,7 @@ button:disabled {
   display: inline;
   margin: 0;
 }
+
+.card-title {
+  font-size: 5cqw;
+}
