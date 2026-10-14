@@ -534,7 +534,7 @@ button:disabled {
   }
 }
 .fighter-barbarian .fighter-art {
-  animation-name: barbarian-ready;
+  animation-name: barbarian-rage;
 }
 @keyframes fighter-enchantment {
   0%,
@@ -609,20 +609,49 @@ button:disabled {
     translate: -90px -8px;
   }
 }
-@keyframes barbarian-ready {
+@keyframes barbarian-rage {
   0%,
-  75%,
+  70%,
   100% {
+    translate: 0 0;
     rotate: 0deg;
+    filter: none;
   }
-  80% {
-    rotate: -3deg;
+  75% {
+    translate: 0 0;
+    rotate: 0deg;
+    filter: sepia(0.45) saturate(2) hue-rotate(-25deg);
   }
-  85% {
-    rotate: 2deg;
+  76%,
+  78%,
+  80%,
+  82%,
+  84%,
+  86%,
+  88% {
+    translate: -3px -1px;
+    rotate: -1deg;
+    filter: sepia(0.45) saturate(2) hue-rotate(-25deg);
+  }
+  77%,
+  79%,
+  81%,
+  83%,
+  85%,
+  87% {
+    translate: 3px 1px;
+    rotate: 1deg;
+    filter: sepia(0.45) saturate(2) hue-rotate(-25deg);
   }
   90% {
+    translate: 0 0;
     rotate: 0deg;
+    filter: sepia(0.3) saturate(1.5) hue-rotate(-15deg);
+  }
+  96% {
+    translate: 0 0;
+    rotate: 0deg;
+    filter: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
