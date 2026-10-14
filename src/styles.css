@@ -2312,3 +2312,111 @@ button:disabled {
     animation: none !important;
   }
 }
+
+/* Compact recipe tiles: title and die above a picture and ingredient list. */
+.recipes-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.recipe-card {
+  display: grid;
+  grid-template-columns: 48% minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 12px 16px;
+  min-height: 350px;
+  padding: 14px;
+  border: 1px solid #a6814c;
+  border-radius: 8px;
+  background: #fff2d7;
+  box-shadow:
+    inset 0 0 0 4px #fff8e8,
+    0 4px 16px #4a230f0d;
+}
+.card-header {
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+  margin: 0;
+  gap: 14px;
+}
+.card-dice {
+  width: 64px;
+  height: 69px;
+  filter: drop-shadow(0 2px 1px #3c2c2330);
+}
+.card-dice svg {
+  stroke: #fff5d9;
+  stroke-width: 1;
+}
+.card-dice text {
+  stroke: none;
+}
+.card-title {
+  margin: 0;
+  font: 800 20px/1.2 var(--fantasy-font);
+  color: #652c20;
+}
+.card-food {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  height: 100%;
+  min-height: 235px;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.card-ingredients {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #5f5140;
+  font: 400 14px/1.35 var(--body-font);
+}
+.card-ingredients li {
+  padding: 3px 0;
+  border-bottom: 1px solid #a6814c1a;
+}
+.card-footer {
+  grid-column: 2;
+  margin: 0;
+  padding-top: 10px;
+  border: 0;
+  font:
+    500 13px/1.3 system-ui,
+    sans-serif;
+  color: #5f5140;
+}
+.card-footer > span:first-child::before {
+  content: '◷ ';
+  font-size: 20px;
+  vertical-align: -1px;
+}
+.card-open {
+  display: none;
+}
+@media (max-width: 1100px) {
+  .recipes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 650px) {
+  .recipes-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .recipe-card {
+    min-height: 320px;
+    padding: 12px;
+  }
+  .card-title {
+    font-size: 20px;
+  }
+  .card-food {
+    height: 100%;
+  }
+  .card-ingredients {
+    font-size: 15px;
+  }
+  .card-footer {
+    font-size: 13px;
+  }
+}

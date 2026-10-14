@@ -44,7 +44,6 @@ export function RecipeGrid({
               style={{ '--accent': r.ui.accentColor } as CSSProperties}
             >
               <div className="card-header">
-                <span className="card-category">{r.ui.category}</span>
                 <span className="card-dice" aria-label={`D20 roll ${r.id}`}>
                   <svg viewBox="0 0 48 52" aria-hidden="true">
                     <path d="M24 2 45 14 45 38 24 50 3 38 3 14Z" fill="currentColor" />
@@ -60,27 +59,26 @@ export function RecipeGrid({
                       y="31"
                       textAnchor="middle"
                       fill="white"
-                      fontSize="15"
+                      fontSize="12"
                       fontWeight="700"
                       fontFamily="system-ui, sans-serif"
                     >
-                      {r.id}
+                      D{r.id}
                     </text>
                   </svg>
                 </span>
+                <h3 className="card-title">{r.name}</h3>
               </div>
               <img
                 className="card-food"
                 src={`${import.meta.env.BASE_URL}assets/${r.ui.image}`}
                 alt="Watercolor illustration of roasted chicken"
               />
-              <h3 className="card-title">{r.name}</h3>
-              <p className="card-ingredients">
-                {r.ingredients
-                  .slice(0, 4)
-                  .map((ingredient) => ingredient.name)
-                  .join(' · ')}
-              </p>
+              <ul className="card-ingredients">
+                {r.ingredients.map((ingredient) => (
+                  <li key={ingredient.name}>{ingredient.name}</li>
+                ))}
+              </ul>
               <div className="card-footer">
                 <span>{formatMarination(r)}</span>
                 <span className="card-open" aria-hidden="true">
