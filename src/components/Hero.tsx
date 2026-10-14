@@ -1,7 +1,12 @@
 import { D20 } from './D20';
 import { FantasyButton } from './Primitives';
-const left = ['druid', 'bard', 'paladin', 'rogue'];
-const right = ['wizard', 'ranger', 'barbarian', 'warlock'];
+const left = ['artificer', 'cleric', 'monk', 'druid', 'bard', 'paladin', 'rogue'];
+const right = ['sorcerer', 'champion', 'wizard', 'ranger', 'barbarian', 'warlock'];
+const artwork: Record<string, string> = {
+  cleric: 'cleric.png',
+  champion: 'champion.png',
+  sorcerer: 'sorcerer.png',
+};
 export function Hero({
   value,
   rolling,
@@ -33,7 +38,7 @@ export function Hero({
           <img
             key={name}
             className={`fighter fighter-${name}`}
-            src={`${import.meta.env.BASE_URL}assets/${name}.webp`}
+            src={`${import.meta.env.BASE_URL}assets/${artwork[name] ?? `${name}.webp`}`}
             alt=""
           />
         ))}
@@ -43,7 +48,7 @@ export function Hero({
           <img
             key={name}
             className={`fighter fighter-${name}`}
-            src={`${import.meta.env.BASE_URL}assets/${name}.webp`}
+            src={`${import.meta.env.BASE_URL}assets/${artwork[name] ?? `${name}.webp`}`}
             alt=""
           />
         ))}
