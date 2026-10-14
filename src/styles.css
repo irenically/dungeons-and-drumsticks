@@ -1,0 +1,1506 @@
+:root {
+  --ink: #4a230f;
+  --ink-dark: #2a150d;
+  --gold: #d7a04a;
+  --gold-bright: #ffe6a0;
+  --old-gold: #92571b;
+  --crimson: #881e1a;
+  --cream: #ffe7b1;
+  --parchment: #f2d4a1;
+  --fantasy-font: 'Cinzel', Georgia, serif;
+  --body-font: 'IM Fell English', Georgia, serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #e9c58f url('assets/parchment.webp') repeat;
+  background-size: 650px;
+  font-family: var(--body-font);
+  font-size: 18px;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+  font-family: var(--fantasy-font);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #eaaa32;
+  outline-offset: 5px;
+}
+button:disabled {
+  cursor: wait;
+}
+.page-shell {
+  overflow: hidden;
+}
+.container {
+  width: min(1190px, calc(100% - 42px));
+  margin-inline: auto;
+}
+.site-nav {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1370px, calc(100% - 60px));
+  min-height: 84px;
+  color: #fce7ad;
+  text-shadow: 0 2px 4px #140e0c;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: 800 21px/0.95 var(--fantasy-font);
+  letter-spacing: -1px;
+}
+.brand small {
+  font-size: 0.7em;
+}
+.brand-mark {
+  display: block;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.top-links {
+  display: flex;
+  gap: 38px;
+  font: 700 11px var(--fantasy-font);
+}
+.top-links a {
+  transition: color 0.25s;
+}
+.top-links a:hover {
+  color: #ffbd57;
+}
+.nav-sigil {
+  font-size: 27px;
+}
+.hero {
+  height: 770px;
+  min-height: 650px;
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+  background: #15253e;
+}
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -4;
+  background-image: url('assets/battlefield.webp');
+  background-size: cover;
+  background-position: center top;
+}
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6, 12, 20, 0.35),
+      transparent 30%,
+      rgba(9, 13, 20, 0.15) 70%,
+      rgba(6, 12, 20, 0.35)
+    ),
+    radial-gradient(ellipse 32% 42% at 50% 31%, rgba(7, 14, 30, 0.69), rgba(7, 14, 30, 0.05) 95%);
+}
+.hero-stars {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    radial-gradient(#ffe3a0 1px, transparent 1px), radial-gradient(#ffffffad 1px, transparent 1px);
+  background-position:
+    0 0,
+    46px 75px;
+  background-size:
+    117px 103px,
+    179px 149px;
+  opacity: 0.5;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding-top: 118px;
+  pointer-events: none;
+}
+.hero-content button {
+  pointer-events: auto;
+}
+.eyebrow {
+  font: 700 11px var(--fantasy-font);
+  letter-spacing: 3.8px;
+  color: #fee0a4;
+  text-shadow: 0 2px 8px #000;
+  margin: 0 0 8px;
+}
+.hero h1 {
+  color: #ffe8b2;
+  text-shadow:
+    0 3px 0 #74441b,
+    0 6px 0 #28170f,
+    0 10px 19px #090f1b;
+  font: 900 clamp(41px, 5.5vw, 75px)/0.98 var(--fantasy-font);
+  letter-spacing: -3px;
+  margin: 0;
+}
+.hero h1 em {
+  display: block;
+  font-style: normal;
+  font-size: 1.12em;
+}
+.hero-subtitle {
+  margin: 12px auto 1px;
+  font-size: 21px;
+  color: #ffe6ad;
+  text-shadow: 0 2px 5px #000;
+}
+.dice-stage {
+  position: relative;
+  height: 265px;
+  width: 330px;
+  max-width: 85vw;
+  margin: auto;
+  display: grid;
+  place-items: center;
+}
+.dice-aura {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 2px solid #faac4e;
+  border-radius: 50%;
+  box-shadow:
+    0 0 30px 4px #fa8b28,
+    0 0 70px #d74c12,
+    inset 0 0 35px #f9a731;
+  animation: orbit 13s linear infinite;
+}
+.dice-aura:after {
+  content: '';
+  position: absolute;
+  inset: -22px;
+  border: 2px dashed #ffaa55;
+  border-radius: 50%;
+  opacity: 0.65;
+}
+.d20 {
+  border: 0;
+  background: transparent;
+  width: 218px;
+  filter: drop-shadow(0 0 10px #ffd25b) drop-shadow(0 0 25px #f78218);
+  animation: float 4s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+  transition: filter 0.3s;
+}
+.d20:hover {
+  filter: drop-shadow(0 0 19px #ffe388) drop-shadow(0 0 38px #e87913);
+}
+.d20-svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+.d20.rolling .d20-svg {
+  animation: die-spin 1.45s cubic-bezier(0.27, 0.08, 0.22, 1) both;
+}
+.spark {
+  position: absolute;
+  color: #ffe7ad;
+  text-shadow: 0 0 12px #ffaa33;
+  font-size: 27px;
+  animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+.spark-one {
+  top: 25px;
+  left: 17px;
+}
+.spark-two {
+  top: 70px;
+  right: 4px;
+  animation-delay: -0.5s;
+}
+.spark-three {
+  bottom: 28px;
+  left: 39px;
+  animation-delay: -0.8s;
+}
+.spark-four {
+  bottom: 18px;
+  right: 35px;
+  animation-delay: -1.2s;
+}
+.orb {
+  position: absolute;
+  z-index: -1;
+  border: 3px solid #ffce6e;
+  border-radius: 50%;
+  width: 270px;
+  height: 105px;
+  transform: rotate(-28deg);
+  box-shadow: 0 0 18px #f48721;
+  animation: orb-rotate 6s ease-in-out infinite alternate;
+}
+.orb-two {
+  transform: rotate(30deg);
+  animation-delay: -2s;
+  width: 250px;
+}
+.hero-footnote {
+  color: #ffe4ac;
+  margin-top: 17px;
+  text-shadow: 0 2px 5px #000;
+  font-size: 17px;
+}
+.fighters {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.fighter {
+  position: absolute;
+  width: clamp(205px, 23vw, 335px);
+  height: auto;
+  filter: drop-shadow(0 15px 10px #161111b8);
+  transform-origin: center bottom;
+  animation: fighter-bob 4.5s ease-in-out infinite alternate;
+}
+.fighters-left .fighter-druid {
+  left: -5%;
+  top: 175px;
+  width: 24vw;
+  max-width: 325px;
+  animation-delay: -2s;
+}
+.fighters-left .fighter-bard {
+  left: 3%;
+  bottom: 110px;
+  width: 21vw;
+  max-width: 275px;
+  animation-delay: -0.4s;
+}
+.fighters-left .fighter-paladin {
+  left: 11%;
+  bottom: 56px;
+  width: 24vw;
+  max-width: 335px;
+  animation-delay: -1.8s;
+}
+.fighters-left .fighter-rogue {
+  left: 20%;
+  top: 225px;
+  width: 19vw;
+  max-width: 260px;
+  animation-delay: -3s;
+}
+.fighters-right .fighter-wizard {
+  right: 1%;
+  top: 90px;
+  width: 24vw;
+  max-width: 340px;
+  animation-delay: -3s;
+}
+.fighters-right .fighter-ranger {
+  right: 15%;
+  bottom: 70px;
+  width: 23vw;
+  max-width: 300px;
+  animation-delay: -2.3s;
+  transform: scaleX(-1);
+}
+.fighters-right .fighter-barbarian {
+  right: 0;
+  bottom: 20px;
+  width: 22vw;
+  max-width: 310px;
+  animation-delay: -1.1s;
+  transform: scaleX(-1);
+}
+.fighters-right .fighter-warlock {
+  right: 24%;
+  top: 230px;
+  width: 17vw;
+  max-width: 245px;
+  animation-delay: -3.3s;
+}
+.hero-transition {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 210px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #e9bf83aa 42%,
+    #f3d3a0d9 65%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, transparent, black 40%);
+  pointer-events: none;
+}
+.hero-transition:after {
+  content: '';
+  position: absolute;
+  inset: 80px 0 0;
+  background: url('assets/parchment.webp') center / 650px;
+  mask-image: linear-gradient(to bottom, transparent, #000 76%);
+}
+/* The same engraved polygon silhouette is used by every button, with two palettes. */
+.fantasy-button {
+  --button-main: #e9b65e;
+  --button-light: #fff0b1;
+  --button-shadow: #80521f;
+  --button-text: #391c12;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 54px;
+  padding: 11px 34px;
+  position: relative;
+  border: 3px solid #522b12;
+  border-radius: 8px;
+  clip-path: polygon(
+    0 23%,
+    3% 14%,
+    7% 14%,
+    10% 0,
+    90% 0,
+    93% 14%,
+    97% 14%,
+    100% 23%,
+    100% 78%,
+    97% 86%,
+    93% 86%,
+    90% 100%,
+    10% 100%,
+    7% 86%,
+    3% 86%,
+    0 78%
+  );
+  color: var(--button-text);
+  font: 800 15px var(--fantasy-font);
+  text-shadow: 0 1px 0 #fff4c050;
+  background: linear-gradient(
+    155deg,
+    var(--button-light) 0%,
+    var(--button-main) 25%,
+    var(--button-shadow) 51%,
+    var(--button-main) 75%,
+    var(--button-light) 100%
+  );
+  box-shadow:
+    inset 0 0 0 2px #ffde91,
+    inset 0 0 0 5px #7b481c,
+    0 6px 0 #47230c,
+    0 11px 19px #230e0990;
+  transition:
+    transform 0.2s,
+    filter 0.2s;
+  white-space: nowrap;
+}
+.fantasy-button:before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid #fff0b58c;
+  border-radius: 4px;
+  clip-path: inherit;
+  pointer-events: none;
+}
+.fantasy-button:after {
+  content: '◆';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #ffebaa;
+  text-shadow: 0 1px 2px #5c300d;
+}
+.fantasy-button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.14) drop-shadow(0 0 9px #ffc87599);
+}
+.fantasy-button:active {
+  transform: translateY(3px);
+}
+.fantasy-button--red {
+  --button-main: #a9291b;
+  --button-light: #dd5a31;
+  --button-shadow: #5f110c;
+  --button-text: #ffebbb;
+  text-shadow: 0 2px 3px #200400;
+}
+.fantasy-button--gold {
+  --button-main: #dbac51;
+  --button-light: #ffe59a;
+  --button-shadow: #a46c24;
+}
+.roll-button {
+  font-size: 19px;
+  padding: 17px 50px;
+  min-height: 68px;
+  letter-spacing: 1px;
+  box-shadow:
+    inset 0 0 0 2px #ffd981,
+    inset 0 0 0 6px #782c17,
+    0 5px 0 #442013,
+    0 7px 20px #080607;
+}
+.button-side {
+  color: #ffd77e;
+  font-size: 20px;
+}
+.result-section {
+  margin-top: -65px;
+  position: relative;
+  z-index: 5;
+  text-align: center;
+}
+.section-ornament {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  color: #986528;
+  text-shadow: 0 1px #fff0c7;
+  font-size: 26px;
+  margin: 0 auto 13px;
+}
+.section-ornament:before,
+.section-ornament:after {
+  content: '';
+  width: min(18%, 165px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #9f6728, transparent);
+}
+.section-ornament.elongated {
+  margin-top: 10px;
+  font-size: 19px;
+}
+.section-ornament.elongated:before,
+.section-ornament.elongated:after {
+  display: none;
+}
+.little-chicken {
+  font-size: 22px;
+}
+.ribbon-heading {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px auto -9px;
+  z-index: 2;
+  color: #fbe4a6;
+  padding: 14px 36px;
+  background: linear-gradient(#bf3c23, #7d1912 75%, #5e130d);
+  border: 3px double #e6b35c;
+  border-radius: 6px;
+  box-shadow:
+    0 4px 2px #643e1d,
+    0 8px 14px #7e4f1c80;
+  text-shadow: 0 2px 3px #390e0a;
+  font: 800 21px var(--fantasy-font);
+  transform: rotate(-1deg);
+}
+.ribbon-tail {
+  display: none;
+}
+.winner-frame {
+  min-height: 325px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 35% 40% 25%;
+  align-items: center;
+  gap: 0;
+  isolation: isolate;
+  padding: 24px 28px;
+  background:
+    linear-gradient(120deg, #f9dfa99c, #ffe7b7b9 52%, #e9c388b5),
+    url('assets/parchment.webp') center/590px;
+  border: 6px ridge #b47733;
+  box-shadow:
+    0 1px 1px #fff9d0 inset,
+    0 12px 18px #8c582f50,
+    0 0 0 2px #75461e,
+    0 0 0 6px #dfa959;
+  outline: 1px solid #86501b;
+  overflow: hidden;
+}
+.winner-frame:after,
+.recipe-card:after,
+.recipe-modal:after {
+  content: '';
+  position: absolute;
+  inset: 13px;
+  border: 1px solid #a16c3680;
+  pointer-events: none;
+}
+.frame-corner {
+  position: absolute;
+  z-index: 4;
+  width: 49px;
+  height: 49px;
+  border-color: #9e5e20;
+  pointer-events: none;
+}
+.frame-corner:before {
+  content: '❧';
+  position: absolute;
+  font: 40px Georgia;
+  color: #a66a28;
+  text-shadow: 1px 1px #ffeab9;
+}
+.c-tl {
+  left: 3px;
+  top: 3px;
+}
+.c-tr {
+  right: 3px;
+  top: 3px;
+  transform: rotate(90deg);
+}
+.c-bl {
+  left: 3px;
+  bottom: 3px;
+  transform: rotate(-90deg);
+}
+.c-br {
+  right: 3px;
+  bottom: 3px;
+  transform: rotate(180deg);
+}
+.winner-spotlight {
+  position: absolute;
+  inset: -130px;
+  background: repeating-conic-gradient(
+    from 5deg at 29% 55%,
+    #f4c75d55 0 8deg,
+    transparent 9deg 22deg
+  );
+  opacity: 0.45;
+  z-index: -1;
+  animation: halo-spin 50s linear infinite;
+}
+.winner-illustration img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 5px #9d663666);
+}
+.winner-details {
+  padding: 4px 12px;
+  text-align: left;
+}
+.winner-level,
+.winner-number {
+  font: 800 11px var(--fantasy-font);
+  letter-spacing: 1.7px;
+  color: #a66c25;
+}
+.winner-number {
+  letter-spacing: 1px;
+  margin-top: 11px;
+  color: #9c2819;
+}
+.winner-details h2 {
+  font: 900 clamp(25px, 3vw, 42px)/1.1 var(--fantasy-font);
+  color: #542313;
+  margin: 8px 0;
+}
+.winner-tagline {
+  font: 700 17px var(--fantasy-font);
+  color: #8f331c;
+  margin: 0;
+}
+.fine-rule {
+  color: #ae8539;
+  font-size: 12px;
+  margin: 9px 0;
+}
+.winner-description {
+  font-size: 18px;
+  line-height: 1.35;
+  margin: 0 0 20px;
+}
+.winner-ingredients {
+  border-left: 1px solid #aa734350;
+  padding: 12px 0 12px 28px;
+  text-align: left;
+}
+.winner-ingredients h3 {
+  font: 800 14px var(--fantasy-font);
+  margin: 0 0 20px;
+  color: #6d3016;
+}
+.winner-ingredients ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 11px;
+  font-size: 17px;
+}
+.winner-ingredients li:before {
+  content: '✦';
+  color: #bf7a22;
+  font-size: 12px;
+  margin-right: 12px;
+}
+.result-hint {
+  font-style: italic;
+  color: #86542d;
+  font-size: 17px;
+  margin-top: 23px;
+}
+.result-section.winner-flash .winner-frame {
+  animation: winner-appear 0.9s cubic-bezier(0.15, 1.3, 0.3, 1);
+}
+.recipes-section {
+  text-align: center;
+  padding: 57px 0 65px;
+}
+.section-kicker {
+  font: 800 12px var(--fantasy-font);
+  letter-spacing: 3px;
+  color: #a26d31;
+  margin: 25px 0 5px;
+}
+.section-title {
+  font: 900 clamp(25px, 3.3vw, 43px)/1.2 var(--fantasy-font);
+  color: #612717;
+  text-shadow: 1px 2px 0 #f9eac4;
+  margin: 0;
+}
+.section-subtitle {
+  font-style: italic;
+  font-size: 22px;
+  margin: 9px auto 23px;
+}
+.filters {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 24px auto 30px;
+}
+.filter {
+  background: #e3bf86bf;
+  color: #5b321b;
+  border: 1px solid #995c26;
+  border-radius: 3px;
+  padding: 10px 18px;
+  font: 700 11px var(--fantasy-font);
+  box-shadow:
+    0 2px 0 #9f6630,
+    inset 0 0 0 2px #f8dfab;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.filter:hover {
+  transform: translateY(-2px);
+}
+.filter.active {
+  color: #fbe1a8;
+  background: #8a2417;
+  box-shadow:
+    0 3px 0 #542010,
+    inset 0 0 0 2px #c78935;
+}
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px 16px;
+  text-align: center;
+}
+.recipe-card {
+  --accent: #795027;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  isolation: isolate;
+  min-height: 318px;
+  padding: 22px 12px 14px;
+  background:
+    linear-gradient(115deg, #ffebbe99, #f4d7a29c),
+    url('assets/parchment.webp') center / 500px;
+  border: 2px solid #9f6c37;
+  outline: 1px solid #d8aa6e;
+  box-shadow:
+    inset 0 0 0 4px #fce6b9,
+    0 4px 0 #9b632a,
+    0 8px 13px #75451755;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.recipe-card:before {
+  content: '❧';
+  position: absolute;
+  right: 6px;
+  top: 5px;
+  color: #9a6633;
+  font-size: 26px;
+  transform: rotate(90deg);
+}
+.recipe-card:hover {
+  transform: translateY(-7px) scale(1.025);
+  box-shadow:
+    inset 0 0 0 4px #fce6b9,
+    0 7px 0 #9b632a,
+    0 13px 22px #75451770,
+    0 0 18px #e6a73690;
+}
+.recipe-card.is-picked {
+  outline: 3px solid #d3a033;
+  box-shadow:
+    inset 0 0 0 4px #fce6b9,
+    0 7px 20px #e3ab21cc;
+}
+.card-badge {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  color: #ffe5ab;
+  background: radial-gradient(circle, #9a5320, #4d2412);
+  border: 3px double #f3c363;
+  clip-path: polygon(
+    50% 0,
+    65% 17%,
+    85% 15%,
+    83% 35%,
+    100% 50%,
+    83% 65%,
+    85% 85%,
+    65% 83%,
+    50% 100%,
+    35% 83%,
+    15% 85%,
+    17% 65%,
+    0 50%,
+    17% 35%,
+    15% 15%,
+    35% 17%
+  );
+  font: 900 14px var(--fantasy-font);
+}
+.card-category {
+  font: 700 10px var(--fantasy-font);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 17px 0 8px;
+  color: var(--accent);
+}
+.card-food {
+  width: 100%;
+  height: 128px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: sepia(0.16) saturate(1.25);
+}
+.card-title {
+  font: 800 16px/1.25 var(--fantasy-font);
+  color: #522818;
+  margin: 3px 0 9px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-ingredients {
+  font-size: 14px;
+  line-height: 1.3;
+  color: #5b3a24;
+  margin: auto 0 10px;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #ba925f7f;
+  padding-top: 10px;
+  font: 700 10px var(--fantasy-font);
+  color: #8f572a;
+}
+.card-footer span:last-child {
+  font-size: 18px;
+  color: #ad6d27;
+}
+.magic-badge {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  color: #ffd99b;
+  border: 3px double #f0bc63;
+  outline: 2px solid #6f351c;
+  background: radial-gradient(
+    circle at 30% 20%,
+    color-mix(in srgb, var(--badge-color), white 25%),
+    var(--badge-color) 62%,
+    #351a13
+  );
+  clip-path: polygon(
+    50% 0,
+    62% 10%,
+    79% 8%,
+    85% 23%,
+    98% 35%,
+    92% 51%,
+    98% 68%,
+    83% 78%,
+    76% 95%,
+    56% 90%,
+    43% 100%,
+    26% 89%,
+    8% 85%,
+    11% 62%,
+    0 49%,
+    12% 31%,
+    12% 13%,
+    32% 12%
+  );
+  font-size: 25px;
+  text-shadow: 0 2px #4e2413;
+}
+.how-section {
+  text-align: center;
+  padding: 25px 0 85px;
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 40px;
+}
+.how-grid > div {
+  padding: 15px 30px;
+  border-right: 1px solid #a97743;
+}
+.how-grid > div:last-child {
+  border-right: 0;
+}
+.how-icon {
+  display: block;
+  color: #a67227;
+  font-size: 47px;
+  line-height: 1;
+}
+.how-grid h3 {
+  font: 800 17px var(--fantasy-font);
+  margin: 14px 0 7px;
+}
+.how-grid p {
+  max-width: 240px;
+  margin: auto;
+  font-size: 18px;
+}
+.armory {
+  text-align: center;
+  margin-bottom: 90px;
+}
+.armory-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 26px;
+}
+.armory-panel {
+  background: #f1d4a6a8;
+  border: 3px double #ac793d;
+  box-shadow:
+    inset 0 0 0 7px #ffe5b6a6,
+    0 7px 18px #6c3d2040;
+  min-height: 210px;
+  padding: 27px 15px;
+}
+.armory-panel h3 {
+  font: 800 15px var(--fantasy-font);
+  margin: 0 0 20px;
+}
+.armory-panel .fantasy-button {
+  font-size: 12px;
+  padding: 12px 18px;
+  margin: 5px;
+}
+.badge-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 25px 0;
+}
+.armory-panel p {
+  font-size: 16px;
+  color: #825733;
+}
+.mini-scroll {
+  position: relative;
+  margin: 34px auto 32px;
+  background: linear-gradient(#edc891, #ffe3ab, #e6b879);
+  padding: 15px 13px;
+  max-width: 300px;
+  border-top: 3px solid #8d5429;
+  border-bottom: 3px solid #8d5429;
+  box-shadow: 0 5px 10px #76512b66;
+  font: 700 13px var(--fantasy-font);
+}
+.mini-scroll:before,
+.mini-scroll:after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  width: 17px;
+  background: linear-gradient(90deg, #8e5d2a, #eac184, #b07939);
+  border: 1px solid #865227;
+  border-radius: 9px;
+}
+.mini-scroll:before {
+  left: -6px;
+}
+.mini-scroll:after {
+  right: -6px;
+}
+.footer {
+  min-height: 180px;
+  text-align: center;
+  color: #f2cf92;
+  padding: 55px 15px 30px;
+  background:
+    linear-gradient(transparent, #21150e 35%),
+    url('assets/battlefield.webp') center bottom/cover;
+}
+.footer-inner {
+  font: 800 18px var(--fantasy-font);
+  text-shadow: 0 3px 2px #000;
+}
+.footer p {
+  font-size: 12px;
+  margin: 12px;
+}
+.footer span {
+  font-size: 10px;
+  color: #d6ae6f;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #0a101bd9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+  animation: fade-in 0.25s;
+}
+.modal-backdrop[hidden] {
+  display: none;
+}
+.recipe-modal {
+  width: min(680px, 100%);
+  max-height: min(95vh, 900px);
+  overflow: auto;
+  position: relative;
+  text-align: center;
+  background:
+    linear-gradient(#f8dfafed, #edc890ef),
+    url('assets/parchment.webp') center/600px;
+  border: 6px ridge #c08b3c;
+  box-shadow:
+    0 0 0 3px #593416,
+    0 18px 80px #05080d,
+    0 0 60px #f7ae3e4d;
+  padding: 34px 45px 33px;
+  animation: popup-enter 0.55s cubic-bezier(0.2, 1.3, 0.24, 1);
+}
+.modal-close {
+  position: absolute;
+  z-index: 5;
+  right: 11px;
+  top: 9px;
+  border: 2px solid #ddac60;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: #6e2417;
+  color: #ffe4a2;
+}
+.modal-ribbon {
+  font: 700 13px var(--fantasy-font);
+  color: #99301b;
+  letter-spacing: 2px;
+}
+.modal-badge {
+  font: 800 12px var(--fantasy-font);
+  color: #976329;
+  margin-top: 13px;
+}
+.recipe-modal h2 {
+  font: 900 clamp(27px, 4vw, 40px) var(--fantasy-font);
+  color: #572819;
+  margin: 10px 0;
+}
+.modal-food img {
+  max-height: 190px;
+  max-width: 100%;
+  mix-blend-mode: multiply;
+}
+.modal-description {
+  font-style: italic;
+  font-size: 19px;
+}
+.modal-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
+  gap: 35px;
+  border-top: 1px solid #aa7e4b;
+  border-bottom: 1px solid #aa7e4b;
+  margin: 20px 0;
+  padding: 15px 10px;
+}
+.modal-columns h3 {
+  font: 800 15px var(--fantasy-font);
+}
+.modal-columns li {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.modal-columns ul,
+.modal-columns ol {
+  padding-left: 23px;
+}
+.modal-okay {
+  margin-top: 7px;
+}
+.toast {
+  position: fixed;
+  z-index: 150;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #49271a;
+  color: #ffe7aa;
+  border: 2px solid #c58b3c;
+  padding: 13px 22px;
+  border-radius: 5px;
+  font: 700 14px var(--fantasy-font);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.toast.visible {
+  opacity: 1;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(2px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+@keyframes fighter-bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -11px;
+  }
+}
+@keyframes twinkle {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 0.95;
+  }
+}
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orb-rotate {
+  to {
+    transform: rotate(25deg);
+  }
+}
+@keyframes halo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes die-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    transform: rotate(250deg) scale(1.15);
+  }
+  72% {
+    transform: rotate(590deg) scale(1.06);
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+  }
+}
+@keyframes popup-enter {
+  from {
+    transform: scale(0.7) translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes winner-appear {
+  0% {
+    transform: scale(0.95);
+    filter: brightness(1.8);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 1100px) {
+  .fighter {
+    opacity: 0.9;
+  }
+  .fighters-left .fighter-rogue,
+  .fighters-right .fighter-warlock {
+    display: none;
+  }
+  .hero-content {
+    padding-top: 130px;
+  }
+  .hero h1 {
+    font-size: 58px;
+  }
+  .recipes-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 780px) {
+  .site-nav {
+    min-height: 70px;
+    width: calc(100% - 30px);
+  }
+  .brand {
+    font-size: 14px;
+  }
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+  .top-links {
+    gap: 13px;
+    font-size: 9px;
+  }
+  .nav-sigil {
+    display: none;
+  }
+  .hero {
+    height: 720px;
+  }
+  .hero-content {
+    padding-top: 135px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 8vw, 58px);
+  }
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+  .hero-subtitle {
+    font-size: 17px;
+  }
+  .fighters {
+    opacity: 0.77;
+  }
+  .fighter {
+    max-width: 220px !important;
+    width: 30vw !important;
+  }
+  .fighters-left .fighter-druid {
+    top: 245px;
+    left: -12%;
+  }
+  .fighters-left .fighter-bard {
+    bottom: 110px;
+    left: -10%;
+  }
+  .fighters-left .fighter-paladin {
+    bottom: 50px;
+    left: 0;
+  }
+  .fighters-right .fighter-wizard {
+    right: -11%;
+    top: 255px;
+  }
+  .fighters-right .fighter-ranger {
+    right: 0;
+    bottom: 50px;
+  }
+  .fighters-right .fighter-barbarian {
+    right: -13%;
+    bottom: 120px;
+  }
+  .dice-stage {
+    height: 260px;
+  }
+  .result-section {
+    margin-top: -45px;
+  }
+  .winner-frame {
+    grid-template-columns: 40% 60%;
+    padding: 20px;
+  }
+  .winner-ingredients {
+    grid-column: 1/-1;
+    border: 0;
+    border-top: 1px solid #a77c4c;
+    margin-top: 10px;
+    padding: 13px;
+  }
+  .winner-ingredients ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 17px;
+  }
+  .recipes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .armory-showcase {
+    grid-template-columns: 1fr;
+  }
+  .how-grid {
+    gap: 4px;
+  }
+  .how-grid > div {
+    padding: 8px;
+  }
+}
+@media (max-width: 530px) {
+  body {
+    font-size: 16px;
+  }
+  .top-links a:nth-child(1),
+  .top-links a:nth-child(3) {
+    display: none;
+  }
+  .hero {
+    height: 675px;
+  }
+  .hero-content {
+    padding-top: 115px;
+  }
+  .hero h1 {
+    font-size: 43px;
+  }
+  .fighters-left .fighter-druid,
+  .fighters-right .fighter-wizard {
+    top: 265px;
+  }
+  .fighters-left .fighter-paladin {
+    left: -15%;
+    bottom: 35px;
+    width: 43vw !important;
+  }
+  .fighters-right .fighter-ranger {
+    right: -18%;
+    bottom: 35px;
+    width: 45vw !important;
+  }
+  .fighters-left .fighter-bard,
+  .fighters-right .fighter-barbarian {
+    display: none;
+  }
+  .dice-stage {
+    width: 270px;
+    height: 250px;
+  }
+  .d20 {
+    width: 190px;
+  }
+  .dice-aura {
+    width: 210px;
+    height: 210px;
+  }
+  .orb {
+    width: 225px;
+  }
+  .roll-button {
+    font-size: 15px;
+    padding: 14px 24px;
+    min-height: 59px;
+  }
+  .hero-footnote {
+    font-size: 14px;
+  }
+  .ribbon-heading {
+    font-size: 14px;
+    padding: 11px 12px;
+  }
+  .winner-frame {
+    grid-template-columns: 1fr;
+    padding: 28px 20px;
+  }
+  .winner-illustration img {
+    max-height: 180px;
+    width: auto;
+    margin: auto;
+  }
+  .winner-details {
+    text-align: center;
+    padding: 5px;
+  }
+  .winner-details h2 {
+    font-size: 28px;
+  }
+  .winner-ingredients {
+    display: none;
+  }
+  .section-title {
+    font-size: 25px;
+  }
+  .section-subtitle {
+    font-size: 19px;
+  }
+  .recipes-section {
+    padding-top: 35px;
+  }
+  .recipes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px 12px;
+  }
+  .recipe-card {
+    min-height: 286px;
+    padding: 16px 7px 9px;
+  }
+  .card-food {
+    height: 100px;
+  }
+  .card-title {
+    font-size: 13px;
+  }
+  .card-ingredients {
+    font-size: 12px;
+  }
+  .card-footer {
+    font-size: 9px;
+  }
+  .filters {
+    gap: 6px;
+  }
+  .filter {
+    padding: 9px 11px;
+    font-size: 9px;
+  }
+  .how-grid {
+    grid-template-columns: 1fr;
+  }
+  .how-grid > div {
+    border-right: 0;
+    border-bottom: 1px solid #a97743;
+    padding: 22px 0;
+  }
+  .recipe-modal {
+    padding: 32px 20px;
+  }
+  .modal-columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .modal-food img {
+    max-height: 130px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Component portability */
+.fantasy-button {
+  position: relative;
+}
+.recipe-card {
+  font-family: inherit;
+  color: inherit;
+}
+.recipe-card:focus-visible {
+  outline: 3px solid #e9a32f;
+  outline-offset: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .d20,
+  .dice-aura,
+  .orb,
+  .spark,
+  .fighter,
+  .hero-stars,
+  .winner-spotlight {
+    animation: none !important;
+  }
+}
