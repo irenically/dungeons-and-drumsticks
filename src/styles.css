@@ -1254,7 +1254,7 @@ button:disabled {
   padding: 18px;
   background: #fffaf1;
   border: 1px solid #79502726;
-  border-radius: 14px;
+  border-radius: 0;
   box-shadow: 0 4px 16px #4a230f0a;
   cursor: pointer;
   text-align: left;
@@ -2326,7 +2326,7 @@ button:disabled {
   min-height: 350px;
   padding: 14px;
   border: 1px solid #a6814c80;
-  border-radius: 8px;
+  border-radius: 0;
   background:
     linear-gradient(135deg, #fff7dfb3, #ffeac480 55%, #dab47c40),
     url('/assets/parchment.webp') center / 480px;
@@ -2365,7 +2365,7 @@ button:disabled {
   min-height: 235px;
   margin: 0;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 0;
 }
 .card-ingredients {
   margin: 0;
