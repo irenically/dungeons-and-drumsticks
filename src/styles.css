@@ -365,7 +365,7 @@ button:disabled {
   max-width: 245px;
   animation-delay: -3.3s;
 }
-/* Shared ground lines and sizes keep both teams in the same perspective. */
+/* Support stays behind ranged attackers; melee fighters lead toward the center. */
 @media (min-width: 1101px) {
   .fighters .fighter {
     top: auto;
@@ -375,59 +375,59 @@ button:disabled {
     max-width: none;
     z-index: var(--fighter-layer);
   }
-  .fighter-rogue,
+  .fighter-bard,
+  .fighter-cleric,
+  .fighter-wizard,
   .fighter-warlock {
     --fighter-ground: 315px;
     --fighter-height: clamp(155px, 12vw, 195px);
     --fighter-layer: 1;
     filter: drop-shadow(0 6px 5px #16111180) brightness(0.88);
   }
-  .fighter-cleric,
   .fighter-druid,
-  .fighter-wizard,
-  .fighter-champion {
+  .fighter-ranger {
     --fighter-ground: 185px;
     --fighter-height: clamp(215px, 16vw, 255px);
     --fighter-layer: 2;
     filter: drop-shadow(0 10px 8px #161111a0);
   }
   .fighter-paladin,
-  .fighter-bard,
-  .fighter-ranger,
+  .fighter-rogue,
+  .fighter-champion,
   .fighter-barbarian {
     --fighter-ground: 35px;
     --fighter-height: clamp(280px, 21vw, 330px);
     --fighter-layer: 3;
   }
   .fighters-left .fighter-rogue {
-    left: 23%;
+    left: 3%;
   }
   .fighters-left .fighter-cleric {
-    left: 13%;
+    left: 11%;
   }
   .fighters-left .fighter-druid {
-    left: 0;
+    left: 5%;
   }
   .fighters-left .fighter-bard {
-    left: 17%;
-  }
-  .fighters-left .fighter-paladin {
     left: 0;
   }
+  .fighters-left .fighter-paladin {
+    left: 17%;
+  }
   .fighters-right .fighter-warlock {
-    right: 23%;
+    right: 11%;
   }
   .fighters-right .fighter-wizard {
     right: 0;
   }
   .fighters-right .fighter-champion {
-    right: 13%;
+    right: 17%;
   }
   .fighters-right .fighter-barbarian {
-    right: 0;
+    right: 3%;
   }
   .fighters-right .fighter-ranger {
-    right: 17%;
+    right: 5%;
   }
 }
 .hero-transition {
@@ -1379,12 +1379,12 @@ button:disabled {
     top: 255px;
   }
   .fighters-right .fighter-ranger {
-    right: 0;
-    bottom: 50px;
-  }
-  .fighters-right .fighter-barbarian {
     right: -13%;
     bottom: 120px;
+  }
+  .fighters-right .fighter-barbarian {
+    right: 0;
+    bottom: 50px;
   }
   .dice-stage {
     height: 260px;
@@ -1447,13 +1447,13 @@ button:disabled {
     bottom: 35px;
     width: 43vw !important;
   }
-  .fighters-right .fighter-ranger {
+  .fighters-right .fighter-barbarian {
     right: -18%;
     bottom: 35px;
     width: 45vw !important;
   }
   .fighters-left .fighter-bard,
-  .fighters-right .fighter-barbarian {
+  .fighters-right .fighter-ranger {
     display: none;
   }
   .dice-stage {
