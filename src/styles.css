@@ -1193,6 +1193,20 @@ button:disabled {
   text-align: center;
   padding: 57px 0 65px;
 }
+.recipes-divider {
+  display: block;
+  height: auto;
+  margin-inline: auto;
+  pointer-events: none;
+  user-select: none;
+}
+.recipes-divider--rooster {
+  width: min(700px, 90vw);
+  height: clamp(100px, 12vw, 132px);
+  object-fit: fill;
+  margin-top: -20px;
+  margin-bottom: -3px;
+}
 .section-kicker {
   font: 800 12px var(--fantasy-font);
   letter-spacing: 3px;
@@ -1204,6 +1218,14 @@ button:disabled {
   color: #612717;
   text-shadow: 1px 2px 0 #f9eac4;
   margin: 0;
+}
+.recipes-divider--ruby {
+  width: min(520px, 76vw);
+  height: 34px;
+  object-fit: cover;
+  object-position: center;
+  margin-top: -5px;
+  margin-bottom: -2px;
 }
 .section-subtitle {
   font-style: italic;
@@ -1904,6 +1926,16 @@ button:disabled {
   }
   .section-title {
     font-size: 25px;
+  }
+  .recipes-divider--rooster {
+    width: 90vw;
+    height: 94px;
+    margin-top: -12px;
+    margin-bottom: 0;
+  }
+  .recipes-divider--ruby {
+    width: 78vw;
+    height: 28px;
   }
   .section-subtitle {
     font-size: 19px;

@@ -3,7 +3,6 @@ import { useState, type CSSProperties } from 'react';
 import { recipes } from '../data/recipes';
 import { formatIngredientQuantity, formatMarination } from '../data/formatRecipe';
 import type { Recipe } from '../types';
-import { Ornament } from './Primitives';
 const filters = ['All', 'Herby', 'Spicy', 'Sweet', 'Savory'] as const;
 export function RecipeGrid({
   chosen,
@@ -15,9 +14,20 @@ export function RecipeGrid({
   const [filter, setFilter] = useState<(typeof filters)[number]>('All');
   return (
     <section className="recipes-section container" id="marinades">
-      <Ornament elongated />
+      <img
+        className="recipes-divider recipes-divider--rooster"
+        src={`${import.meta.env.BASE_URL}assets/Rooster Compass Fantasy Divider.png`}
+        alt=""
+        aria-hidden="true"
+      />
       <p className="section-kicker">THE GREAT GRIMOIRE OF FLAVOR</p>
       <h2 className="section-title">CHOOSE YOUR CHICKEN MARINADE</h2>
+      <img
+        className="recipes-divider recipes-divider--ruby"
+        src={`${import.meta.env.BASE_URL}assets/Ruby Filigree Gold Divider.png`}
+        alt=""
+        aria-hidden="true"
+      />
       <p className="section-subtitle">Epic flavors for everyday heroes.</p>
       <div className="filters" role="group" aria-label="Filter marinades">
         {filters.map((f) => (
