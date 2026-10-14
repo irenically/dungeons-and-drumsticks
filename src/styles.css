@@ -2020,7 +2020,7 @@ button:disabled {
 
 /* A summoned wolf crosses the field in a separate cycle from the druid's spell. */
 .druid-spirit {
-  --projectile-opacity: 0.75;
+  --projectile-opacity: 0.48;
   --flight-drop: var(--spirit-drop, 0px);
   --flight-arc: 20px;
   position: absolute;
@@ -2032,40 +2032,94 @@ button:disabled {
   opacity: 0;
   color: #bde9c5;
   filter: drop-shadow(0 0 8px #80d6aa) drop-shadow(0 0 20px #a9e9bc80);
-  animation: projectile-flight var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
+  animation: spirit-travel var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
 }
 .druid-spirit svg {
   display: block;
   width: 100%;
   height: 100%;
   overflow: visible;
-  fill: #bbf0d2a6;
-  stroke: #defce2;
+  fill: #bbf0d273;
+  stroke: #defce2a0;
   stroke-width: 1.5;
   stroke-linejoin: round;
-  animation: spirit-bound 0.55s ease-in-out infinite;
+  animation: spirit-bound var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
 }
 .spirit-legs {
   transform-origin: 65px 43px;
-  animation: spirit-stride 0.55s ease-in-out infinite;
+  animation: spirit-stride var(--magic-cycle) linear calc(var(--magic-delay) + 5s) infinite;
 }
+.fighter-druid .fighter-art {
+  animation: druid-summon var(--magic-cycle) ease-in-out calc(var(--magic-delay) + 5s) infinite;
+}
+@keyframes druid-summon {
+  0%,
+  72%,
+  88%,
+  100% {
+    filter: none;
+  }
+  77%,
+  81% {
+    filter: drop-shadow(0 0 12px #b8e685);
+  }
+}
+@keyframes spirit-travel {
+  0%,
+  77% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  78% {
+    opacity: 0.48;
+    translate: 0 0;
+  }
+  92% {
+    opacity: 0.35;
+    translate: calc(-0.7778 * var(--flight-distance)) calc(0.7778 * var(--flight-drop));
+  }
+  96% {
+    opacity: 0.18;
+    translate: calc(-1 * var(--flight-distance)) var(--flight-drop);
+  }
+  98%,
+  100% {
+    opacity: 0;
+    translate: calc(-1 * var(--flight-distance)) var(--flight-drop);
+  }
+}
+/* Three launches and landings, each with a smooth rise and fall. */
 @keyframes spirit-bound {
   0%,
+  78%,
+  84%,
+  90%,
+  96%,
   100% {
     translate: 0 0;
     rotate: -3deg;
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
   }
-  50% {
-    translate: 0 -22px;
+  81%,
+  87%,
+  93% {
+    translate: 0 -65px;
     rotate: 4deg;
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }
 }
 @keyframes spirit-stride {
   0%,
+  78%,
+  84%,
+  90%,
+  96%,
   100% {
     scale: 1 1;
   }
-  50% {
+  81%,
+  87%,
+  93% {
     scale: 0.8 0.9;
   }
 }
