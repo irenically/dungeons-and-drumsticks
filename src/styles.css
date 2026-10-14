@@ -1201,9 +1201,8 @@ button:disabled {
   user-select: none;
 }
 .recipes-divider--rooster {
-  width: min(700px, 90vw);
-  height: clamp(100px, 12vw, 132px);
-  object-fit: fill;
+  width: min(460px, 90vw);
+  height: auto;
   margin-top: -20px;
   margin-bottom: -3px;
 }
@@ -1221,11 +1220,9 @@ button:disabled {
 }
 .recipes-divider--ruby {
   width: min(520px, 76vw);
-  height: 34px;
-  object-fit: cover;
-  object-position: center;
-  margin-top: -5px;
-  margin-bottom: -2px;
+  height: auto;
+  margin-top: clamp(-66px, -9vw, -34px);
+  margin-bottom: clamp(-68px, -9vw, -34px);
 }
 .section-subtitle {
   font-style: italic;
@@ -1929,13 +1926,11 @@ button:disabled {
   }
   .recipes-divider--rooster {
     width: 90vw;
-    height: 94px;
     margin-top: -12px;
     margin-bottom: 0;
   }
   .recipes-divider--ruby {
     width: 78vw;
-    height: 28px;
   }
   .section-subtitle {
     font-size: 19px;
