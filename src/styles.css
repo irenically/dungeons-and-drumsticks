@@ -398,7 +398,7 @@ button:disabled {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #fff;
+  isolation: isolate;
   color: var(--magic-color);
   box-shadow:
     0 0 6px 3px currentColor,
@@ -406,15 +406,27 @@ button:disabled {
   opacity: 0;
   animation: projectile-flight var(--magic-cycle) linear var(--magic-delay) infinite;
 }
+.fighter-projectile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff 0 25%, currentColor 75%);
+}
 .fighter-projectile::after {
   content: '';
   position: absolute;
-  left: 8px;
-  top: 3px;
-  width: 65px;
-  height: 10px;
+  left: 35%;
+  top: 50%;
+  width: 100px;
+  height: 90%;
+  transform: translateY(-50%);
+  z-index: 1;
   border-radius: 50%;
   background: linear-gradient(to right, currentColor, transparent);
+  filter: blur(6px);
+  opacity: 0.7;
 }
 .fighter-ranger .fighter-projectile {
   top: 40%;
@@ -427,6 +439,11 @@ button:disabled {
 .fighter-ranger .fighter-projectile::before {
   content: '';
   position: absolute;
+  inset: auto;
+  width: 0;
+  height: 0;
+  border-radius: 0;
+  background: transparent;
   left: -9px;
   top: -5px;
   border-top: 6px solid transparent;
@@ -434,6 +451,9 @@ button:disabled {
   border-right: 12px solid #e9e1d1;
 }
 .fighter-ranger .fighter-projectile::after {
+  transform: none;
+  filter: none;
+  opacity: 1;
   left: 74px;
   top: -4px;
   width: 12px;
@@ -441,14 +461,6 @@ button:disabled {
   border-radius: 0;
   background: #c6d6a2;
   clip-path: polygon(0 0, 100% 20%, 65% 50%, 100% 80%, 0 100%, 25% 50%);
-}
-.fighter-druid .fighter-projectile {
-  border-radius: 70% 0 70% 0;
-}
-.fighter-cleric .fighter-projectile {
-  width: 24px;
-  height: 24px;
-  border-radius: 2px;
 }
 @keyframes projectile-flight {
   0%,
