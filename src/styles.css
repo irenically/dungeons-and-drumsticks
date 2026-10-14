@@ -3360,3 +3360,11 @@ button:disabled {
   border-top: 1px solid #a67c4640;
   border-bottom: 0;
 }
+
+.card-ingredient:last-child,
+.card-ingredient:has(+ .card-more-ingredients) {
+  border-bottom: 0;
+}
+.card-footer {
+  border-top: 0;
+}

@@ -75,7 +75,7 @@ export function RecipeGrid({
                   Ingredients
                 </li>
                 {r.ingredients.slice(0, r.ui.ingredientPreviewCount ?? 6).map((ingredient) => (
-                  <li key={ingredient.name}>
+                  <li key={ingredient.name} className="card-ingredient">
                     <span>
                       {ingredient.name}
                       {ingredient.optional ? ' (optional)' : ''}
