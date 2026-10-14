@@ -448,6 +448,12 @@ button:disabled {
   width: 95px;
   opacity: 0.55;
 }
+.fighter-warlock .projectile-1 {
+  animation-delay: calc(var(--magic-delay) + 0.25s);
+}
+.fighter-warlock .projectile-2 {
+  animation-delay: calc(var(--magic-delay) + 0.5s);
+}
 .fighter-ranger .fighter-projectile {
   --projectile-opacity: 0.68;
   top: 40%;

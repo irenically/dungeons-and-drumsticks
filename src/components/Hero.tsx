@@ -44,11 +44,13 @@ function BattleCharacter({ name }: { name: string }) {
           ),
         )}
       </span>
-      {projectileUsers.has(name) ? (
-        <span className="fighter-projectile">
-          {name === 'ranger' ? <span className="arrow-trail" /> : null}
-        </span>
-      ) : null}
+      {projectileUsers.has(name)
+        ? Array.from({ length: name === 'warlock' ? 3 : 1 }, (_, index) => (
+            <span key={index} className={`fighter-projectile projectile-${index}`}>
+              {name === 'ranger' ? <span className="arrow-trail" /> : null}
+            </span>
+          ))
+        : null}
     </span>
   );
 }
