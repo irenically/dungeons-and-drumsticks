@@ -19,7 +19,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: #e9c58f url('assets/parchment.webp') repeat;
+  background: #e9c58f url('/assets/parchment.webp') repeat;
   background-size: 650px;
   font-family: var(--body-font);
   font-size: 18px;
@@ -108,7 +108,7 @@ button:disabled {
   position: absolute;
   inset: 0;
   z-index: -4;
-  background-image: url('assets/battlefield.webp');
+  background-image: url('/assets/battlefield.webp');
   background-size: cover;
   background-position: center top;
 }
@@ -369,7 +369,7 @@ button:disabled {
   content: '';
   position: absolute;
   inset: 80px 0 0;
-  background: url('assets/parchment.webp') center / 650px;
+  background: url('/assets/parchment.webp') center / 650px;
   mask-image: linear-gradient(to bottom, transparent, #000 76%);
 }
 /* The same engraved polygon silhouette is used by every button, with two palettes. */
@@ -546,7 +546,7 @@ button:disabled {
   padding: 24px 28px;
   background:
     linear-gradient(120deg, #f9dfa99c, #ffe7b7b9 52%, #e9c388b5),
-    url('assets/parchment.webp') center/590px;
+    url('/assets/parchment.webp') center/590px;
   border: 6px ridge #b47733;
   box-shadow:
     0 1px 1px #fff9d0 inset,
@@ -755,7 +755,7 @@ button:disabled {
   padding: 22px 12px 14px;
   background:
     linear-gradient(115deg, #ffebbe99, #f4d7a29c),
-    url('assets/parchment.webp') center / 500px;
+    url('/assets/parchment.webp') center / 500px;
   border: 2px solid #9f6c37;
   outline: 1px solid #d8aa6e;
   box-shadow:
@@ -1009,7 +1009,7 @@ button:disabled {
   padding: 55px 15px 30px;
   background:
     linear-gradient(transparent, #21150e 35%),
-    url('assets/battlefield.webp') center bottom/cover;
+    url('/assets/battlefield.webp') center bottom/cover;
 }
 .footer-inner {
   font: 800 18px var(--fantasy-font);
@@ -1046,7 +1046,7 @@ button:disabled {
   text-align: center;
   background:
     linear-gradient(#f8dfafed, #edc890ef),
-    url('assets/parchment.webp') center/600px;
+    url('/assets/parchment.webp') center/600px;
   border: 6px ridge #c08b3c;
   box-shadow:
     0 0 0 3px #593416,

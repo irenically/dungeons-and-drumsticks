@@ -33,7 +33,7 @@ export function Hero({
           <img
             key={name}
             className={`fighter fighter-${name}`}
-            src={`/assets/${name}.webp`}
+            src={`${import.meta.env.BASE_URL}assets/${name}.webp`}
             alt=""
           />
         ))}
@@ -43,7 +43,7 @@ export function Hero({
           <img
             key={name}
             className={`fighter fighter-${name}`}
-            src={`/assets/${name}.webp`}
+            src={`${import.meta.env.BASE_URL}assets/${name}.webp`}
             alt=""
           />
         ))}

@@ -46,7 +46,7 @@ export function RecipeGrid({ chosen, onOpen }: { chosen: Recipe; onOpen: (r: Rec
               <div className="card-category">✦ {r.category} enchantment ✦</div>
               <img
                 className="card-food"
-                src="/assets/roast-herbs.webp"
+                src={`${import.meta.env.BASE_URL}assets/roast-herbs.webp`}
                 alt="Watercolor illustration of roasted chicken"
               />
               <h3 className="card-title">{r.name.toUpperCase()}</h3>

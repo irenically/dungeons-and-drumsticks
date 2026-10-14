@@ -21,6 +21,12 @@ npm run build
 npm run preview
 ```
 
+## GitHub Pages
+
+The app is published at https://irenically.github.io/dungeons-and-drumsticks/.
+The deployment workflow builds and publishes automatically on every push to `main`.
+In repository Settings → Pages, select **GitHub Actions** as the source.
+
 ## Code quality
 
 Oxc provides linting with Oxlint and formatting with Oxfmt. Run these commands from `chicken-grimoire-react` after `npm install`:

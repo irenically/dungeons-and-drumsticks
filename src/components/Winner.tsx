@@ -23,7 +23,10 @@ export function Winner({
       <article className="winner-frame">
         <div className="winner-spotlight" aria-hidden="true" />
         <div className="winner-illustration">
-          <img src="/assets/roast-celebration.webp" alt="Illustrated roast chicken with herbs" />
+          <img
+            src={`${import.meta.env.BASE_URL}assets/roast-celebration.webp`}
+            alt="Illustrated roast chicken with herbs"
+          />
         </div>
         <div className="winner-details">
           <div className="winner-level">✦ YOUR DESTINED MARINADE ✦</div>

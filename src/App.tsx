@@ -50,7 +50,7 @@ export default function App() {
     <div className="page-shell">
       <header className="site-nav">
         <a className="brand" href="#top" aria-label="Dungeons and Drumsticks home">
-          <img className="brand-mark" src="/assets/logo.png" alt="" />
+          <img className="brand-mark" src={`${import.meta.env.BASE_URL}assets/logo.png`} alt="" />
           <span>
             DUNGEONS <small>and</small>
             <br />

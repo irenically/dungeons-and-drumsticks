@@ -62,7 +62,10 @@ export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClos
         </div>
         <h2 id="modal-heading">{recipe.name.toUpperCase()}</h2>
         <div className="modal-food">
-          <img src="/assets/roast-celebration.webp" alt="Roast chicken illustration" />
+          <img
+            src={`${import.meta.env.BASE_URL}assets/roast-celebration.webp`}
+            alt="Roast chicken illustration"
+          />
         </div>
         <p className="modal-description">{recipe.description}</p>
         <div className="modal-columns">
