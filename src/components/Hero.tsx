@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { D20 } from './D20';
 import { FantasyButton } from './Primitives';
 const left = ['rogue', 'cleric', 'druid', 'bard', 'paladin'];
@@ -6,18 +7,7 @@ const artwork: Record<string, string> = {
   cleric: 'cleric.png',
   champion: 'champion.png',
 };
-const effects: Record<string, string[]> = {
-  bard: ['♪', '♫', '♬'],
-  rogue: ['·', '·', '·'],
-  cleric: ['✧', '✦', '✧'],
-  druid: ['❧', '❧', '❧'],
-  paladin: ['✦', '✧', '✦'],
-  warlock: ['✧', '◇', '✧'],
-  wizard: ['✧', '✦', '✧'],
-  champion: ['✦', '✧', '✦'],
-  ranger: ['←', '←', '←'],
-  barbarian: ['·', '✦', '·'],
-};
+const bardNotes = ['♪', '♫', '♬'];
 const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'druid', 'cleric']);
 function BattleCharacter({ name }: { name: string }) {
   return (
@@ -28,7 +18,7 @@ function BattleCharacter({ name }: { name: string }) {
         alt=""
       />
       <span className="fighter-magic">
-        {effects[name].map((symbol, index) => (
+        {(name === 'bard' ? bardNotes : []).map((symbol, index) => (
           <span key={index} className={`fighter-particle particle-${index}`}>
             {symbol}
           </span>
@@ -47,8 +37,42 @@ export function Hero({
   rolling: boolean;
   onRoll: () => void;
 }) {
+  const sceneRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const scene = sceneRef.current;
+    if (!scene) return;
+    const targets: Record<string, string> = {
+      ranger: 'cleric',
+      wizard: 'bard',
+      warlock: 'rogue',
+      druid: 'barbarian',
+      cleric: 'ranger',
+    };
+    const updateFlights = () => {
+      for (const [source, target] of Object.entries(targets)) {
+        const attacker = scene.querySelector<HTMLElement>(`.fighter-${source}`);
+        const defender = scene.querySelector<HTMLElement>(`.fighter-${target}`);
+        if (!attacker || !defender) continue;
+        const from = attacker.getBoundingClientRect();
+        const to = defender.getBoundingClientRect();
+        if (!from.width || !to.width) continue;
+        const mirrored = attacker.closest('.fighters-left') !== null;
+        const launchX = mirrored ? from.right - from.width * 0.24 : from.left + from.width * 0.24;
+        const launchY = from.top + from.height * (source === 'ranger' ? 0.4 : 0.48);
+        const distance = Math.abs(to.left + to.width * 0.5 - launchX);
+        attacker.style.setProperty('--flight-distance', `${distance}px`);
+        attacker.style.setProperty('--flight-drop', `${to.top + to.height * 0.5 - launchY}px`);
+        attacker.style.setProperty('--flight-arc', `${Math.min(150, distance * 0.18)}px`);
+      }
+    };
+    updateFlights();
+    const observer = new ResizeObserver(updateFlights);
+    observer.observe(scene);
+    scene.querySelectorAll('.fighter').forEach((fighter) => observer.observe(fighter));
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section className="hero" aria-labelledby="hero-heading">
+    <section ref={sceneRef} className="hero" aria-labelledby="hero-heading">
       <div className="hero-scene" aria-hidden="true" />
       <div className="hero-shade" aria-hidden="true" />
       <div className="hero-stars" aria-hidden="true" />

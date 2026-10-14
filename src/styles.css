@@ -284,6 +284,9 @@ button:disabled {
   z-index: 1;
 }
 .fighter {
+  --flight-distance: 65vw;
+  --flight-drop: 0px;
+  --flight-arc: 120px;
   --magic-color: #ffe397;
   --magic-cycle: 12s;
   --magic-delay: -2s;
@@ -389,12 +392,11 @@ button:disabled {
   display: none;
 }
 .fighter-projectile {
-  --flight-distance: min(56vw, 1050px);
   position: absolute;
   left: 24%;
   top: 48%;
-  width: 16px;
-  height: 16px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #fff;
   color: var(--magic-color);
@@ -416,8 +418,8 @@ button:disabled {
 }
 .fighter-ranger .fighter-projectile {
   top: 40%;
-  width: 58px;
-  height: 3px;
+  width: 88px;
+  height: 5px;
   border-radius: 0;
   background: #ecd4a0;
   box-shadow: 0 0 4px #f5da9a80;
@@ -432,7 +434,7 @@ button:disabled {
   border-right: 12px solid #e9e1d1;
 }
 .fighter-ranger .fighter-projectile::after {
-  left: 46px;
+  left: 74px;
   top: -4px;
   width: 12px;
   height: 10px;
@@ -444,9 +446,8 @@ button:disabled {
   border-radius: 70% 0 70% 0;
 }
 .fighter-cleric .fighter-projectile {
-  width: 12px;
-  height: 12px;
-  rotate: 45deg;
+  width: 24px;
+  height: 24px;
   border-radius: 2px;
 }
 @keyframes projectile-flight {
@@ -454,26 +455,47 @@ button:disabled {
   77% {
     opacity: 0;
     translate: 0 0;
+    rotate: 18deg;
   }
   78% {
     opacity: 1;
     translate: 0 0;
+    rotate: 18deg;
   }
-  88% {
-    opacity: 0.9;
-    translate: calc(-1 * var(--flight-distance)) -18px;
+  82% {
+    opacity: 1;
+    translate: calc(-0.25 * var(--flight-distance))
+      calc(0.25 * var(--flight-drop) - 0.75 * var(--flight-arc));
+    rotate: 9deg;
   }
-  90%,
+  86% {
+    opacity: 1;
+    translate: calc(-0.5 * var(--flight-distance))
+      calc(0.5 * var(--flight-drop) - var(--flight-arc));
+    rotate: 0deg;
+  }
+  90% {
+    opacity: 1;
+    translate: calc(-0.75 * var(--flight-distance))
+      calc(0.75 * var(--flight-drop) - 0.75 * var(--flight-arc));
+    rotate: -9deg;
+  }
+  94% {
+    opacity: 1;
+    translate: calc(-1 * var(--flight-distance)) var(--flight-drop);
+    rotate: -18deg;
+  }
+  95%,
   100% {
     opacity: 0;
-    translate: calc(-1 * var(--flight-distance)) -18px;
+    translate: calc(-1 * var(--flight-distance)) var(--flight-drop);
+    rotate: -18deg;
   }
 }
 @media (max-width: 780px) {
   .fighter-projectile {
-    --flight-distance: 55vw;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1881,4 +1903,9 @@ button:disabled {
   .winner-spotlight {
     animation: none !important;
   }
+}
+
+.fighter-bard .fighter-art,
+.fighter-ranger .fighter-art {
+  animation: none;
 }
