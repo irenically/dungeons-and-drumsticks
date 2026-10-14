@@ -284,12 +284,212 @@ button:disabled {
   z-index: 1;
 }
 .fighter {
+  --magic-color: #ffe397;
+  --magic-cycle: 12s;
+  --magic-delay: -2s;
+  aspect-ratio: 1;
   position: absolute;
   width: clamp(205px, 23vw, 335px);
   height: auto;
   filter: drop-shadow(0 15px 10px #161111b8);
   transform-origin: center bottom;
   animation: fighter-bob 4.5s ease-in-out infinite alternate;
+}
+.fighter-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: fighter-enchantment var(--magic-cycle) ease-in-out var(--magic-delay) infinite;
+}
+.fighter-magic {
+  position: absolute;
+  inset: 0;
+  color: var(--magic-color);
+  text-shadow: 0 0 8px currentColor;
+}
+.fighter-particle {
+  position: absolute;
+  left: 30%;
+  top: 40%;
+  opacity: 0;
+  font-size: clamp(16px, 1.8vw, 28px);
+  animation: fighter-particles var(--magic-cycle) ease-out var(--magic-delay) infinite;
+}
+.particle-1 {
+  left: 46%;
+  top: 32%;
+  animation-delay: calc(var(--magic-delay) + 0.45s);
+}
+.particle-2 {
+  left: 60%;
+  top: 44%;
+  animation-delay: calc(var(--magic-delay) + 0.9s);
+}
+.fighter-bard {
+  --magic-color: #ffe6a0;
+  --magic-cycle: 11s;
+  --magic-delay: -4s;
+}
+.fighter-rogue {
+  --magic-color: #8373ac;
+  --magic-cycle: 14s;
+  --magic-delay: -6s;
+}
+.fighter-cleric {
+  --magic-color: #fff0bd;
+  --magic-cycle: 13s;
+  --magic-delay: -9s;
+}
+.fighter-druid {
+  --magic-color: #b8e685;
+  --magic-cycle: 15s;
+  --magic-delay: -3s;
+}
+.fighter-paladin {
+  --magic-color: #ffd46c;
+  --magic-cycle: 16s;
+  --magic-delay: -11s;
+}
+.fighter-warlock {
+  --magic-color: #cf7cff;
+  --magic-cycle: 12s;
+  --magic-delay: -7s;
+}
+.fighter-wizard {
+  --magic-color: #7bdcff;
+  --magic-cycle: 14s;
+  --magic-delay: -1s;
+}
+.fighter-champion {
+  --magic-color: #fff4a2;
+  --magic-cycle: 17s;
+  --magic-delay: -5s;
+}
+.fighter-ranger {
+  --magic-color: #d3e5ac;
+  --magic-cycle: 15s;
+  --magic-delay: -10s;
+}
+.fighter-barbarian {
+  --magic-color: #ff9b5d;
+  --magic-cycle: 13s;
+  --magic-delay: -8s;
+}
+.fighter-rogue .fighter-art {
+  animation-name: rogue-vanish;
+}
+.fighter-rogue .fighter-magic {
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #23162d70, transparent 65%);
+  opacity: 0;
+  animation: rogue-smoke var(--magic-cycle) ease-in-out var(--magic-delay) infinite;
+}
+.fighter-ranger .fighter-particle {
+  animation-name: ranger-shot;
+  top: 42%;
+}
+.fighter-barbarian .fighter-art {
+  animation-name: barbarian-ready;
+}
+@keyframes fighter-enchantment {
+  0%,
+  72%,
+  100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  80%,
+  86% {
+    filter: drop-shadow(0 0 8px var(--magic-color));
+  }
+}
+@keyframes fighter-particles {
+  0%,
+  73%,
+  100% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  77% {
+    opacity: 0.85;
+    translate: 0 -5px;
+  }
+  92% {
+    opacity: 0;
+    translate: 18px -70px;
+  }
+}
+@keyframes rogue-vanish {
+  0%,
+  70%,
+  100% {
+    opacity: 1;
+    filter: none;
+  }
+  79%,
+  87% {
+    opacity: 0.16;
+    filter: blur(2px);
+  }
+  95% {
+    opacity: 1;
+    filter: none;
+  }
+}
+@keyframes rogue-smoke {
+  0%,
+  70%,
+  100% {
+    opacity: 0;
+    scale: 0.85;
+  }
+  80%,
+  88% {
+    opacity: 0.8;
+    scale: 1.12;
+  }
+}
+@keyframes ranger-shot {
+  0%,
+  77%,
+  100% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  79% {
+    opacity: 0.85;
+    translate: 0 0;
+  }
+  84% {
+    opacity: 0;
+    translate: -90px -8px;
+  }
+}
+@keyframes barbarian-ready {
+  0%,
+  75%,
+  100% {
+    rotate: 0deg;
+  }
+  80% {
+    rotate: -3deg;
+  }
+  85% {
+    rotate: 2deg;
+  }
+  90% {
+    rotate: 0deg;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fighter-art,
+  .fighter-magic,
+  .fighter-particle {
+    animation: none !important;
+  }
+  .fighter-magic {
+    display: none;
+  }
 }
 /* The artwork faces left; mirror the left team toward its opponents. */
 .fighters-left .fighter {

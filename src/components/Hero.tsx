@@ -6,6 +6,36 @@ const artwork: Record<string, string> = {
   cleric: 'cleric.png',
   champion: 'champion.png',
 };
+const effects: Record<string, string[]> = {
+  bard: ['♪', '♫', '♬'],
+  rogue: ['·', '·', '·'],
+  cleric: ['✧', '✦', '✧'],
+  druid: ['❧', '❧', '❧'],
+  paladin: ['✦', '✧', '✦'],
+  warlock: ['✧', '◇', '✧'],
+  wizard: ['✧', '✦', '✧'],
+  champion: ['✦', '✧', '✦'],
+  ranger: ['←', '←', '←'],
+  barbarian: ['·', '✦', '·'],
+};
+function BattleCharacter({ name }: { name: string }) {
+  return (
+    <span className={`fighter fighter-${name}`}>
+      <img
+        className="fighter-art"
+        src={`${import.meta.env.BASE_URL}assets/${artwork[name] ?? `${name}.webp`}`}
+        alt=""
+      />
+      <span className="fighter-magic">
+        {effects[name].map((symbol, index) => (
+          <span key={index} className={`fighter-particle particle-${index}`}>
+            {symbol}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+}
 export function Hero({
   value,
   rolling,
@@ -34,22 +64,12 @@ export function Hero({
       </div>
       <div className="fighters fighters-left" aria-hidden="true">
         {left.map((name) => (
-          <img
-            key={name}
-            className={`fighter fighter-${name}`}
-            src={`${import.meta.env.BASE_URL}assets/${artwork[name] ?? `${name}.webp`}`}
-            alt=""
-          />
+          <BattleCharacter key={name} name={name} />
         ))}
       </div>
       <div className="fighters fighters-right" aria-hidden="true">
         {right.map((name) => (
-          <img
-            key={name}
-            className={`fighter fighter-${name}`}
-            src={`${import.meta.env.BASE_URL}assets/${artwork[name] ?? `${name}.webp`}`}
-            alt=""
-          />
+          <BattleCharacter key={name} name={name} />
         ))}
       </div>
       <div className="hero-transition" aria-hidden="true" />
