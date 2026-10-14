@@ -7,6 +7,46 @@ const artwork: Record<string, string> = {
   champion: 'champion.png',
 };
 const bardNotes = ['♪', '♫', '♬'];
+const whispers = [
+  ['Your dinner quest awaits.', 'Click the D20 to begin.'],
+  ['The dice demand a sacrifice.', 'Preferably chicken.'],
+  ['A wild marinade appears!', 'Roll for initiative.'],
+  ['Can’t decide what’s for dinner?', 'Let chaos season your chicken.'],
+  ['The prophecy speaks of dinner.', 'The dice know the recipe.'],
+  ['May the odds be ever in your flavor.', 'Roll the bones!'],
+  ['Your party is getting hungry.', 'Roll for sustenance.'],
+  ['The chicken gods grow impatient.', 'Roll, mortal.'],
+  ['One roll. One marinade.', 'Zero decision fatigue.'],
+  ['A critical hit tastes delicious.', 'Will you roll a natural 20?'],
+];
+function DungeonWhisper({ rolling }: { rolling: boolean }) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    if (rolling) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setIndex((current) => (current + 1) % whispers.length);
+    }, 7000);
+    return () => window.clearInterval(timer);
+  }, [rolling]);
+  return (
+    <div className="dungeon-whisper">
+      <p className="whisper-label">✦ THE DUNGEON MASTER WHISPERS ✦</p>
+      <div className="whisper-message" key={rolling ? 'rolling' : index}>
+        <p className="whisper-title">{rolling ? 'The bones are tumbling…' : whispers[index][0]}</p>
+        <p className="whisper-subtitle">
+          {rolling ? 'Your dinner destiny is unfolding.' : whispers[index][1]}
+        </p>
+      </div>
+      <div className="whisper-rule" aria-hidden="true">
+        <span>❧</span>
+        <i />
+        <span>✦</span>
+        <i />
+        <span>❧</span>
+      </div>
+    </div>
+  );
+}
 const firelights = [
   { x: 90, y: 185, rx: 55, ry: 70 },
   { x: 372, y: 30, rx: 55, ry: 75 },
@@ -260,25 +300,7 @@ export function Hero({
         </h1>
         <p className="hero-subtitle">20 marinades. One legendary dinner.</p>
         <D20 value={value} rolling={rolling} onRoll={onRoll} />
-        <button
-          type="button"
-          className="roll-button"
-          onClick={onRoll}
-          disabled={rolling}
-          aria-busy={rolling}
-        >
-          <svg className="roll-button-die" viewBox="0 0 48 52" aria-hidden="true">
-            <path
-              d="M24 2 45 14 45 38 24 50 3 38 3 14Z M24 2 24 11 3 14 M24 11 45 14 M24 11 10 35 38 35Z M3 14 10 35 3 38 M45 14 38 35 45 38 M10 35 24 50 38 35"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <span>{rolling ? 'Rolling…' : 'Roll for dinner'}</span>
-        </button>
-        <p className="hero-footnote">Let fate decide your next great flavor.</p>
+        <DungeonWhisper rolling={rolling} />
       </div>
       <div className="fighters fighters-left" aria-hidden="true">
         {left.map((name) => (
