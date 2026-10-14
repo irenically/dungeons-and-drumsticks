@@ -2129,3 +2129,50 @@ button:disabled {
     animation: none !important;
   }
 }
+
+.d20-shimmer {
+  animation: die-shimmer 7s ease-in-out infinite;
+  pointer-events: none;
+}
+.d20-facets {
+  animation: die-luster 7s ease-in-out infinite;
+}
+@keyframes die-shimmer {
+  0%,
+  15% {
+    transform: translateX(0) skewX(-15deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  65% {
+    transform: translateX(470px) skewX(-15deg);
+    opacity: 1;
+  }
+  75%,
+  100% {
+    transform: translateX(470px) skewX(-15deg);
+    opacity: 0;
+  }
+}
+@keyframes die-luster {
+  0%,
+  15%,
+  75%,
+  100% {
+    filter: brightness(1);
+  }
+  45% {
+    filter: brightness(1.2);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .d20-shimmer {
+    display: none;
+    animation: none !important;
+  }
+  .d20-facets {
+    animation: none !important;
+  }
+}

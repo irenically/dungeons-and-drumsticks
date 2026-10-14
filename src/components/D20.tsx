@@ -21,6 +21,16 @@ export function D20({
       >
         <svg className="d20-svg" viewBox="0 0 240 245" aria-hidden="true">
           <defs>
+            <clipPath id="dieShimmerClip">
+              <path d="M120 8 220 65 220 180 120 238 20 180 20 65Z" />
+            </clipPath>
+            <linearGradient id="dieShimmer" x1="0" y1="0" x2="1" y2="0">
+              <stop stopColor="#ffe7a0" stopOpacity="0" />
+              <stop offset=".3" stopColor="#a9e7ef" stopOpacity=".18" />
+              <stop offset=".5" stopColor="#fff5d8" stopOpacity=".42" />
+              <stop offset=".7" stopColor="#c8b4ef" stopOpacity=".18" />
+              <stop offset="1" stopColor="#ffe7a0" stopOpacity="0" />
+            </linearGradient>
             <linearGradient id="dieFace" x1="0" y1="0" x2="1" y2="1">
               <stop stopColor="#343941" />
               <stop offset="1" stopColor="#11151c" />
@@ -33,7 +43,12 @@ export function D20({
             </linearGradient>
           </defs>
           {/* A face-on icosahedron: every visible facet is a triangle. */}
-          <g stroke="url(#goldStroke)" strokeWidth="2.5" strokeLinejoin="round">
+          <g
+            className="d20-facets"
+            stroke="url(#goldStroke)"
+            strokeWidth="2.5"
+            strokeLinejoin="round"
+          >
             <path d="M120 8 20 65 120 48Z" fill="#55504a" />
             <path d="M120 8 120 48 220 65Z" fill="#363940" />
             <path d="M20 65 48 168 120 48Z" fill="#343941" />
@@ -44,6 +59,16 @@ export function D20({
             <path d="M192 168 120 238 220 180Z" fill="#080d14" />
             <path d="M48 168 120 238 192 168Z" fill="#202630" />
             <path d="M120 48 48 168 192 168Z" fill="url(#dieFace)" />
+          </g>
+          <g clipPath="url(#dieShimmerClip)">
+            <rect
+              className="d20-shimmer"
+              x="-160"
+              y="-50"
+              width="130"
+              height="350"
+              fill="url(#dieShimmer)"
+            />
           </g>
           <path
             d="M120 8 220 65 220 180 120 238 20 180 20 65Z"
