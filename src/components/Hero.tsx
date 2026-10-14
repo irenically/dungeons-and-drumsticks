@@ -105,7 +105,7 @@ export function Hero({
               );
               projectile.style.setProperty(
                 '--flight-arc',
-                `${Math.min(110 + index * 40, travel * 0.22)}px`,
+                `${[Math.min(240, travel * 0.25), 30, -Math.min(100, travel * 0.12)][index]}px`,
               );
             });
         }
