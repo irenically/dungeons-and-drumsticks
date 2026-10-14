@@ -3568,7 +3568,7 @@ button:disabled {
   height: 100%;
   overflow: auto;
   overscroll-behavior: contain;
-  padding: 28px 36px 28px 32px;
+  padding: 28px 48px;
   scrollbar-width: thin;
   scrollbar-color: #ac8246 transparent;
 }
@@ -3724,7 +3724,7 @@ button:disabled {
   gap: 0;
 }
 .recipe-modal--roll .modal-details {
-  padding: 64px 32px 24px;
+  padding: 64px 48px 24px;
 }
 .recipe-modal--roll h2 {
   margin-bottom: 8px;
