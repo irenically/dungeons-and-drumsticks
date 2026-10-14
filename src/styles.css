@@ -395,8 +395,8 @@ button:disabled {
   position: absolute;
   left: 24%;
   top: 48%;
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   isolation: isolate;
   color: var(--magic-color);
@@ -419,7 +419,7 @@ button:disabled {
   position: absolute;
   left: 35%;
   top: 50%;
-  width: 100px;
+  width: 140px;
   height: 90%;
   transform: translateY(-50%);
   z-index: 1;
@@ -506,8 +506,8 @@ button:disabled {
 }
 @media (max-width: 780px) {
   .fighter-projectile {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
