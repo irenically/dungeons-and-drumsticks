@@ -2451,3 +2451,71 @@ button:disabled {
   stroke-width: 1px;
   filter: drop-shadow(0 1px 0 #fff4d133);
 }
+
+/* A clear primary action, without the ornamental button frame. */
+.roll-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 14px 30px;
+  border: 1px solid #dcae62;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #a63827, #782318);
+  color: #fff1d4;
+  font: 700 17px/1.2 var(--fantasy-font);
+  letter-spacing: 0.3px;
+  box-shadow:
+    inset 0 1px 0 #fff1bc26,
+    0 4px 12px #160b0860;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.roll-button:hover:not(:disabled) {
+  background: linear-gradient(180deg, #b74430, #8b2a1c);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 #fff1bc26,
+    0 6px 18px #160b0870;
+}
+.roll-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.roll-button:focus-visible {
+  outline: 3px solid #ffe6a5;
+  outline-offset: 4px;
+}
+.roll-button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+.roll-button-die {
+  width: 27px;
+  height: 29px;
+  color: #edc47d;
+  flex-shrink: 0;
+}
+.roll-button[aria-busy='true'] .roll-button-die {
+  animation: roll-icon-turn 1s ease-in-out infinite;
+}
+@keyframes roll-icon-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 530px) {
+  .roll-button {
+    padding: 13px 25px;
+    font-size: 15px;
+    min-height: 54px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roll-button-die {
+    animation: none !important;
+  }
+}

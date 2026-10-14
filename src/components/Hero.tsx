@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { D20 } from './D20';
-import { FantasyButton } from './Primitives';
 const left = ['rogue', 'cleric', 'druid', 'bard', 'paladin'];
 const right = ['warlock', 'wizard', 'champion', 'ranger', 'barbarian'];
 const artwork: Record<string, string> = {
@@ -261,9 +260,24 @@ export function Hero({
         </h1>
         <p className="hero-subtitle">20 marinades. One legendary dinner.</p>
         <D20 value={value} rolling={rolling} onRoll={onRoll} />
-        <FantasyButton variant="red" className="roll-button" onClick={onRoll} disabled={rolling}>
-          {rolling ? 'CASTING FATE…' : 'ROLL THE D20'}
-        </FantasyButton>
+        <button
+          type="button"
+          className="roll-button"
+          onClick={onRoll}
+          disabled={rolling}
+          aria-busy={rolling}
+        >
+          <svg className="roll-button-die" viewBox="0 0 48 52" aria-hidden="true">
+            <path
+              d="M24 2 45 14 45 38 24 50 3 38 3 14Z M24 2 24 11 3 14 M24 11 45 14 M24 11 10 35 38 35Z M3 14 10 35 3 38 M45 14 38 35 45 38 M10 35 24 50 38 35"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span>{rolling ? 'Rolling…' : 'Roll for dinner'}</span>
+        </button>
         <p className="hero-footnote">Let fate decide your next great flavor.</p>
       </div>
       <div className="fighters fighters-left" aria-hidden="true">
