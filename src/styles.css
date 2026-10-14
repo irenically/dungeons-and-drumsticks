@@ -3282,3 +3282,18 @@ button:disabled {
   background: #b9883910;
   text-align: left;
 }
+
+.card-footer > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.card-clock {
+  float: none;
+  margin: 0;
+}
+.card-time-label {
+  display: inline;
+  margin: 0;
+}
