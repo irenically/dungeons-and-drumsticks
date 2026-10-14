@@ -1,3 +1,4 @@
+import { Icon } from './components/Icon';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { recipes } from './data/recipes';
 import type { Recipe } from './types';
@@ -52,7 +53,7 @@ export default function App() {
           <a href="#marinades">MARINADES</a>
         </nav>
         <div className="nav-sigil" aria-hidden="true">
-          ✦
+          <Icon name="sparkle" />
         </div>
       </header>
       <main id="top">
@@ -63,17 +64,23 @@ export default function App() {
           <h2 className="section-title">A FEAST WRITTEN IN THE STARS</h2>
           <div className="how-grid">
             <div>
-              <span className="how-icon">⚔</span>
+              <span className="how-icon">
+                <Icon name="swords" />
+              </span>
               <h3>GATHER THE PARTY</h3>
               <p>Summon your appetite and assemble your ingredients.</p>
             </div>
             <div>
-              <span className="how-icon">⬡</span>
+              <span className="how-icon">
+                <Icon name="dice" />
+              </span>
               <h3>ROLL FOR DESTINY</h3>
               <p>Let a magical D20 choose tonight's legendary marinade.</p>
             </div>
             <div>
-              <span className="how-icon">✧</span>
+              <span className="how-icon">
+                <Icon name="star" />
+              </span>
               <h3>CLAIM YOUR REWARD</h3>
               <p>Follow the recipe and win a delicious encounter.</p>
             </div>
@@ -82,9 +89,13 @@ export default function App() {
       </main>
       <footer className="footer">
         <div className="footer-inner">
-          <div>⚔ &nbsp; DUNGEONS & DRUMSTICKS &nbsp; ⚔</div>
+          <div>
+            <Icon name="swords" /> &nbsp; DUNGEONS & DRUMSTICKS &nbsp; <Icon name="swords" />
+          </div>
           <p>GOOD CHICKEN LEADS TO GREAT QUESTS.</p>
-          <span>✧ CRAFTED WITH MAGIC & A LITTLE PAPRIKA ✧</span>
+          <span>
+            <Icon name="star" /> CRAFTED WITH MAGIC & A LITTLE PAPRIKA <Icon name="star" />
+          </span>
         </div>
       </footer>
       <RecipeModal recipe={modal} onClose={() => setModal(null)} />

@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import { useState, type CSSProperties } from 'react';
 import { recipes } from '../data/recipes';
 import { formatIngredientQuantity, formatMarination } from '../data/formatRecipe';
@@ -27,7 +28,13 @@ export function RecipeGrid({
             aria-pressed={filter === f}
             onClick={() => setFilter(f)}
           >
-            {f === 'All' ? 'ALL RECIPES' : `✦ ${f.toUpperCase()}`}
+            {f === 'All' ? (
+              'ALL RECIPES'
+            ) : (
+              <>
+                <Icon name="sparkle" /> {f.toUpperCase()}
+              </>
+            )}
           </button>
         ))}
       </div>
@@ -143,6 +150,7 @@ export function RecipeGrid({
               </ul>
               <div className="card-footer">
                 <span>
+                  <Icon name="clock" className="card-clock" />
                   <span className="card-time-label">Marinating time</span>
                   {formatMarination(r)}
                 </span>

@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
 
 export function FantasyButton({
@@ -9,11 +10,11 @@ export function FantasyButton({
   return (
     <button className={`fantasy-button fantasy-button--${variant} ${className}`} {...props}>
       <span className="button-side" aria-hidden="true">
-        ✦
+        <Icon name="sparkle" />
       </span>
       <span>{children}</span>
       <span className="button-side" aria-hidden="true">
-        ✦
+        <Icon name="sparkle" />
       </span>
     </button>
   );
@@ -30,9 +31,19 @@ export function Corners() {
 export function Ornament({ elongated = false }: { elongated?: boolean }) {
   return (
     <div className={`section-ornament ${elongated ? 'elongated' : ''}`} aria-hidden="true">
-      <span>━━ ❧ ━━</span>
-      <span>✦</span>
-      <span>━━ ❧ ━━</span>
+      <span>
+        <i className="ornament-line" />
+        <Icon name="sparkles" />
+        <i className="ornament-line" />
+      </span>
+      <span>
+        <Icon name="sparkle" />
+      </span>
+      <span>
+        <i className="ornament-line" />
+        <Icon name="sparkles" />
+        <i className="ornament-line" />
+      </span>
     </div>
   );
 }
@@ -44,5 +55,9 @@ export function MagicBadge({ symbol, color }: { symbol: string; color: string })
   );
 }
 export function Scroll({ children }: { children: ReactNode }) {
-  return <div className="mini-scroll">✧ &nbsp; {children} &nbsp; ✧</div>;
+  return (
+    <div className="mini-scroll">
+      <Icon name="star" /> &nbsp; {children} &nbsp; <Icon name="star" />
+    </div>
+  );
 }

@@ -3150,3 +3150,62 @@ button:disabled {
     gap: 5px 10px;
   }
 }
+
+.svg-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  vertical-align: -0.12em;
+  background: currentColor;
+  mask: var(--icon-url) center / contain no-repeat;
+}
+.card-clock {
+  float: left;
+  width: 26px;
+  height: 26px;
+  margin: 2px 8px 0 0;
+  color: #a16f37;
+}
+.filter .svg-icon {
+  margin-right: 4px;
+}
+.how-icon .svg-icon {
+  width: 1em;
+  height: 1em;
+}
+.section-ornament > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.fantasy-button::after {
+  content: '';
+  width: 11px;
+  height: 11px;
+  background: #ffebaa;
+  mask: url('/assets/sparkle.svg') center / contain no-repeat;
+}
+
+.ornament-line {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+}
+.frame-corner::before {
+  content: '';
+  display: block;
+  width: 1em;
+  height: 1em;
+  background: currentColor;
+  mask: url('/assets/sparkles.svg') center / contain no-repeat;
+}
+.winner-ingredients li::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  mask: url('/assets/sparkle.svg') center / contain no-repeat;
+}

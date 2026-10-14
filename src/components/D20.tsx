@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 export function D20({
   value,
   rolling,
@@ -109,7 +110,7 @@ export function D20({
       </button>
       {['one', 'two', 'three', 'four'].map((s, i) => (
         <span key={s} className={`spark spark-${s}`} aria-hidden="true">
-          {i % 2 ? '✧' : '✦'}
+          <Icon name={i % 2 ? 'star' : 'sparkle'} />
         </span>
       ))}
     </div>

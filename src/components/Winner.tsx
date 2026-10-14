@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import { formatIngredient } from '../data/formatRecipe';
 import type { Recipe } from '../types';
 import { Corners, FantasyButton, Ornament } from './Primitives';
@@ -30,11 +31,15 @@ export function Winner({
           />
         </div>
         <div className="winner-details">
-          <div className="winner-level">✦ YOUR DESTINED MARINADE ✦</div>
+          <div className="winner-level">
+            <Icon name="sparkle" /> YOUR DESTINED MARINADE <Icon name="sparkle" />
+          </div>
           <div className="winner-number">D20 · {recipe.id}</div>
           <h2>{recipe.name.toUpperCase()}</h2>
           <p className="winner-tagline">{recipe.flavor}</p>
-          <div className="fine-rule">✧ ─────────── ✧</div>
+          <div className="fine-rule">
+            <Icon name="star" /> ─────────── <Icon name="star" />
+          </div>
           <p className="winner-description">{recipe.notes}</p>
           <FantasyButton onClick={onOpen}>VIEW FULL RECIPE ➜</FantasyButton>
         </div>

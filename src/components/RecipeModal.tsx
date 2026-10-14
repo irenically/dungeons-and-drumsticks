@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import { formatIngredient, formatMarination } from '../data/formatRecipe';
 import { useEffect, useRef } from 'react';
 import type { Recipe } from '../types';
@@ -56,9 +57,11 @@ export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClos
           onClick={onClose}
           aria-label="Close recipe"
         >
-          ✕
+          <Icon name="close" />
         </button>
-        <div className="modal-ribbon">✦ &nbsp; A LEGENDARY RECIPE &nbsp; ✦</div>
+        <div className="modal-ribbon">
+          <Icon name="sparkle" /> &nbsp; A LEGENDARY RECIPE &nbsp; <Icon name="sparkle" />
+        </div>
         <div className="modal-badge">
           D20 · {recipe.id} — {recipe.ui.category.toUpperCase()}
         </div>

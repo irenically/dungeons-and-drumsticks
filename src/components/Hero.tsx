@@ -1,3 +1,4 @@
+import { Icon } from './Icon';
 import { useEffect, useRef, useState } from 'react';
 import { D20 } from './D20';
 import whispers from '../data/whispers.json';
@@ -19,7 +20,9 @@ function DungeonWhisper({ rolling }: { rolling: boolean }) {
   }, [rolling]);
   return (
     <div className="dungeon-whisper">
-      <p className="whisper-label">✦ THE DUNGEON MASTER WHISPERS ✦</p>
+      <p className="whisper-label">
+        <Icon name="sparkle" /> THE DUNGEON MASTER WHISPERS <Icon name="sparkle" />
+      </p>
       <div className="whisper-message" key={rolling ? 'rolling' : index}>
         <p className="whisper-title">
           {rolling ? 'The bones are tumbling…' : whispers[index].title}
@@ -29,11 +32,17 @@ function DungeonWhisper({ rolling }: { rolling: boolean }) {
         </p>
       </div>
       <div className="whisper-rule" aria-hidden="true">
-        <span>❧</span>
+        <span>
+          <Icon name="sparkles" />
+        </span>
         <i />
-        <span>✦</span>
+        <span>
+          <Icon name="sparkle" />
+        </span>
         <i />
-        <span>❧</span>
+        <span>
+          <Icon name="sparkles" />
+        </span>
       </div>
     </div>
   );
@@ -285,7 +294,9 @@ export function Hero({
       <div className="hero-stars" aria-hidden="true" />
       <ShootingStars />
       <div className="hero-content">
-        <p className="eyebrow">✧ THE CULINARY ADVENTURER'S GUILD ✧</p>
+        <p className="eyebrow">
+          <Icon name="star" /> THE CULINARY ADVENTURER'S GUILD <Icon name="star" />
+        </p>
         <h1 id="hero-heading">
           DUNGEONS & <em>DRUMSTICKS</em>
         </h1>
