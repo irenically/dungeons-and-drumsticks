@@ -118,6 +118,7 @@ export function RecipeGrid({
                   </svg>
                 </span>
                 <h3 className="card-title">{r.name}</h3>
+                <p className="card-description">{r.flavor}</p>
               </div>
               <img
                 className="card-food"
@@ -125,6 +126,9 @@ export function RecipeGrid({
                 alt="Watercolor illustration of roasted chicken"
               />
               <ul className="card-ingredients">
+                <li className="card-ingredients-heading" aria-hidden="true">
+                  Ingredients
+                </li>
                 {r.ingredients.map((ingredient) => (
                   <li key={ingredient.name}>
                     <span>
@@ -138,7 +142,10 @@ export function RecipeGrid({
                 ))}
               </ul>
               <div className="card-footer">
-                <span>{formatMarination(r)}</span>
+                <span>
+                  <span className="card-time-label">Marinating time</span>
+                  {formatMarination(r)}
+                </span>
                 <span className="card-open" aria-hidden="true">
                   View recipe →
                 </span>
