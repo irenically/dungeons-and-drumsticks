@@ -3425,15 +3425,29 @@ button:disabled {
   inset: 15% 17% 20%;
 }
 .modal-close {
-  top: 9%;
-  right: 7%;
-  width: 30px;
-  height: 30px;
-  border-width: 1px;
+  top: 4%;
+  right: 6.2%;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 2px solid #d39436;
+  border-radius: 50%;
+  background: #7c2819;
+  color: #ffe7ab;
+  box-shadow:
+    0 0 0 3px #612512,
+    0 2px 7px #49200b99;
+  cursor: pointer;
+}
+.modal-close .modal-close-icon {
+  width: 17px;
+  height: 17px;
 }
 .recipe-modal--roll .modal-close {
-  top: 13%;
-  right: 16%;
+  top: 4%;
+  right: 6.2%;
 }
 .recipe-modal h2 {
   font-size: clamp(22px, 3vw, 38px);
@@ -3532,32 +3546,36 @@ button:disabled {
 /* Expanded version of the recipe card: illustration and seal left, details right. */
 .modal-layout {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  gap: 28px;
+  gap: 34px;
   align-items: start;
 }
 .modal-overview {
-  position: sticky;
-  top: 0;
+  position: relative;
   min-width: 0;
+  min-height: min(440px, 54dvh);
+  display: grid;
+  place-items: center;
 }
 .modal-recipe-picture {
   display: block;
-  width: 100%;
-  height: min(440px, 54dvh);
-  object-fit: cover;
+  width: 112%;
+  height: min(500px, 60dvh);
+  object-fit: contain;
   mix-blend-mode: multiply;
-  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: radial-gradient(ellipse 72% 72% at 50% 50%, #000 49%, #000c 70%, transparent 100%);
+  transform: translate(-2%, 1%);
 }
 .modal-recipe-stamp {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 1%;
+  left: 1%;
   width: 85px;
   height: auto;
   filter: drop-shadow(0 3px 2px #31130f45);
 }
 .modal-details {
   min-width: 0;
+  padding: 26px 18px 14px 14px;
 }
 .recipe-modal h2 {
   font-size: clamp(22px, 3.2vw, 40px);
@@ -3638,9 +3656,12 @@ button:disabled {
   }
   .modal-overview {
     position: relative;
+    min-height: 180px;
   }
   .modal-recipe-picture {
+    width: min(100%, 360px);
     height: 180px;
+    transform: none;
   }
   .modal-recipe-stamp {
     width: 58px;

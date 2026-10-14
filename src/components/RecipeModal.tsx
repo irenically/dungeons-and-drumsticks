@@ -64,7 +64,7 @@ export function RecipeModal({
           onClick={onClose}
           aria-label="Close recipe"
         >
-          <Icon name="close" />
+          <Icon name="close" className="modal-close-icon" />
         </button>
         <div className="recipe-modal-content">
           <div className="modal-layout">
