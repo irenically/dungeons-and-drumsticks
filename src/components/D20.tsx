@@ -24,13 +24,25 @@ export function D20({
             <clipPath id="dieShimmerClip">
               <path d="M120 8 220 65 220 180 120 238 20 180 20 65Z" />
             </clipPath>
-            <linearGradient id="dieShimmer" x1="0" y1="0" x2="1" y2="0">
-              <stop stopColor="#ffe7a0" stopOpacity="0" />
-              <stop offset=".3" stopColor="#a9e7ef" stopOpacity=".18" />
-              <stop offset=".5" stopColor="#fff5d8" stopOpacity=".42" />
-              <stop offset=".7" stopColor="#c8b4ef" stopOpacity=".18" />
-              <stop offset="1" stopColor="#ffe7a0" stopOpacity="0" />
-            </linearGradient>
+            <radialGradient id="cosmicGold">
+              <stop stopColor="#fffbed" />
+              <stop offset=".35" stopColor="#ffe89a" stopOpacity=".95" />
+              <stop offset="1" stopColor="#ffd46c" stopOpacity="0" />
+            </radialGradient>
+            <radialGradient id="cosmicViolet">
+              <stop stopColor="#e8e1ff" />
+              <stop offset=".4" stopColor="#bca0ff" stopOpacity=".8" />
+              <stop offset="1" stopColor="#80d8ef" stopOpacity="0" />
+            </radialGradient>
+            <mask id="dieEdgeMask" maskUnits="userSpaceOnUse" x="0" y="0" width="240" height="245">
+              <path
+                d="M120 8 220 65 220 180 120 238 20 180 20 65Z M120 8 120 48 M20 65 120 48 220 65 M20 65 48 168 20 180 M220 65 192 168 220 180 M120 48 48 168 192 168Z M48 168 120 238 192 168"
+                fill="none"
+                stroke="white"
+                strokeWidth="4.5"
+                strokeLinejoin="round"
+              />
+            </mask>
             <linearGradient id="dieFace" x1="0" y1="0" x2="1" y2="1">
               <stop stopColor="#343941" />
               <stop offset="1" stopColor="#11151c" />
@@ -60,16 +72,7 @@ export function D20({
             <path d="M48 168 120 238 192 168Z" fill="#202630" />
             <path d="M120 48 48 168 192 168Z" fill="url(#dieFace)" />
           </g>
-          <g clipPath="url(#dieShimmerClip)">
-            <rect
-              className="d20-shimmer"
-              x="-160"
-              y="-50"
-              width="130"
-              height="350"
-              fill="url(#dieShimmer)"
-            />
-          </g>
+
           <path
             d="M120 8 220 65 220 180 120 238 20 180 20 65Z"
             fill="none"
@@ -77,6 +80,30 @@ export function D20({
             strokeWidth="4"
             strokeLinejoin="round"
           />
+          <g mask="url(#dieEdgeMask)">
+            <g className="d20-cosmic-swirl">
+              <circle cx="80" cy="50" r="85" fill="url(#cosmicGold)" />
+              <circle cx="180" cy="145" r="70" fill="url(#cosmicViolet)" />
+              <circle cx="80" cy="210" r="65" fill="url(#cosmicGold)" />
+              <path
+                d="M120 120C25 0 245 15 210 140S20 245 40 110S160 45 120 120"
+                fill="none"
+                stroke="#fff3c0"
+                strokeWidth="18"
+                opacity=".6"
+              />
+            </g>
+          </g>
+          <g clipPath="url(#dieShimmerClip)" opacity=".16">
+            <g className="d20-cosmic-inner">
+              <path
+                d="M120 125C35 10 240 35 200 150S30 220 55 100S150 65 120 125"
+                fill="none"
+                stroke="url(#cosmicViolet)"
+                strokeWidth="24"
+              />
+            </g>
+          </g>
           <g fill="#ffda80" fontFamily="Cinzel,serif" textAnchor="middle">
             <text x="120" y="139" fontWeight="800" fontSize="48">
               {value}
