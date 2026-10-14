@@ -122,7 +122,7 @@ function BattleCharacter({ name }: { name: string }) {
       </span>
       {name === 'champion' ? (
         <span
-          className="champion-armor-sheen"
+          className="champion-sword-glow"
           style={{ maskImage: `url(${import.meta.env.BASE_URL}assets/champion.png)` }}
         />
       ) : null}

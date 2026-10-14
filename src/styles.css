@@ -2297,7 +2297,7 @@ button:disabled {
 .fighter-champion .fighter-art {
   animation: none;
 }
-.champion-armor-sheen {
+.champion-sword-glow {
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -2306,61 +2306,32 @@ button:disabled {
   mask-repeat: no-repeat;
   pointer-events: none;
 }
-.champion-armor-sheen::before {
+.champion-sword-glow::before {
   content: '';
   position: absolute;
   inset: 0;
-  clip-path: polygon(
-    3% 40%,
-    28% 36%,
-    33% 22%,
-    46% 20%,
-    53% 33%,
-    72% 32%,
-    77% 44%,
-    61% 50%,
-    53% 64%,
-    31% 69%,
-    18% 83%,
-    2% 76%
+  clip-path: polygon(59% 32%, 69% 22%, 77% 7%, 99% 0, 98% 13%, 86% 28%, 72% 40%, 64% 42%);
+  background: radial-gradient(
+    ellipse at 82% 20%,
+    #fffdecd9 0%,
+    #ffe78da6 15%,
+    #ffcc566b 28%,
+    transparent 46%
   );
-  background: linear-gradient(
-    115deg,
-    transparent 40%,
-    #fff3b83b 46%,
-    #fffbe7ba 50%,
-    #ffe69a38 54%,
-    transparent 60%
-  );
-  background-size: 300% 100%;
-  opacity: 0;
-  animation: champion-armor-shine var(--magic-cycle) ease-in-out var(--magic-delay) infinite;
+  opacity: 0.95;
+  animation: champion-sword-light 4s ease-in-out infinite;
 }
-@keyframes champion-armor-shine {
+@keyframes champion-sword-light {
   0%,
-  72% {
-    opacity: 0;
-    background-position: 100% 0;
-  }
-  76% {
-    opacity: 0.9;
-    background-position: 100% 0;
-  }
-  87% {
-    opacity: 0.9;
-    background-position: 0% 0;
-  }
-  91%,
   100% {
-    opacity: 0;
-    background-position: 0% 0;
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .champion-armor-sheen {
-    display: none;
-  }
-  .champion-armor-sheen::before {
+  .champion-sword-glow::before {
     animation: none !important;
   }
 }
