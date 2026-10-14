@@ -1,11 +1,10 @@
 import { D20 } from './D20';
 import { FantasyButton } from './Primitives';
-const left = ['artificer', 'cleric', 'monk', 'druid', 'bard', 'paladin', 'rogue'];
-const right = ['sorcerer', 'champion', 'wizard', 'ranger', 'barbarian', 'warlock'];
+const left = ['rogue', 'cleric', 'druid', 'bard', 'paladin'];
+const right = ['warlock', 'wizard', 'champion', 'ranger', 'barbarian'];
 const artwork: Record<string, string> = {
   cleric: 'cleric.png',
   champion: 'champion.png',
-  sorcerer: 'sorcerer.png',
 };
 export function Hero({
   value,

@@ -295,34 +295,12 @@ button:disabled {
 .fighters-left .fighter {
   transform: scaleX(-1);
 }
-.fighters-left .fighter-artificer {
-  left: 0;
-  top: 80px;
-  width: 13vw;
-  max-width: 175px;
-  animation-delay: -1.2s;
-}
 .fighters-left .fighter-cleric {
   left: 14%;
   top: 105px;
   width: 12vw;
   max-width: 165px;
   animation-delay: -2.7s;
-}
-.fighters-left .fighter-monk {
-  left: 27%;
-  bottom: 25px;
-  width: 13vw;
-  max-width: 180px;
-  animation-delay: -0.8s;
-}
-.fighters-right .fighter-sorcerer {
-  right: 17%;
-  top: 85px;
-  width: 13vw;
-  max-width: 180px;
-  transform: scaleX(-1);
-  animation-delay: -1.7s;
 }
 .fighters-right .fighter-champion {
   right: 28%;
@@ -387,7 +365,7 @@ button:disabled {
   max-width: 245px;
   animation-delay: -3.3s;
 }
-/* Grounded depth rows: shared foot positions, scale, and stacking per row. */
+/* Shared ground lines and sizes keep both teams in the same perspective. */
 @media (min-width: 1101px) {
   .fighters .fighter {
     top: auto;
@@ -397,71 +375,59 @@ button:disabled {
     max-width: none;
     z-index: var(--fighter-layer);
   }
-  .fighter-cleric,
   .fighter-rogue,
-  .fighter-sorcerer,
   .fighter-warlock {
-    --fighter-ground: 345px;
+    --fighter-ground: 315px;
     --fighter-height: clamp(155px, 12vw, 195px);
     --fighter-layer: 1;
     filter: drop-shadow(0 6px 5px #16111180) brightness(0.88);
   }
-  .fighter-artificer,
+  .fighter-cleric,
   .fighter-druid,
-  .fighter-bard,
   .fighter-wizard,
   .fighter-champion {
-    --fighter-ground: 195px;
-    --fighter-height: clamp(225px, 17vw, 275px);
+    --fighter-ground: 185px;
+    --fighter-height: clamp(215px, 16vw, 255px);
     --fighter-layer: 2;
     filter: drop-shadow(0 10px 8px #161111a0);
   }
   .fighter-paladin,
-  .fighter-monk,
+  .fighter-bard,
   .fighter-ranger,
   .fighter-barbarian {
-    --fighter-ground: 30px;
-    --fighter-height: clamp(295px, 22vw, 355px);
+    --fighter-ground: 35px;
+    --fighter-height: clamp(280px, 21vw, 330px);
     --fighter-layer: 3;
   }
-  .fighters-left .fighter-cleric {
-    left: 15%;
-  }
   .fighters-left .fighter-rogue {
-    left: 25%;
+    left: 23%;
   }
-  .fighters-left .fighter-artificer {
-    left: -2%;
+  .fighters-left .fighter-cleric {
+    left: 13%;
   }
   .fighters-left .fighter-druid {
-    left: 8%;
+    left: 0;
   }
   .fighters-left .fighter-bard {
-    left: 19%;
+    left: 17%;
   }
   .fighters-left .fighter-paladin {
-    left: -2%;
-  }
-  .fighters-left .fighter-monk {
-    left: 15%;
-  }
-  .fighters-right .fighter-sorcerer {
-    right: 15%;
+    left: 0;
   }
   .fighters-right .fighter-warlock {
-    right: 25%;
+    right: 23%;
   }
   .fighters-right .fighter-wizard {
-    right: -2%;
+    right: 0;
   }
   .fighters-right .fighter-champion {
-    right: 12%;
+    right: 13%;
   }
   .fighters-right .fighter-barbarian {
-    right: -2%;
+    right: 0;
   }
   .fighters-right .fighter-ranger {
-    right: 15%;
+    right: 17%;
   }
 }
 .hero-transition {
@@ -1333,10 +1299,7 @@ button:disabled {
   }
 }
 @media (max-width: 1100px) {
-  .fighter-artificer,
   .fighter-cleric,
-  .fighter-monk,
-  .fighter-sorcerer,
   .fighter-champion {
     display: none;
   }
