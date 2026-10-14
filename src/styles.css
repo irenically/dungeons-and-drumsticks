@@ -377,6 +377,7 @@ button:disabled {
   }
   .fighter-bard,
   .fighter-cleric,
+  .fighter-rogue,
   .fighter-wizard,
   .fighter-warlock {
     --fighter-ground: 315px;
@@ -392,7 +393,6 @@ button:disabled {
     filter: drop-shadow(0 10px 8px #161111a0);
   }
   .fighter-paladin,
-  .fighter-rogue,
   .fighter-champion,
   .fighter-barbarian {
     --fighter-ground: 35px;
@@ -400,7 +400,7 @@ button:disabled {
     --fighter-layer: 3;
   }
   .fighters-left .fighter-rogue {
-    left: 3%;
+    left: 23%;
   }
   .fighters-left .fighter-cleric {
     left: 11%;
