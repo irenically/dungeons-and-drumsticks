@@ -8,6 +8,18 @@ const artwork: Record<string, string> = {
   champion: 'champion.png',
 };
 const bardNotes = ['♪', '♫', '♬'];
+const firelights = [
+  { x: 90, y: 185, rx: 55, ry: 70 },
+  { x: 372, y: 30, rx: 55, ry: 75 },
+  { x: 1540, y: 110, rx: 55, ry: 80 },
+  { x: 1977, y: 75, rx: 42, ry: 65 },
+  { x: 610, y: 165, rx: 65, ry: 75 },
+  { x: 815, y: 240, rx: 44, ry: 55 },
+  { x: 1420, y: 220, rx: 42, ry: 55 },
+  { x: 1260, y: 325, rx: 45, ry: 65 },
+  { x: 355, y: 332, rx: 90, ry: 60 },
+  { x: 1370, y: 445, rx: 85, ry: 38 },
+];
 const championSparkles = ['✦', '✧', '✦'];
 const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'cleric']);
 function BattleCharacter({ name }: { name: string }) {
@@ -140,6 +152,36 @@ export function Hero({
     <section ref={sceneRef} className="hero" aria-labelledby="hero-heading">
       <div className="hero-scene" aria-hidden="true" />
       <div className="hero-shade" aria-hidden="true" />
+      <svg
+        className="hero-firelight"
+        viewBox="0 0 2048 682"
+        preserveAspectRatio="xMidYMin slice"
+        aria-hidden="true"
+      >
+        <defs>
+          <radialGradient id="battleFirelight">
+            <stop stopColor="#fff0ae" stopOpacity=".55" />
+            <stop offset=".3" stopColor="#ffbc55" stopOpacity=".32" />
+            <stop offset=".65" stopColor="#f78120" stopOpacity=".12" />
+            <stop offset="1" stopColor="#e96b14" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        {firelights.map((light, index) => (
+          <ellipse
+            key={index}
+            className="firelight-flicker"
+            cx={light.x}
+            cy={light.y}
+            rx={light.rx}
+            ry={light.ry}
+            fill="url(#battleFirelight)"
+            style={{
+              animationDuration: `${2.8 + (index % 4) * 0.47}s`,
+              animationDelay: `${-index * 0.63}s`,
+            }}
+          />
+        ))}
+      </svg>
       <div className="hero-stars" aria-hidden="true" />
       <div className="hero-content">
         <p className="eyebrow">✧ THE CULINARY ADVENTURER'S GUILD ✧</p>
