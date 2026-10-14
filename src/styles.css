@@ -2519,3 +2519,158 @@ button:disabled {
     animation: none !important;
   }
 }
+
+/* Classic parchment sheets with restrained detailing and readable recipe columns. */
+.recipes-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+.recipe-card {
+  isolation: isolate;
+  grid-template-columns: 43% minmax(0, 1fr);
+  gap: 14px 22px;
+  min-height: 410px;
+  padding: 20px 24px 24px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  filter: drop-shadow(0 4px 5px #4a230f26);
+}
+.recipe-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at center, #fff7df99 35%, #bf864a38 90%),
+    linear-gradient(135deg, #f7dfaa4d, #fff1ce80 45%, #dcb47b40),
+    url('/assets/parchment.webp') center / 520px;
+  box-shadow: inset 0 0 24px 6px #85502333;
+  clip-path: polygon(
+    1% 2%,
+    7% 1%,
+    14% 2%,
+    24% 1%,
+    35% 1.5%,
+    46% 1%,
+    58% 2%,
+    70% 1%,
+    81% 1.6%,
+    92% 1%,
+    99% 2%,
+    98.5% 12%,
+    99.5% 24%,
+    98.7% 38%,
+    99.4% 51%,
+    98.5% 63%,
+    99.5% 78%,
+    98.8% 90%,
+    99% 98%,
+    88% 99%,
+    77% 98%,
+    63% 99%,
+    52% 98.5%,
+    41% 99%,
+    28% 98%,
+    16% 99%,
+    1% 98%,
+    1.5% 87%,
+    0.5% 75%,
+    1.3% 62%,
+    0.5% 49%,
+    1.4% 35%,
+    0.5% 22%,
+    1.5% 11%
+  );
+}
+.recipe-card::after {
+  display: block;
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #9a6a3540;
+  z-index: -1;
+  pointer-events: none;
+}
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+  filter: drop-shadow(0 8px 9px #4a230f30);
+}
+.recipe-card.is-picked {
+  box-shadow: none;
+}
+.recipe-card.is-picked::after {
+  border-color: var(--accent);
+}
+.card-header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #9a6a3560;
+  gap: 18px;
+}
+.card-dice {
+  width: 78px;
+  height: 78px;
+}
+.card-title {
+  font-size: clamp(19px, 2vw, 25px);
+}
+.card-food {
+  min-height: 265px;
+  mix-blend-mode: multiply;
+  mask-image:
+    linear-gradient(to right, transparent, black 5%, black 95%, transparent),
+    linear-gradient(to bottom, transparent, black 4%, black 96%, transparent);
+  mask-composite: intersect;
+}
+.card-ingredients {
+  font-size: 16px;
+  line-height: 1.35;
+}
+.card-ingredients li {
+  padding: 5px 0;
+  border-bottom: 1px solid #9a6a351a;
+  gap: 14px;
+}
+.ingredient-amount {
+  color: #70593f;
+}
+.card-footer {
+  padding-top: 12px;
+  border-top: 1px solid #9a6a3560;
+  font: 600 17px/1.3 var(--body-font);
+  color: #563b22;
+}
+@media (max-width: 900px) {
+  .recipes-grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 600px;
+    margin-inline: auto;
+  }
+}
+@media (max-width: 530px) {
+  .recipe-card {
+    padding: 18px;
+    min-height: 350px;
+    gap: 12px 14px;
+  }
+  .card-dice {
+    width: 64px;
+    height: 64px;
+  }
+  .card-title {
+    font-size: 20px;
+  }
+  .card-ingredients {
+    font-size: 14px;
+  }
+  .card-ingredients li {
+    gap: 8px;
+  }
+  .card-food {
+    min-height: 230px;
+  }
+  .card-footer {
+    font-size: 15px;
+  }
+}
