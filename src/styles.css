@@ -536,6 +536,24 @@ button:disabled {
 .fighter-barbarian .fighter-art {
   animation-name: barbarian-rage;
 }
+.fighter-paladin .fighter-art {
+  transform-origin: 50% 90%;
+  animation-name: warrior-sway;
+}
+@keyframes warrior-sway {
+  0%,
+  70%,
+  95%,
+  100% {
+    rotate: 0deg;
+  }
+  78% {
+    rotate: -1.5deg;
+  }
+  86% {
+    rotate: 1deg;
+  }
+}
 @keyframes fighter-enchantment {
   0%,
   72%,
