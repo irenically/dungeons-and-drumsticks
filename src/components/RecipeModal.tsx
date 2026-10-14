@@ -60,8 +60,8 @@ export function RecipeModal({
         {origin === 'roll' ? (
           <img
             className="roll-result-banner"
-            src={`${import.meta.env.BASE_URL}assets/The D20 Has Spoken Banner.png`}
-            alt="The D20 has spoken"
+            src={`${import.meta.env.BASE_URL}assets/The Dice Has Spoken Banner.png`}
+            alt="The Dice has spoken"
           />
         ) : null}
         <button
