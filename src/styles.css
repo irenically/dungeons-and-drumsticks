@@ -1207,13 +1207,13 @@ button:disabled {
   margin-bottom: -3px;
 }
 .section-kicker {
-  font: 800 12px var(--fantasy-font);
-  letter-spacing: 3px;
+  font: 800 clamp(11px, 1.7vw, 14px) var(--fantasy-font);
+  letter-spacing: 0.28em;
   color: #a26d31;
-  margin: 25px 0 5px;
+  margin: 0 0 5px;
 }
 .section-title {
-  font: 900 clamp(25px, 3.3vw, 43px)/1.2 var(--fantasy-font);
+  font: 900 clamp(32px, 6.3vw, 74px)/1.02 var(--fantasy-font);
   color: #612717;
   text-shadow: 1px 2px 0 #f9eac4;
   margin: 0;
@@ -1226,8 +1226,8 @@ button:disabled {
 }
 .section-subtitle {
   font-style: italic;
-  font-size: 22px;
-  margin: 9px auto 23px;
+  font-size: clamp(20px, 3.4vw, 29px);
+  margin: 9px auto 28px;
 }
 .recipes-grid {
   display: grid;
@@ -1891,7 +1891,7 @@ button:disabled {
     display: none;
   }
   .section-title {
-    font-size: 25px;
+    font-size: clamp(28px, 8vw, 42px);
   }
   .recipes-divider--rooster {
     width: 90vw;

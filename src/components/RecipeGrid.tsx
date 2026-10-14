@@ -18,15 +18,15 @@ export function RecipeGrid({
         alt=""
         aria-hidden="true"
       />
-      <p className="section-kicker">THE GREAT GRIMOIRE OF FLAVOR</p>
-      <h2 className="section-title">CHOOSE YOUR CHICKEN MARINADE</h2>
+      <p className="section-kicker">CHAPTER I · THE BOOK OF FLAVORS</p>
+      <h2 className="section-title">The Marinade Grimoire</h2>
       <img
         className="recipes-divider recipes-divider--ruby"
         src={`${import.meta.env.BASE_URL}assets/Ruby Filigree Gold Divider.png`}
         alt=""
         aria-hidden="true"
       />
-      <p className="section-subtitle">Epic flavors for everyday heroes.</p>
+      <p className="section-subtitle">Twenty recipes. One very nervous chicken.</p>
       <div className="recipes-grid">
         {recipes.map((r) => (
           <button
