@@ -18,6 +18,7 @@ const effects: Record<string, string[]> = {
   ranger: ['←', '←', '←'],
   barbarian: ['·', '✦', '·'],
 };
+const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'druid', 'cleric']);
 function BattleCharacter({ name }: { name: string }) {
   return (
     <span className={`fighter fighter-${name}`}>
@@ -33,6 +34,7 @@ function BattleCharacter({ name }: { name: string }) {
           </span>
         ))}
       </span>
+      {projectileUsers.has(name) ? <span className="fighter-projectile" /> : null}
     </span>
   );
 }

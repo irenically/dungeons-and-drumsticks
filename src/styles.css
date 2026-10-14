@@ -386,8 +386,101 @@ button:disabled {
   animation: rogue-smoke var(--magic-cycle) ease-in-out var(--magic-delay) infinite;
 }
 .fighter-ranger .fighter-particle {
-  animation-name: ranger-shot;
-  top: 42%;
+  display: none;
+}
+.fighter-projectile {
+  --flight-distance: min(56vw, 1050px);
+  position: absolute;
+  left: 24%;
+  top: 48%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--magic-color);
+  box-shadow:
+    0 0 6px 3px currentColor,
+    0 0 18px 6px currentColor;
+  opacity: 0;
+  animation: projectile-flight var(--magic-cycle) linear var(--magic-delay) infinite;
+}
+.fighter-projectile::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 65px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(to right, currentColor, transparent);
+}
+.fighter-ranger .fighter-projectile {
+  top: 40%;
+  width: 58px;
+  height: 3px;
+  border-radius: 0;
+  background: #ecd4a0;
+  box-shadow: 0 0 4px #f5da9a80;
+}
+.fighter-ranger .fighter-projectile::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: -5px;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 12px solid #e9e1d1;
+}
+.fighter-ranger .fighter-projectile::after {
+  left: 46px;
+  top: -4px;
+  width: 12px;
+  height: 10px;
+  border-radius: 0;
+  background: #c6d6a2;
+  clip-path: polygon(0 0, 100% 20%, 65% 50%, 100% 80%, 0 100%, 25% 50%);
+}
+.fighter-druid .fighter-projectile {
+  border-radius: 70% 0 70% 0;
+}
+.fighter-cleric .fighter-projectile {
+  width: 12px;
+  height: 12px;
+  rotate: 45deg;
+  border-radius: 2px;
+}
+@keyframes projectile-flight {
+  0%,
+  77% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  78% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  88% {
+    opacity: 0.9;
+    translate: calc(-1 * var(--flight-distance)) -18px;
+  }
+  90%,
+  100% {
+    opacity: 0;
+    translate: calc(-1 * var(--flight-distance)) -18px;
+  }
+}
+@media (max-width: 780px) {
+  .fighter-projectile {
+    --flight-distance: 55vw;
+    width: 10px;
+    height: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fighter-projectile {
+    display: none;
+    animation: none !important;
+  }
 }
 .fighter-barbarian .fighter-art {
   animation-name: barbarian-ready;
