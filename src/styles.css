@@ -380,14 +380,14 @@ button:disabled {
   .fighter-wizard,
   .fighter-warlock {
     --fighter-ground: 315px;
-    --fighter-height: clamp(205px, 15vw, 245px);
+    --fighter-height: clamp(195px, 14vw, 230px);
     --fighter-layer: 1;
     filter: drop-shadow(0 6px 5px #16111180) brightness(0.88);
   }
   .fighter-cleric,
   .fighter-ranger {
     --fighter-ground: 185px;
-    --fighter-height: clamp(230px, 17vw, 275px);
+    --fighter-height: clamp(225px, 16.5vw, 270px);
     --fighter-layer: 2;
     filter: drop-shadow(0 10px 8px #161111a0);
   }
