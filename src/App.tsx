@@ -11,6 +11,7 @@ export default function App() {
   const [dieValue, setDieValue] = useState(20);
   const [rolling, setRolling] = useState(false);
   const [modal, setModal] = useState<Recipe | null>(null);
+  const [modalOrigin, setModalOrigin] = useState<'recipe' | 'roll'>('recipe');
   const rollingRef = useRef(false);
   const timeouts = useRef<number[]>([]);
   const roll = useCallback(() => {
@@ -27,6 +28,7 @@ export default function App() {
       setChosen(result);
       setRolling(false);
       rollingRef.current = false;
+      setModalOrigin('roll');
       setModal(result);
     }, 1550);
     timeouts.current.push(timer);
@@ -58,7 +60,13 @@ export default function App() {
       </header>
       <main id="top">
         <Hero value={dieValue} rolling={rolling} onRoll={roll} />
-        <RecipeGrid chosen={chosen} onOpen={setModal} />
+        <RecipeGrid
+          chosen={chosen}
+          onOpen={(recipe) => {
+            setModalOrigin('recipe');
+            setModal(recipe);
+          }}
+        />
         <section className="how-section container" id="how">
           <Ornament elongated />
           <h2 className="section-title">A FEAST WRITTEN IN THE STARS</h2>
@@ -98,7 +106,7 @@ export default function App() {
           </span>
         </div>
       </footer>
-      <RecipeModal recipe={modal} onClose={() => setModal(null)} />
+      <RecipeModal recipe={modal} origin={modalOrigin} onClose={() => setModal(null)} />
     </div>
   );
 }

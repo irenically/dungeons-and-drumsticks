@@ -3390,3 +3390,141 @@ button:disabled {
     width: calc(40.18% - 6px);
   }
 }
+
+/* Keep the supplied popup artwork proportional; scroll only its readable interior. */
+.recipe-modal {
+  --modal-ratio: 4 / 3;
+  width: min(1100px, 96vw, calc((100dvh - 32px) * 4 / 3));
+  aspect-ratio: var(--modal-ratio);
+  max-height: none;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+  background: url('/assets/Ornate Golden Parchment Recipe Frame.png') center / 100% 100% no-repeat;
+  box-shadow: none;
+  filter: drop-shadow(0 12px 24px #0009);
+}
+.recipe-modal--roll {
+  --modal-ratio: 3 / 2;
+  width: min(1280px, 98vw, calc((100dvh - 32px) * 3 / 2));
+  background-image: url('/assets/Ornate Heraldic Parchment Frame.png');
+}
+.recipe-modal::after {
+  display: none;
+}
+.recipe-modal-content {
+  position: absolute;
+  inset: 12% 8% 14%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 2px 12px 14px;
+  scrollbar-width: thin;
+  scrollbar-color: #ac8246 transparent;
+}
+.recipe-modal--roll .recipe-modal-content {
+  inset: 15% 17% 20%;
+}
+.modal-close {
+  top: 9%;
+  right: 7%;
+  width: 30px;
+  height: 30px;
+  border-width: 1px;
+}
+.recipe-modal--roll .modal-close {
+  top: 13%;
+  right: 16%;
+}
+.recipe-modal h2 {
+  font-size: clamp(22px, 3vw, 38px);
+  margin: 7px 0 18px;
+}
+.modal-ribbon {
+  font-size: 11px;
+  letter-spacing: 1.2px;
+}
+.modal-badge {
+  margin-top: 8px;
+}
+.modal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 28px;
+  text-align: left;
+}
+.modal-food img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+}
+.modal-description {
+  font-size: 17px;
+  margin: 10px 0;
+  line-height: 1.4;
+}
+.recipe-modal .recipe-comment {
+  font-size: 16px;
+  padding: 8px 12px;
+  margin: 12px 0;
+}
+.modal-columns {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.modal-columns h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+.modal-columns ul {
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+.modal-columns li {
+  padding: 5px 0;
+  border-bottom: 1px solid #a77c4c26;
+  font-size: 17px;
+  line-height: 1.35;
+}
+.modal-columns p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.modal-okay {
+  margin: 18px auto 0;
+  padding: 10px 20px;
+  border: 1px solid #9f6c37;
+  border-radius: 3px;
+  background: #812b1e;
+  color: #fff0cf;
+  font: 700 12px var(--fantasy-font);
+}
+.recipe-modal--roll .modal-ribbon {
+  color: #9b271b;
+}
+@media (max-width: 650px) {
+  .modal-backdrop {
+    padding: 8px;
+  }
+  .recipe-modal-content {
+    padding: 0 6px 10px;
+  }
+  .modal-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .modal-food img {
+    max-height: 160px;
+  }
+  .modal-close {
+    width: 24px;
+    height: 24px;
+  }
+  .modal-description,
+  .modal-columns li {
+    font-size: 15px;
+  }
+}

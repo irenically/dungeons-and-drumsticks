@@ -2,9 +2,16 @@ import { Icon } from './Icon';
 import { formatIngredient, formatMarination } from '../data/formatRecipe';
 import { useEffect, useRef } from 'react';
 import type { Recipe } from '../types';
-import { Corners, FantasyButton } from './Primitives';
 import { chickenGrimoire } from '../data/recipes';
-export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClose: () => void }) {
+export function RecipeModal({
+  recipe,
+  onClose,
+  origin = 'recipe',
+}: {
+  recipe: Recipe | null;
+  onClose: () => void;
+  origin?: 'recipe' | 'roll';
+}) {
   const closeRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     if (!recipe) return;
@@ -45,7 +52,7 @@ export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClos
       }}
     >
       <section
-        className="recipe-modal"
+        className={`recipe-modal recipe-modal--${origin}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-heading"
@@ -59,47 +66,55 @@ export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClos
         >
           <Icon name="close" />
         </button>
-        <div className="modal-ribbon">
-          <Icon name="sparkle" /> &nbsp; A LEGENDARY RECIPE &nbsp; <Icon name="sparkle" />
-        </div>
-        <div className="modal-badge">
-          D20 · {recipe.id} — {recipe.ui.category.toUpperCase()}
-        </div>
-        <h2 id="modal-heading">{recipe.name.toUpperCase()}</h2>
-        <div className="modal-food">
-          <img
-            src={`${import.meta.env.BASE_URL}assets/${recipe.ui.image}`}
-            alt={`${recipe.name} chicken illustration`}
-          />
-        </div>
-        <p className="modal-description">{recipe.flavor}</p>
-        {recipe.comment ? (
-          <blockquote className="recipe-comment">{recipe.comment}</blockquote>
-        ) : null}
-        <p className="modal-description">
-          {recipe.region} · {chickenGrimoire.servingBase.amount} {chickenGrimoire.servingBase.unit}{' '}
-          {chickenGrimoire.servingBase.state} {chickenGrimoire.servingBase.ingredient}
-          <br />
-          Marination: {formatMarination(recipe)}
-        </p>
-        <div className="modal-columns">
-          <div>
-            <h3>INGREDIENTS</h3>
-            <ul>
-              {recipe.ingredients.map((i) => (
-                <li key={i.name}>{formatIngredient(i)}</li>
-              ))}
-            </ul>
+        <div className="recipe-modal-content">
+          <div className="modal-ribbon">
+            <Icon name="sparkle" /> &nbsp;{' '}
+            {origin === 'roll' ? 'THE D20 HAS SPOKEN!' : 'A LEGENDARY RECIPE'} &nbsp;{' '}
+            <Icon name="sparkle" />
           </div>
-          <div>
-            <h3>RECIPE NOTES</h3>
-            <p>{recipe.notes}</p>
+          <div className="modal-badge">
+            D20 · {recipe.id} — {recipe.ui.category.toUpperCase()}
           </div>
+          <h2 id="modal-heading">{recipe.name.toUpperCase()}</h2>
+          <div className="modal-layout">
+            <div className="modal-overview">
+              <div className="modal-food">
+                <img
+                  src={`${import.meta.env.BASE_URL}assets/${recipe.ui.image}`}
+                  alt={`${recipe.name} chicken illustration`}
+                />
+              </div>
+              <p className="modal-description">{recipe.flavor}</p>
+              {recipe.comment ? (
+                <blockquote className="recipe-comment">{recipe.comment}</blockquote>
+              ) : null}
+              <p className="modal-description">
+                {recipe.region} · {chickenGrimoire.servingBase.amount}{' '}
+                {chickenGrimoire.servingBase.unit} {chickenGrimoire.servingBase.state}{' '}
+                {chickenGrimoire.servingBase.ingredient}
+                <br />
+                Marination: {formatMarination(recipe)}
+              </p>
+            </div>
+            <div className="modal-columns">
+              <div>
+                <h3>INGREDIENTS</h3>
+                <ul>
+                  {recipe.ingredients.map((i) => (
+                    <li key={i.name}>{formatIngredient(i)}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>RECIPE NOTES</h3>
+                <p>{recipe.notes}</p>
+              </div>
+            </div>
+          </div>
+          <button type="button" className="modal-okay" onClick={onClose}>
+            QUEST ACCEPTED
+          </button>
         </div>
-        <FantasyButton variant="red" className="modal-okay" onClick={onClose}>
-          QUEST ACCEPTED
-        </FantasyButton>
-        <Corners />
       </section>
     </div>
   );
