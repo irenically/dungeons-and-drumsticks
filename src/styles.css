@@ -376,7 +376,6 @@ button:disabled {
     z-index: var(--fighter-layer);
   }
   .fighter-bard,
-  .fighter-cleric,
   .fighter-rogue,
   .fighter-wizard,
   .fighter-warlock {
@@ -385,7 +384,7 @@ button:disabled {
     --fighter-layer: 1;
     filter: drop-shadow(0 6px 5px #16111180) brightness(0.88);
   }
-  .fighter-druid,
+  .fighter-cleric,
   .fighter-ranger {
     --fighter-ground: 185px;
     --fighter-height: clamp(230px, 17vw, 275px);
@@ -393,6 +392,7 @@ button:disabled {
     filter: drop-shadow(0 10px 8px #161111a0);
   }
   .fighter-paladin,
+  .fighter-druid,
   .fighter-champion,
   .fighter-barbarian {
     --fighter-ground: 35px;
