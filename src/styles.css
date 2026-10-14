@@ -3655,13 +3655,25 @@ button:disabled {
 
 /* The roll frame has an outer banner around a smaller parchment panel. */
 .recipe-modal--roll .modal-recipe-stamp {
+  z-index: 6;
   top: 12%;
   left: 13%;
   width: clamp(108px, 10vw, 136px);
 }
 .recipe-modal--roll .modal-close {
+  z-index: 7;
   top: 11%;
   right: 13%;
+}
+.roll-result-banner {
+  position: absolute;
+  z-index: 5;
+  top: -7%;
+  left: 50%;
+  width: min(720px, 72%);
+  height: auto;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 .recipe-modal--roll .recipe-modal-content {
   inset: 12% 14% 10%;
@@ -3703,6 +3715,10 @@ button:disabled {
   line-height: 1.28;
 }
 @media (max-width: 650px) {
+  .roll-result-banner {
+    top: -5%;
+    width: min(520px, 92%);
+  }
   .recipe-modal--roll .modal-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;

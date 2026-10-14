@@ -57,6 +57,13 @@ export function RecipeModal({
         aria-modal="true"
         aria-labelledby="modal-heading"
       >
+        {origin === 'roll' ? (
+          <img
+            className="roll-result-banner"
+            src={`${import.meta.env.BASE_URL}assets/The D20 Has Spoken Banner.png`}
+            alt="The D20 has spoken"
+          />
+        ) : null}
         <button
           ref={closeRef}
           type="button"
@@ -81,11 +88,6 @@ export function RecipeModal({
               />
             </div>
             <div className="modal-details">
-              {origin === 'roll' ? (
-                <div className="modal-ribbon">
-                  <Icon name="sparkle" /> THE D20 HAS SPOKEN! <Icon name="sparkle" />
-                </div>
-              ) : null}
               <h2 id="modal-heading">{recipe.name}</h2>
               {recipe.comment ? <p className="modal-card-comment">{recipe.comment}</p> : null}
               <div className="modal-columns">
