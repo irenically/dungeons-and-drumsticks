@@ -8,6 +8,7 @@ const artwork: Record<string, string> = {
   champion: 'champion.png',
 };
 const bardNotes = ['♪', '♫', '♬'];
+const championSparkles = ['✦', '✧', '✦'];
 const projectileUsers = new Set(['ranger', 'wizard', 'warlock', 'cleric']);
 function BattleCharacter({ name }: { name: string }) {
   return (
@@ -35,11 +36,13 @@ function BattleCharacter({ name }: { name: string }) {
         alt=""
       />
       <span className="fighter-magic">
-        {(name === 'bard' ? bardNotes : []).map((symbol, index) => (
-          <span key={index} className={`fighter-particle particle-${index}`}>
-            {symbol}
-          </span>
-        ))}
+        {(name === 'bard' ? bardNotes : name === 'champion' ? championSparkles : []).map(
+          (symbol, index) => (
+            <span key={index} className={`fighter-particle particle-${index}`}>
+              {symbol}
+            </span>
+          ),
+        )}
       </span>
       {projectileUsers.has(name) ? (
         <span className="fighter-projectile">
