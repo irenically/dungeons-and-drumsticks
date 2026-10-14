@@ -101,6 +101,7 @@ button:disabled {
   min-height: 650px;
   position: relative;
   isolation: isolate;
+  overflow: clip;
   text-align: center;
   background: #15253e;
 }
