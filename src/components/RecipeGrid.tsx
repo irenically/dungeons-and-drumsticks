@@ -2,7 +2,7 @@ import { useState, type CSSProperties } from 'react';
 import { recipes } from '../data/recipes';
 import { formatMarination } from '../data/formatRecipe';
 import type { Recipe } from '../types';
-import { Corners, Ornament } from './Primitives';
+import { Ornament } from './Primitives';
 const filters = ['All', 'Herby', 'Spicy', 'Sweet', 'Savory'] as const;
 export function RecipeGrid({
   chosen,
@@ -43,14 +43,38 @@ export function RecipeGrid({
               onClick={() => onOpen(r)}
               style={{ '--accent': r.ui.accentColor } as CSSProperties}
             >
-              <span className="card-badge">{r.id}</span>
-              <div className="card-category">✦ {r.ui.category} enchantment ✦</div>
+              <div className="card-header">
+                <span className="card-category">{r.ui.category}</span>
+                <span className="card-dice" aria-label={`D20 roll ${r.id}`}>
+                  <svg viewBox="0 0 48 52" aria-hidden="true">
+                    <path d="M24 2 45 14 45 38 24 50 3 38 3 14Z" fill="currentColor" />
+                    <path
+                      d="M24 2 24 10M3 14 24 10 45 14M3 14 10 35 3 38M45 14 38 35 45 38M24 10 10 35 38 35ZM10 35 24 50 38 35"
+                      fill="none"
+                      stroke="white"
+                      strokeOpacity=".35"
+                      strokeWidth="1"
+                    />
+                    <text
+                      x="24"
+                      y="31"
+                      textAnchor="middle"
+                      fill="white"
+                      fontSize="15"
+                      fontWeight="700"
+                      fontFamily="system-ui, sans-serif"
+                    >
+                      {r.id}
+                    </text>
+                  </svg>
+                </span>
+              </div>
               <img
                 className="card-food"
                 src={`${import.meta.env.BASE_URL}assets/${r.ui.image}`}
                 alt="Watercolor illustration of roasted chicken"
               />
-              <h3 className="card-title">{r.name.toUpperCase()}</h3>
+              <h3 className="card-title">{r.name}</h3>
               <p className="card-ingredients">
                 {r.ingredients
                   .slice(0, 4)
@@ -58,10 +82,11 @@ export function RecipeGrid({
                   .join(' · ')}
               </p>
               <div className="card-footer">
-                <span>D20 · {String(r.id).padStart(2, '0')}</span>
-                <span>{formatMarination(r)} · ➜</span>
+                <span>{formatMarination(r)}</span>
+                <span className="card-open" aria-hidden="true">
+                  View recipe →
+                </span>
               </div>
-              <Corners />
             </button>
           ))}
       </div>

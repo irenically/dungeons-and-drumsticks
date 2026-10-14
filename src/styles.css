@@ -1240,7 +1240,7 @@ button:disabled {
 }
 .recipes-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px 16px;
   text-align: center;
 }
@@ -1249,122 +1249,99 @@ button:disabled {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  isolation: isolate;
-  min-height: 318px;
-  padding: 22px 12px 14px;
-  background:
-    linear-gradient(115deg, #ffebbe99, #f4d7a29c),
-    url('/assets/parchment.webp') center / 500px;
-  border: 2px solid #9f6c37;
-  outline: 1px solid #d8aa6e;
-  box-shadow:
-    inset 0 0 0 4px #fce6b9,
-    0 4px 0 #9b632a,
-    0 8px 13px #75451755;
+  align-items: stretch;
+  min-height: 340px;
+  padding: 18px;
+  background: #fffaf1;
+  border: 1px solid #79502726;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px #4a230f0a;
   cursor: pointer;
+  text-align: left;
   transition:
     transform 0.2s,
-    box-shadow 0.2s;
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
-.recipe-card:before {
-  content: '❧';
-  position: absolute;
-  right: 6px;
-  top: 5px;
-  color: #9a6633;
-  font-size: 26px;
-  transform: rotate(90deg);
+.recipe-card::after {
+  display: none;
 }
 .recipe-card:hover {
-  transform: translateY(-7px) scale(1.025);
-  box-shadow:
-    inset 0 0 0 4px #fce6b9,
-    0 7px 0 #9b632a,
-    0 13px 22px #75451770,
-    0 0 18px #e6a73690;
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  box-shadow: 0 10px 24px #4a230f14;
 }
 .recipe-card.is-picked {
-  outline: 3px solid #d3a033;
-  box-shadow:
-    inset 0 0 0 4px #fce6b9,
-    0 7px 20px #e3ab21cc;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 20%, transparent);
 }
-.card-badge {
-  position: absolute;
-  top: -13px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 43px;
-  height: 43px;
-  display: grid;
-  place-items: center;
-  z-index: 2;
-  color: #ffe5ab;
-  background: radial-gradient(circle, #9a5320, #4d2412);
-  border: 3px double #f3c363;
-  clip-path: polygon(
-    50% 0,
-    65% 17%,
-    85% 15%,
-    83% 35%,
-    100% 50%,
-    83% 65%,
-    85% 85%,
-    65% 83%,
-    50% 100%,
-    35% 83%,
-    15% 85%,
-    17% 65%,
-    0 50%,
-    17% 35%,
-    15% 15%,
-    35% 17%
-  );
-  font: 900 14px var(--fantasy-font);
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 .card-category {
-  font: 700 10px var(--fantasy-font);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 17px 0 8px;
+  font:
+    600 11px/1.3 system-ui,
+    sans-serif;
   color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 9%, #fffaf1);
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+.card-dice {
+  display: block;
+  width: 38px;
+  height: 41px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.card-dice svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .card-food {
   width: 100%;
-  height: 128px;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-  filter: sepia(0.16) saturate(1.25);
+  height: 145px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
 }
 .card-title {
-  font: 800 16px/1.25 var(--fantasy-font);
-  color: #522818;
-  margin: 3px 0 9px;
-  min-height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font:
+    650 18px/1.3 system-ui,
+    sans-serif;
+  color: #3c2c23;
+  margin: 0 0 10px;
 }
 .card-ingredients {
-  font-size: 14px;
-  line-height: 1.3;
-  color: #5b3a24;
-  margin: auto 0 10px;
+  font:
+    400 13px/1.6 system-ui,
+    sans-serif;
+  color: #807164;
+  margin: 0 0 20px;
 }
 .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   width: 100%;
-  border-top: 1px solid #ba925f7f;
-  padding-top: 10px;
-  font: 700 10px var(--fantasy-font);
-  color: #8f572a;
+  border-top: 1px solid #79502716;
+  padding-top: 12px;
+  margin-top: auto;
+  font:
+    500 11px/1.4 system-ui,
+    sans-serif;
+  color: #807164;
 }
-.card-footer span:last-child {
-  font-size: 18px;
-  color: #ad6d27;
+.card-open {
+  color: var(--accent);
+  font-weight: 600;
 }
 .magic-badge {
   display: grid;
@@ -1935,7 +1912,7 @@ button:disabled {
   }
   .recipe-card {
     min-height: 286px;
-    padding: 16px 7px 9px;
+    padding: 12px;
   }
   .card-food {
     height: 100px;
