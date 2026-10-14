@@ -19,7 +19,7 @@ export function formatMarination(recipe: Recipe): string {
     return `${hours} h${remainder ? ` ${remainder} min` : ''}`;
   };
   if (min === max) return duration(min);
-  if (max < 60) return `${min}–${max} min`;
-  if (min >= 60 && min % 60 === 0 && max % 60 === 0) return `${min / 60}–${max / 60} h`;
-  return `${duration(min)}–${duration(max)}`;
+  if (max < 60) return `${min} – ${max} min`;
+  if (min >= 60 && min % 60 === 0 && max % 60 === 0) return `${min / 60} – ${max / 60} h`;
+  return `${duration(min)} – ${duration(max)}`;
 }
