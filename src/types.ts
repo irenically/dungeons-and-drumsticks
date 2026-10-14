@@ -14,6 +14,7 @@ export interface Recipe {
   ingredients: Ingredient[];
   marinationMinutes: { min: number; max: number };
   notes: string;
+  comment?: string;
   ui: { category: Category; accentColor: string; image: string };
 }
 export interface ChickenGrimoire {

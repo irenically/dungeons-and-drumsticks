@@ -73,6 +73,9 @@ export function RecipeModal({ recipe, onClose }: { recipe: Recipe | null; onClos
           />
         </div>
         <p className="modal-description">{recipe.flavor}</p>
+        {recipe.comment ? (
+          <blockquote className="recipe-comment">{recipe.comment}</blockquote>
+        ) : null}
         <p className="modal-description">
           {recipe.region} · {chickenGrimoire.servingBase.amount} {chickenGrimoire.servingBase.unit}{' '}
           {chickenGrimoire.servingBase.state} {chickenGrimoire.servingBase.ingredient}

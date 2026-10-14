@@ -59,7 +59,9 @@ export function RecipeGrid({
                   />
                 </span>
                 <h3 className="card-title">{r.name}</h3>
-                <p className="card-description">{r.flavor}</p>
+                <p className="card-description" title={r.comment}>
+                  {r.comment || r.flavor}
+                </p>
               </div>
               <img
                 className="card-food"

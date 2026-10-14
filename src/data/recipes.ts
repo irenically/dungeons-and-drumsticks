@@ -1,4 +1,5 @@
 import type { ChickenGrimoire } from '../types';
+import recipeComments from './recipeComments.json';
 
 // Recipe contents preserved from chicken.json; ui contains presentation-only metadata.
 export const chickenGrimoire: ChickenGrimoire = {
@@ -1138,4 +1139,7 @@ export const chickenGrimoire: ChickenGrimoire = {
   ],
 };
 
-export const recipes = chickenGrimoire.recipes;
+export const recipes = chickenGrimoire.recipes.map((recipe) => ({
+  ...recipe,
+  comment: recipeComments.find((entry) => entry.id === recipe.id)?.comment ?? '',
+}));
