@@ -1196,7 +1196,8 @@ button:disabled {
 }
 .recipes-section {
   text-align: center;
-  padding: 57px 0 65px;
+  width: min(1360px, calc(100% - 64px));
+  padding: clamp(24px, 3vw, 48px) 0 16px;
 }
 .recipes-divider {
   display: block;
@@ -1206,33 +1207,35 @@ button:disabled {
   user-select: none;
 }
 .recipes-divider--rooster {
-  width: min(460px, 90vw);
+  width: min(360px, 72vw);
   height: auto;
-  margin-top: -20px;
-  margin-bottom: -3px;
+  object-fit: contain;
+  margin-top: 0;
+  margin-bottom: 12px;
 }
 .section-kicker {
-  font: 800 clamp(11px, 1.7vw, 14px) var(--fantasy-font);
-  letter-spacing: 0.28em;
+  font: 700 clamp(10px, 1.2vw, 12px) var(--fantasy-font);
+  letter-spacing: 0.22em;
   color: #a26d31;
-  margin: 0 0 5px;
+  margin: 0 0 12px;
 }
 .section-title {
-  font: 900 clamp(32px, 6.3vw, 74px)/1.02 var(--fantasy-font);
+  font: 900 clamp(30px, 4vw, 56px)/1.12 var(--fantasy-font);
   color: #612717;
   text-shadow: 1px 2px 0 #f9eac4;
   margin: 0;
 }
 .recipes-divider--ruby {
-  width: min(520px, 76vw);
+  width: min(400px, 72vw);
   height: auto;
-  margin-top: clamp(-66px, -9vw, -34px);
-  margin-bottom: clamp(-68px, -9vw, -34px);
+  object-fit: contain;
+  margin-block: max(-36px, -6.5vw);
 }
 .section-subtitle {
   font-style: italic;
-  font-size: clamp(20px, 3.4vw, 29px);
-  margin: 9px auto 28px;
+  font-size: clamp(18px, 1.8vw, 23px);
+  line-height: 1.4;
+  margin: 0 auto clamp(24px, 3vw, 40px);
 }
 .recipes-grid {
   display: grid;
@@ -1476,41 +1479,43 @@ button:disabled {
   right: -6px;
 }
 .grimoire-ending {
-  padding-block: 70px 90px;
+  padding-block: clamp(40px, 4vw, 64px) 48px;
   text-align: center;
 }
 .ending-divider {
   display: block;
-  width: min(420px, 75%);
+  width: min(400px, 72vw);
   height: auto;
-  margin: 0 auto 22px;
+  object-fit: contain;
+  margin: max(-36px, -6.5vw) auto max(-24px, -4.3vw);
 }
 .ending-kicker {
-  margin: 0 0 24px;
+  margin: 0 0 12px;
   color: var(--old-gold);
-  font: 600 16px var(--fantasy-font);
-  letter-spacing: 4px;
+  font: 600 12px var(--fantasy-font);
+  letter-spacing: 3px;
   text-transform: uppercase;
 }
 .grimoire-ending h2 {
-  margin: 0 0 24px;
-  font: 700 clamp(32px, 5vw, 64px)/1.15 var(--body-font);
+  margin: 0 0 20px;
+  font: 700 clamp(30px, 3.8vw, 50px)/1.15 var(--body-font);
 }
 .ending-copy {
-  margin: 14px 0;
-  font-size: clamp(20px, 2.6vw, 32px);
+  margin: 8px auto;
+  max-width: 760px;
+  font-size: clamp(18px, 1.9vw, 25px);
   font-style: italic;
   line-height: 1.4;
 }
 .ending-book {
   display: block;
-  width: min(520px, 90%);
+  width: min(440px, 85%);
   height: auto;
-  margin: 28px auto 0;
+  margin: 24px auto 0;
 }
 .grimoire-footer {
   position: relative;
-  padding: 70px 0 32px;
+  padding: 96px 0 28px;
   color: #f2cf92;
   text-align: center;
   background:
@@ -1527,19 +1532,33 @@ button:disabled {
   mask-image: linear-gradient(to bottom, transparent, #000 45%);
   pointer-events: none;
 }
-.footer-divider {
-  width: min(300px, 65%);
-  margin-bottom: 20px;
-}
 .footer-brand {
-  font-size: clamp(28px, 3.5vw, 44px);
+  position: relative;
+  display: inline-block;
+  padding-left: calc(3em + 14px);
+  margin-bottom: 28px;
+  font-size: clamp(24px, 2.5vw, 34px);
+  line-height: 1;
+  text-align: left;
   letter-spacing: -1px;
   text-transform: uppercase;
 }
+.footer-brand-mark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3em;
+  height: 100%;
+  object-fit: contain;
+}
 .footer-tagline {
-  margin: 8px 0 32px;
-  font-size: clamp(20px, 2.3vw, 27px);
-  font-style: italic;
+  display: block;
+  margin-top: 8px;
+  font: italic clamp(14px, 1.5vw, 20px)/1.3 var(--body-font);
+  color: #f2cf92;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: none;
 }
 .footer-bottom {
   display: flex;
@@ -1569,14 +1588,14 @@ button:disabled {
 }
 @media (max-width: 650px) {
   .grimoire-ending {
-    padding-block: 45px 55px;
+    padding-block: 28px 48px;
   }
   .ending-kicker {
     font-size: 12px;
     letter-spacing: 3px;
   }
   .grimoire-footer {
-    padding-top: 55px;
+    padding-top: 88px;
   }
   .footer-bottom {
     flex-direction: column;
@@ -2007,21 +2026,21 @@ button:disabled {
     display: none;
   }
   .section-title {
-    font-size: clamp(28px, 8vw, 42px);
+    font-size: clamp(28px, 5.5vw, 40px);
   }
   .recipes-divider--rooster {
-    width: 90vw;
-    margin-top: -12px;
-    margin-bottom: 0;
+    width: min(320px, 72vw);
+    margin-top: 0;
+    margin-bottom: 12px;
   }
   .recipes-divider--ruby {
-    width: 78vw;
+    width: min(400px, 72vw);
   }
   .section-subtitle {
     font-size: 19px;
   }
   .recipes-section {
-    padding-top: 35px;
+    padding-top: 24px;
   }
   .recipes-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2632,7 +2651,8 @@ button:disabled {
 /* Classic parchment sheets with restrained detailing and readable recipe columns. */
 .recipes-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
+  gap: 20px 24px;
+  align-items: start;
 }
 .recipe-card {
   isolation: isolate;
@@ -3354,10 +3374,26 @@ button:disabled {
     margin-top: 1.8cqw;
   }
 }
-@media (max-width: 530px) {
+@media (max-width: 900px) {
   .recipe-card {
     padding: 11% 9% 12%;
     gap: 6px 12px;
+  }
+  .recipes-section {
+    width: min(680px, calc(100% - 32px));
+  }
+  .recipes-grid {
+    max-width: none;
+    gap: 20px;
+  }
+}
+@media (min-width: 1600px) {
+  .recipes-section {
+    width: min(1560px, calc(100% - 96px));
+  }
+  .recipes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px 20px;
   }
 }
 

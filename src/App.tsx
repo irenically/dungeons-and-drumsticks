@@ -1,4 +1,3 @@
-import { Icon } from './components/Icon';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { recipes } from './data/recipes';
 import type { Recipe } from './types';
@@ -52,9 +51,6 @@ export default function App() {
         <nav className="top-links" aria-label="Main navigation">
           <a href="#marinades">The Marinade Grimoire</a>
         </nav>
-        <div className="nav-sigil" aria-hidden="true">
-          <Icon name="sparkle" />
-        </div>
       </header>
       <main id="top">
         <Hero value={dieValue} rolling={rolling} onRoll={roll} />
@@ -86,16 +82,21 @@ export default function App() {
       </main>
       <footer className="grimoire-footer">
         <div className="container">
-          <img
-            className="ending-divider footer-divider"
-            src={`${import.meta.env.BASE_URL}assets/Watercolor Ruby Ornamental Divider.png`}
-            alt=""
-            aria-hidden="true"
-          />
           <a className="footer-brand" href="#top">
-            Dungeons &amp; Drumsticks
+            <img
+              className="footer-brand-mark"
+              src={`${import.meta.env.BASE_URL}assets/logo.png`}
+              alt=""
+            />
+            <span>
+              <span className="footer-brand-name">
+                Dungeons &amp;
+                <br />
+                Drumsticks
+              </span>
+              <span className="footer-tagline">Good chicken leads to great quests.</span>
+            </span>
           </a>
-          <p className="footer-tagline">Good chicken leads to great quests.</p>
           <div className="footer-bottom">
             <p>&copy; {new Date().getFullYear()} &middot; The Culinary Adventurers&rsquo; Guild</p>
             <nav aria-label="Footer navigation">
