@@ -16,19 +16,15 @@ export default function App() {
     if (rollingRef.current) return;
     rollingRef.current = true;
     setRolling(true);
-    const interval = window.setInterval(() => {
-      setDieValue(1 + Math.floor(Math.random() * 20));
-    }, 70);
+    const result = recipes[Math.floor(Math.random() * recipes.length)];
+    setDieValue(result.id);
     const timer = window.setTimeout(() => {
-      window.clearInterval(interval);
-      const result = recipes[Math.floor(Math.random() * recipes.length)];
-      setDieValue(result.id);
       setChosen(result);
       setRolling(false);
       rollingRef.current = false;
       setModalOrigin('roll');
       setModal(result);
-    }, 1550);
+    }, 1800);
     timeouts.current.push(timer);
   }, []);
   useEffect(
