@@ -5,7 +5,6 @@ import type { Recipe } from './types';
 import { Hero } from './components/Hero';
 import { RecipeGrid } from './components/RecipeGrid';
 import { RecipeModal } from './components/RecipeModal';
-import { Ornament } from './components/Primitives';
 export default function App() {
   const [chosen, setChosen] = useState<Recipe | null>(null);
   const [dieValue, setDieValue] = useState(20);
@@ -51,8 +50,7 @@ export default function App() {
           </span>
         </a>
         <nav className="top-links" aria-label="Main navigation">
-          <a href="#how">THE QUEST</a>
-          <a href="#marinades">MARINADES</a>
+          <a href="#marinades">The Marinade Grimoire</a>
         </nav>
         <div className="nav-sigil" aria-hidden="true">
           <Icon name="sparkle" />
@@ -67,43 +65,50 @@ export default function App() {
             setModal(recipe);
           }}
         />
-        <section className="how-section container" id="how">
-          <Ornament elongated />
-          <h2 className="section-title">A FEAST WRITTEN IN THE STARS</h2>
-          <div className="how-grid">
-            <div>
-              <span className="how-icon">
-                <Icon name="swords" />
-              </span>
-              <h3>GATHER THE PARTY</h3>
-              <p>Summon your appetite and assemble your ingredients.</p>
-            </div>
-            <div>
-              <span className="how-icon">
-                <Icon name="dice" />
-              </span>
-              <h3>ROLL FOR DESTINY</h3>
-              <p>Let a magical D20 choose tonight's legendary marinade.</p>
-            </div>
-            <div>
-              <span className="how-icon">
-                <Icon name="star" />
-              </span>
-              <h3>CLAIM YOUR REWARD</h3>
-              <p>Follow the recipe and win a delicious encounter.</p>
-            </div>
-          </div>
+        <section className="grimoire-ending container" id="how" aria-labelledby="ending-title">
+          <img
+            className="ending-divider"
+            src={`${import.meta.env.BASE_URL}assets/Watercolor Ruby Ornamental Divider.png`}
+            alt=""
+            aria-hidden="true"
+          />
+          <p className="ending-kicker">The final page</p>
+          <h2 id="ending-title">Here Ends the Grimoire</h2>
+          <p className="ending-copy">Twenty recipes discovered. Not a single dragon slain.</p>
+          <p className="ending-copy">The chickens, however, have concerns.</p>
+          <img
+            className="ending-book"
+            src={`${import.meta.env.BASE_URL}assets/grimoire.png`}
+            alt="A leather-bound chicken grimoire with a quill and scattered herbs"
+            loading="lazy"
+          />
         </section>
       </main>
-      <footer className="footer">
-        <div className="footer-inner">
-          <div>
-            <Icon name="swords" /> &nbsp; DUNGEONS & DRUMSTICKS &nbsp; <Icon name="swords" />
+      <footer className="grimoire-footer">
+        <div className="container">
+          <img
+            className="ending-divider footer-divider"
+            src={`${import.meta.env.BASE_URL}assets/Watercolor Ruby Ornamental Divider.png`}
+            alt=""
+            aria-hidden="true"
+          />
+          <a className="footer-brand" href="#top">
+            Dungeons &amp; Drumsticks
+          </a>
+          <p className="footer-tagline">Good chicken leads to great quests.</p>
+          <div className="footer-bottom">
+            <p>&copy; {new Date().getFullYear()} &middot; The Culinary Adventurers&rsquo; Guild</p>
+            <nav aria-label="Footer navigation">
+              <a href="#quest">The Quest</a>
+              <a href="#marinades">The Marinade Grimoire</a>
+              <a href="https://github.com/irenically/dungeons-and-drumsticks">GitHub</a>
+            </nav>
+            <p className="footer-credit">
+              Crafted with magic, questionable judgment,
+              <br />
+              and a little paprika.
+            </p>
           </div>
-          <p>GOOD CHICKEN LEADS TO GREAT QUESTS.</p>
-          <span>
-            <Icon name="star" /> CRAFTED WITH MAGIC & A LITTLE PAPRIKA <Icon name="star" />
-          </span>
         </div>
       </footer>
       <RecipeModal recipe={modal} origin={modalOrigin} onClose={() => setModal(null)} />

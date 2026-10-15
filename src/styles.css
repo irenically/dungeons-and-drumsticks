@@ -161,12 +161,17 @@ button:disabled {
   text-shadow: 0 2px 8px #000;
   margin: 0 0 8px;
 }
-.hero h1 {
+.hero h1,
+.footer-brand {
   color: #ffe8b2;
   text-shadow:
     0 3px 0 #74441b,
     0 6px 0 #28170f,
     0 10px 19px #090f1b;
+  font-family: var(--fantasy-font);
+  font-weight: 900;
+}
+.hero h1 {
   font: 900 clamp(41px, 5.5vw, 75px)/0.98 var(--fantasy-font);
   letter-spacing: -3px;
   margin: 0;
@@ -1469,6 +1474,117 @@ button:disabled {
 }
 .mini-scroll:after {
   right: -6px;
+}
+.grimoire-ending {
+  padding-block: 70px 90px;
+  text-align: center;
+}
+.ending-divider {
+  display: block;
+  width: min(420px, 75%);
+  height: auto;
+  margin: 0 auto 22px;
+}
+.ending-kicker {
+  margin: 0 0 24px;
+  color: var(--old-gold);
+  font: 600 16px var(--fantasy-font);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.grimoire-ending h2 {
+  margin: 0 0 24px;
+  font: 700 clamp(32px, 5vw, 64px)/1.15 var(--body-font);
+}
+.ending-copy {
+  margin: 14px 0;
+  font-size: clamp(20px, 2.6vw, 32px);
+  font-style: italic;
+  line-height: 1.4;
+}
+.ending-book {
+  display: block;
+  width: min(520px, 90%);
+  height: auto;
+  margin: 28px auto 0;
+}
+.grimoire-footer {
+  position: relative;
+  padding: 70px 0 32px;
+  color: #f2cf92;
+  text-align: center;
+  background:
+    linear-gradient(#28160ee8, #1d100bf2),
+    url('/assets/parchment.webp') center / 650px;
+}
+.grimoire-footer::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 100%;
+  height: clamp(60px, 11vw, 160px);
+  margin-bottom: clamp(-60px, -4vw, -20px);
+  background: url('/assets/paper-edge.png') center 48% / 100% auto no-repeat;
+  mask-image: linear-gradient(to bottom, transparent, #000 45%);
+  pointer-events: none;
+}
+.footer-divider {
+  width: min(300px, 65%);
+  margin-bottom: 20px;
+}
+.footer-brand {
+  font-size: clamp(28px, 3.5vw, 44px);
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.footer-tagline {
+  margin: 8px 0 32px;
+  font-size: clamp(20px, 2.3vw, 27px);
+  font-style: italic;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #b9813b80;
+  font-size: 15px;
+}
+.footer-bottom p {
+  margin: 0;
+}
+.footer-bottom nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+}
+.footer-bottom a:hover {
+  color: #fff0c2;
+  text-decoration: underline;
+}
+.footer-credit {
+  text-align: right;
+  font-style: italic;
+}
+@media (max-width: 650px) {
+  .grimoire-ending {
+    padding-block: 45px 55px;
+  }
+  .ending-kicker {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+  .grimoire-footer {
+    padding-top: 55px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer-credit {
+    text-align: center;
+  }
 }
 .footer {
   min-height: 180px;
@@ -3568,7 +3684,7 @@ button:disabled {
   height: 100%;
   overflow: auto;
   overscroll-behavior: contain;
-  padding: 28px 48px;
+  padding: 28px 80px 28px 48px;
   scrollbar-width: thin;
   scrollbar-color: #ac8246 transparent;
 }
@@ -3667,7 +3783,7 @@ button:disabled {
   .modal-details {
     height: auto;
     overflow: visible;
-    padding: 18px;
+    padding: 18px 30px 18px 18px;
   }
   .modal-recipe-stamp {
     top: 6%;
@@ -3724,7 +3840,7 @@ button:disabled {
   gap: 0;
 }
 .recipe-modal--roll .modal-details {
-  padding: 64px 48px 24px;
+  padding: 64px 80px 24px 48px;
 }
 .recipe-modal--roll h2 {
   margin-bottom: 8px;
@@ -3764,6 +3880,6 @@ button:disabled {
     gap: 14px;
   }
   .recipe-modal--roll .modal-details {
-    padding: 18px;
+    padding: 18px 30px 18px 18px;
   }
 }

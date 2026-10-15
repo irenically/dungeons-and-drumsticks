@@ -1,79 +1,82 @@
 [
-  { "id": 1, "comment": "Keeps vampires away. Sadly, the horny bard remains completely immune." },
+  {
+    "id": 1,
+    "comment": "Vampire-proof. Unfortunately, not bard-proof."
+  },
   {
     "id": 2,
-    "comment": "A wizard turned his apprentice into a lemon. Nobody noticed until someone asked for seconds."
+    "comment": "The wizard's apprentice was last seen as a lemon."
   },
   {
     "id": 3,
-    "comment": "Zeus came for dinner. Nine months later, half the village could summon lightning."
+    "comment": "Zeus came for dinner. Now the village has triplets."
   },
   {
     "id": 4,
-    "comment": "The druid summoned a bear for honey. The bear ate the druid. Surprisingly good honey, though."
+    "comment": "The bear ate the beekeeper. Five stars."
   },
   {
     "id": 5,
-    "comment": "The merchant promised authentic royal cuisine. The palace wants its missing chef back."
+    "comment": "Authentic royal recipe. Please ignore the palace bounty."
   },
   {
     "id": 6,
-    "comment": "The monks kept a vow of silence for six centuries. Then someone burned the fucking chicken."
+    "comment": "Six centuries of monastic silence. One very loud burp."
   },
   {
     "id": 7,
-    "comment": "A dragon called this too spicy. His wife has been telling everyone ever since."
+    "comment": "A dragon called it too spicy. Nobody lets him forget."
   },
   {
     "id": 8,
-    "comment": "Named after a pirate captain who slept with a sea witch. The curse was surprisingly accurate."
+    "comment": "Named after a pirate. His parrot suggested worse."
   },
   {
     "id": 9,
-    "comment": "A bard wrote a love song about this chicken. His wife left him. The chicken filed a restraining order."
+    "comment": "The bard fell in love. The chicken filed a complaint."
   },
   {
     "id": 10,
-    "comment": "The druid insists every herb has feelings. Nobody has the heart to tell him about the salad."
+    "comment": "The rosemary speaks. The druid refuses to elaborate."
   },
   {
     "id": 11,
-    "comment": "The witch promised a night of unbearable heat. The barbarian misunderstood and arrived without trousers."
+    "comment": "The witch promised warmth. The dragon asked for ice."
   },
   {
     "id": 12,
-    "comment": "The elves spent 400 years sun-drying these tomatoes. The dwarf called them raisins and started a war."
+    "comment": "Elves aged it for centuries. Dwarves ate it drunk."
   },
   {
     "id": 13,
-    "comment": "The forest smells wonderful today. Either someone's cooking or the hag has found another husband."
+    "comment": "Smells enchanting. The hag's third husband agrees."
   },
   {
     "id": 14,
-    "comment": "The king demanded the secret ingredient. The chef said peanuts. Seventeen royal interrogators resigned."
+    "comment": "The king demanded the recipe. The squirrels declared war."
   },
   {
     "id": 15,
-    "comment": "A pirate traded his ship for this recipe. His crew made him walk the plank. Fair enough."
+    "comment": "Pirate-approved. The parrot demands a cut."
   },
   {
     "id": 16,
-    "comment": "The dragon offered to smoke the chicken. Three hours later, he was discussing philosophy with a potato."
+    "comment": "Dragon-smoked. The dragon is now suspiciously giggly."
   },
   {
     "id": 17,
-    "comment": "A dwarf married a wheel of cheese. The marriage ended when he discovered she was seeing a grater."
+    "comment": "A dwarf married cheese. The grater was his best man."
   },
   {
     "id": 18,
-    "comment": "The barbarian demanded more heat. He's now naked in the village fountain, screaming at the gods."
+    "comment": "The barbarian is hiding in the fountain again."
   },
   {
     "id": 19,
-    "comment": "A mermaid offered this recipe in exchange for a sailor's firstborn. He asked if she'd take his mother-in-law."
+    "comment": "A mermaid's recipe. Payment accepted in pearls and sailors."
   },
   {
     "id": 20,
-    "comment": "The farmer's cows have started speaking Infernal. The milk is excellent, so nobody's asking questions."
+    "comment": "The cows speak Infernal. Best not to ask."
   }
 ]

@@ -22,7 +22,7 @@ export function RecipeGrid({
       <h2 className="section-title">The Marinade Grimoire</h2>
       <img
         className="recipes-divider recipes-divider--ruby"
-        src={`${import.meta.env.BASE_URL}assets/Ruby Filigree Gold Divider.png`}
+        src={`${import.meta.env.BASE_URL}assets/Watercolor Ruby Ornamental Divider.png`}
         alt=""
         aria-hidden="true"
       />

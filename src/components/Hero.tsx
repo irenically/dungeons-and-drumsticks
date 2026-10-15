@@ -258,7 +258,7 @@ export function Hero({
     return () => observer.disconnect();
   }, []);
   return (
-    <section ref={sceneRef} className="hero" aria-labelledby="hero-heading">
+    <section id="quest" ref={sceneRef} className="hero" aria-labelledby="hero-heading">
       <div className="hero-scene" aria-hidden="true" />
       <div className="hero-shade" aria-hidden="true" />
       <svg
