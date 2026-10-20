@@ -1,14 +1,16 @@
+import Button from '@mui/material/Button';
+import type { ButtonProps } from '@mui/material/Button';
 import { Icon } from './Icon';
-import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 export function FantasyButton({
   variant = 'gold',
   children,
   className = '',
   ...props
-}: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'red' | 'gold'; children: ReactNode }) {
+}: Omit<ButtonProps, 'variant'> & { variant?: 'red' | 'gold'; children: ReactNode }) {
   return (
-    <button className={`fantasy-button fantasy-button--${variant} ${className}`} {...props}>
+    <Button className={`fantasy-button fantasy-button--${variant} ${className}`} {...props}>
       <span className="button-side" aria-hidden="true">
         <Icon name="sparkle" />
       </span>
@@ -16,7 +18,7 @@ export function FantasyButton({
       <span className="button-side" aria-hidden="true">
         <Icon name="sparkle" />
       </span>
-    </button>
+    </Button>
   );
 }
 export function Corners() {

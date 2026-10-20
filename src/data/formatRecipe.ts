@@ -1,9 +1,9 @@
 import type { Ingredient, Recipe } from '../types';
 
-export function formatIngredientQuantity(ingredient: Ingredient): string {
+export function formatIngredientQuantity(ingredient: Ingredient, portion = 1): string {
   return ingredient.amount === null
     ? ingredient.unit
-    : `${ingredient.amount}${ingredient.maxAmount === undefined ? '' : `–${ingredient.maxAmount}`} ${ingredient.unit}`;
+    : `${ingredient.amount * portion}${ingredient.maxAmount === undefined ? '' : `–${ingredient.maxAmount * portion}`} ${ingredient.unit}`;
 }
 
 export function formatIngredient(ingredient: Ingredient): string {

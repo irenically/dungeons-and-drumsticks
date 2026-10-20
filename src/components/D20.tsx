@@ -1,3 +1,4 @@
+import ButtonBase from '@mui/material/ButtonBase';
 import { Icon } from './Icon';
 import { D20Mesh } from './D20Mesh';
 export function D20({
@@ -17,7 +18,7 @@ export function D20({
       <span className="orb orb-one" />
       <span className="orb orb-two" />
       <span className="dice-aura" />
-      <button
+      <ButtonBase
         type="button"
         className={`d20 ${rolling ? 'rolling' : ''}`}
         onClick={onRoll}
@@ -25,7 +26,7 @@ export function D20({
         aria-label="Roll D20 to choose a random marinade"
       >
         <D20Mesh value={value} rolling={rolling} />
-      </button>
+      </ButtonBase>
       {['one', 'two', 'three', 'four'].map((s, i) => (
         <span key={s} className={`spark spark-${s}`} aria-hidden="true">
           <Icon name={i % 2 ? 'star' : 'sparkle'} />

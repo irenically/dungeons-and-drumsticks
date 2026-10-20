@@ -1,3 +1,4 @@
+import ButtonBase from '@mui/material/ButtonBase';
 import { Icon } from './Icon';
 import type { CSSProperties } from 'react';
 import { recipes } from '../data/recipes';
@@ -29,7 +30,7 @@ export function RecipeGrid({
       <p className="section-subtitle">Twenty recipes. One very nervous chicken.</p>
       <div className="recipes-grid">
         {recipes.map((r) => (
-          <button
+          <ButtonBase
             type="button"
             key={r.id}
             className={`recipe-card ${r.id === chosen?.id ? 'is-picked' : ''}`}
@@ -86,7 +87,7 @@ export function RecipeGrid({
                 View recipe →
               </span>
             </div>
-          </button>
+          </ButtonBase>
         ))}
       </div>
     </section>
