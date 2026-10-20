@@ -8,6 +8,11 @@ import { formatIngredientQuantity, formatMarination } from '../data/formatRecipe
 import { chickenGrimoire } from '../data/recipes';
 import type { Recipe } from '../types';
 
+// Attachment-bar rows in the 384px-tall stamp assets, measured past transparent padding.
+const stampAttachmentRows = [
+  54, 53, 51, 52, 54, 41, 40, 40, 41, 41, 45, 45, 46, 46, 46, 40, 39, 40, 40, 40,
+];
+
 export function RecipeModal({
   recipe,
   onClose,
@@ -39,6 +44,7 @@ export function RecipeModal({
       </IconButton>
       <img
         className="recipe-sheet-stamp"
+        style={{ top: -((stampAttachmentRows[recipe.id - 1] ?? 46) * 150) / 384 - 1 }}
         src={`${import.meta.env.BASE_URL}assets/stamps/stamp-d${String(recipe.id).padStart(2, '0')}.png`}
         alt={`D20 roll ${recipe.id}`}
       />
