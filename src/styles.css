@@ -4399,6 +4399,8 @@ button:disabled {
 }
 .recipe-sheet-portion {
   display: flex;
+  flex-shrink: 0;
+  margin-inline: 24px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -4496,5 +4498,8 @@ button:disabled {
   }
   .recipe-sheet-body {
     padding: 0 12px 16px;
+  }
+  .recipe-sheet-portion {
+    margin-inline: 12px;
   }
 }

@@ -60,27 +60,27 @@ export function RecipeModal({
           alt={`${recipe.name} chicken illustration`}
         />
       </header>
+      <div className="recipe-sheet-portion">
+        <p aria-live="polite">
+          For{' '}
+          <strong>
+            {chickenGrimoire.servingBase.amount * portion} {chickenGrimoire.servingBase.unit}
+          </strong>{' '}
+          {chickenGrimoire.servingBase.state} {chickenGrimoire.servingBase.ingredient}
+        </p>
+        <FormControlLabel
+          control={
+            <Switch
+              size="small"
+              checked={halfPortion}
+              onChange={(_, checked) => setHalfPortion(checked)}
+            />
+          }
+          label="Half portion"
+        />
+      </div>
       <div className="recipe-sheet-scroll">
         <div className="recipe-sheet-body">
-          <div className="recipe-sheet-portion">
-            <p aria-live="polite">
-              For{' '}
-              <strong>
-                {chickenGrimoire.servingBase.amount * portion} {chickenGrimoire.servingBase.unit}
-              </strong>{' '}
-              {chickenGrimoire.servingBase.state} {chickenGrimoire.servingBase.ingredient}
-            </p>
-            <FormControlLabel
-              control={
-                <Switch
-                  size="small"
-                  checked={halfPortion}
-                  onChange={(_, checked) => setHalfPortion(checked)}
-                />
-              }
-              label="Half portion"
-            />
-          </div>
           <section className="recipe-sheet-ingredients" aria-labelledby="ingredients-heading">
             <h3 id="ingredients-heading">Ingredients</h3>
             <ul>
